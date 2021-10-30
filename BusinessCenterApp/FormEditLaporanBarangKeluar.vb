@@ -62,13 +62,6 @@
         End If
     End Sub
 
-    'Private Sub BTN_SIMPAN_Click(sender As Object, e As EventArgs) Handles BTN_SIMPAN.Click
-    '    If TB_Jumlah.Text.Length > 0 Then
-    '        Dim editbk = connect.EditLaporanBK
-
-    '    End If
-    'End Sub
-
     Private Sub BTN_DELETE_Click(sender As Object, e As EventArgs) Handles BTN_DELETE.Click
         Dim bk = connect.DeleteLaporanBK(TB_NoNota.Text, ebKid, ebKstok, Val(TB_Jumlah.Text))
         If bk = Status.Success Then

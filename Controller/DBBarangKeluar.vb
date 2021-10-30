@@ -71,10 +71,6 @@ Public Class DBBarangKeluar
         End If
     End Function
 
-    Public Function EditLaporanBK()
-
-    End Function
-
     Public Function DeleteLaporanBK(no_nota_keluar As Integer, id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
         Cmd = New SqlCommand("DELETE FROM tbl_barang_keluar WHERE no_nota_keluar = '" & no_nota_keluar & "'", Conn)
         Try
@@ -241,4 +237,5 @@ Public Class DBBarangKeluar
         Call closeConn()
         Return kerugian
     End Function
+
 End Class
