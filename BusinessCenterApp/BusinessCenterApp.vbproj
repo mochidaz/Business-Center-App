@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{713FDBA0-8C85-40F9-AACD-8DFDB1F63C74}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>BusinessCenterApp.My.MyApplication</StartupObject>
+    <RootNamespace>BusinessCenterApp</RootNamespace>
+    <AssemblyName>BusinessCenterApp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BusinessCenterApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>BusinessCenterApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.2.3, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.2.3\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BusinessCenterApp.Designer.vb">
+      <DependentUpon>BusinessCenterApp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessCenterApp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaftarBarangUserControl.Designer.vb">
+      <DependentUpon>DaftarBarangUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DaftarBarangUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormBuatLaporanBarangKeluar.Designer.vb">
+      <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuatLaporanBarangKeluar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDBarangContent%28simple%29.Designer.vb">
+      <DependentUpon>FormDBarangContent%28simple%29.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDBarangContent%28simple%29.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDBoardContent.Designer.vb">
+      <DependentUpon>FormDBoardContent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDBoardContent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDBarangContent.Designer.vb">
+      <DependentUpon>FormDBarangContent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDBarangContent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBMasukContent.Designer.vb">
+      <DependentUpon>FormBMasukContent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBMasukContent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBKeluarContent.Designer.vb">
+      <DependentUpon>FormBKeluarContent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBKeluarContent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangePassword.Designer.vb">
+      <DependentUpon>FormChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditBarang.Designer.vb">
+      <DependentUpon>FormEditBarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditBarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditLaporanBarangKeluar.Designer.vb">
+      <DependentUpon>FormEditLaporanBarangKeluar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditLaporanBarangKeluar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditUser.Designer.vb">
+      <DependentUpon>FormEditUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHome.Designer.vb">
+      <DependentUpon>FormHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister.Designer.vb">
+      <DependentUpon>FormRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.vb">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahBarang.Designer.vb">
+      <DependentUpon>FormTambahBarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahBarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="DBoardUserControl.Designer.vb">
+      <DependentUpon>DBoardUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DBoardUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormBKeluarContent.resx">
+      <DependentUpon>FormBKeluarContent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBMasukContent.resx">
+      <DependentUpon>FormBMasukContent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessCenterApp.resx">
+      <DependentUpon>BusinessCenterApp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaftarBarangUserControl.resx">
+      <DependentUpon>DaftarBarangUserControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuatLaporanBarangKeluar.resx">
+      <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDBarangContent%28simple%29.resx">
+      <DependentUpon>FormDBarangContent%28simple%29.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDBarangContent.resx">
+      <DependentUpon>FormDBarangContent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDBoardContent.resx">
+      <DependentUpon>FormDBoardContent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBarang.resx">
+      <DependentUpon>FormEditBarang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditLaporanBarangKeluar.resx">
+      <DependentUpon>FormEditLaporanBarangKeluar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditUser.resx">
+      <DependentUpon>FormEditUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHome.resx">
+      <DependentUpon>FormHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister.resx">
+      <DependentUpon>FormRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahBarang.resx">
+      <DependentUpon>FormTambahBarang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBoardUserControl.resx">
+      <DependentUpon>DBoardUserControl.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\Controller\Controller.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BusinessCenterApp", "BusinessCenterApp\BusinessCenterApp.vbproj", "{713FDBA0-8C85-40F9-AACD-8DFDB1F63C74}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Controller", "Controller\Controller.shproj", "{FB85F5C4-5116-44EC-9887-45BC460030C5}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Controller\Controller.projitems*{713fdba0-8c85-40f9-aacd-8dfdb1f63c74}*SharedItemsImports = 4
+		Controller\Controller.projitems*{fb85f5c4-5116-44ec-9887-45bc460030c5}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{713FDBA0-8C85-40F9-AACD-8DFDB1F63C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{713FDBA0-8C85-40F9-AACD-8DFDB1F63C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{713FDBA0-8C85-40F9-AACD-8DFDB1F63C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{713FDBA0-8C85-40F9-AACD-8DFDB1F63C74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11B2BF31-A36A-4F0B-BEBB-64597DC74C66}
+	EndGlobalSection
+EndGlobal

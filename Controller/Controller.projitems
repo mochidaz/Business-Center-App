@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fb85f5c4-5116-44ec-9887-45bc460030c5</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Controller</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AuthController.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)DBBarang.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)DBBarangKeluar.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)DBBarangMasuk.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)utils.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)config.conf" />
+    <None Include="$(MSBuildThisFileDirectory)IDBRGidentityreset.sql" />
+    <None Include="$(MSBuildThisFileDirectory)UIDidentityreset.sql" />
+  </ItemGroup>
+</Project>
