@@ -235,22 +235,6 @@ Public Class DBBarangKeluar
             Return val
         End If
     End Function
-    Public Function search_barang_keluar(nota_or_barang As String)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang_keluar WHERE no_nota_keluar = " + nota_or_barang + " OR id_barang.nama_barang LIKE '%" + nota_or_barang + "%'", Conn)
-        Using adapter = New SqlDataAdapter(Cmd)
-            Using ds = New DataSet
-                Call openConn()
-                Try
-                    adapter.Fill(ds)
-                Catch ex As Exception
-                    Call closeConn()
-                    Return ds
-                End Try
-                Return ds
-            End Using
-        End Using
-        Call closeConn()
-    End Function
 
     Public Function restore_stock(nota, stok_edit)
         openConn()
