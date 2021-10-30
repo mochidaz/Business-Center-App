@@ -244,7 +244,7 @@ Public Class DBBarangKeluar
 
     Public Function total_brg_keluar()
         openConn()
-        Cmd = New SqlCommand("SELECT SUM(jumlah) FROM tbl_barang_keluar", Conn)
+        Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang_keluar", Conn)
         Dim val = Cmd.ExecuteScalar()
         closeConn()
         If IsDBNull(val) Then

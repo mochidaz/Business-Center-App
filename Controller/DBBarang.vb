@@ -180,7 +180,7 @@ Public Class DBBarang
 
     Public Function get_total_stock()
         openConn()
-        Cmd = New SqlCommand("SELECT SUM(stok) FROM tbl_barang", Conn)
+        Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang WHERE stok > 0", Conn)
         Dim val As Integer
         Try
             val = Cmd.ExecuteScalar()
