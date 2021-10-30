@@ -61,7 +61,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_NoNota.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_NoNota.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_NoNota.HoverState.Parent = Me.TB_NoNota
-        Me.TB_NoNota.Location = New System.Drawing.Point(169, 49)
+        Me.TB_NoNota.Location = New System.Drawing.Point(171, 47)
         Me.TB_NoNota.MaxLength = 50
         Me.TB_NoNota.Name = "TB_NoNota"
         Me.TB_NoNota.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -326,7 +326,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         'BTN_OK
         '
-        Me.BTN_OK.Location = New System.Drawing.Point(416, 49)
+        Me.BTN_OK.Location = New System.Drawing.Point(416, 47)
         Me.BTN_OK.Name = "BTN_OK"
         Me.BTN_OK.Size = New System.Drawing.Size(75, 23)
         Me.BTN_OK.TabIndex = 28
@@ -439,7 +439,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(503, 482)
+        Me.ClientSize = New System.Drawing.Size(503, 441)
         Me.Controls.Add(Me.BTN_Edit)
         Me.Controls.Add(Me.BTN_OK)
         Me.Controls.Add(Me.BTN_SIMPAN)

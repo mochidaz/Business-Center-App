@@ -106,6 +106,9 @@
     End Sub
 
     Sub kondisiawal()
+        BTN_Edit.Text = "Edit"
+        TB_NoNota.Enabled = True
+        BTN_OK.Enabled = True
         TB_Jumlah.Enabled = False
         BTN_SIMPAN.Enabled = False
         BTN_DELETE.Enabled = False
