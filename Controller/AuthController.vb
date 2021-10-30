@@ -5,6 +5,7 @@ Imports System.Text
 Public Class AuthController
     Inherits BaseConnection
 
+
     Public Function AuthLogin(username As String, password As String)
         Cmd = New SqlCommand("SELECT * FROM tbl_user WHERE username = @username AND password = @password ", Conn)
         Cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username.ToLower()
