@@ -156,6 +156,7 @@
             FormBKeluarContent.showtbl()
         End If
         TB_NoNota.Enabled = True
+    End Sub
     Private Sub TB_HargaBeli_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaBeli.TextChanged
         formatUang(TB_HargaBeli)
     End Sub
