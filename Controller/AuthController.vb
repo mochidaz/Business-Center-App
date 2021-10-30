@@ -108,7 +108,7 @@ Public Class AuthController
                     Return Status.DataIncomplete
                 End Try
                 Call closeConn()
-                Debug.WriteLine("succes edit user!!")
+                Debug.WriteLine("Succesfully edited user!!")
                 Return Status.Success
             End If
         Else
@@ -127,7 +127,7 @@ Public Class AuthController
                     Call openConn()
                     adapter.Fill(table)
                     If table.Rows.Count() = 0 Then
-                        Debug.WriteLine("invalid password")
+                        Debug.WriteLine("Invalid Password")
                         Return Status.WrongCurrentPassword
                     Else
                         Cmd = New SqlCommand("UPDATE tbl_user SET password = @newpw WHERE uid = @uid", Conn)
@@ -242,14 +242,14 @@ Public Class AuthController
                             Cmd.Parameters.AddWithValue("@status", "admin")
                             rd.Close()
                             Cmd.ExecuteNonQuery()
-                            Debug.WriteLine("succes update status as admin")
+                            Debug.WriteLine("Successfully updated status as admin")
                             Call closeConn()
                             Return Status.Success
                         Else
                             Cmd.Parameters.AddWithValue("@status", "user")
                             rd.Close()
                             Cmd.ExecuteNonQuery()
-                            Debug.WriteLine("succes update status as user")
+                            Debug.WriteLine("Successfully updated status as user")
                             Call closeConn()
                             Return Status.Success
                         End If

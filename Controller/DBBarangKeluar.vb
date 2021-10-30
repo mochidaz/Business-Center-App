@@ -238,4 +238,61 @@ Public Class DBBarangKeluar
         Return kerugian
     End Function
 
+    Public Function total_brg_keluar()
+        openConn()
+        Cmd = New SqlCommand("SELECT SUM(jumlah) FROM tbl_barang_keluar", Conn)
+        Dim val = Cmd.ExecuteScalar()
+        closeConn()
+        If IsDBNull(val) Then
+            Return 0
+        Else
+            Return val
+        End If
+    End Function
+
+    Public Function restore_stock(nota, stok_edit)
+        openConn()
+        Cmd = New SqlCommand("SELECT id_barang FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", Conn)
+        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
+        Dim rd = Cmd.ExecuteReader()
+        Dim r As Integer
+        While rd.Read()
+            r = rd.GetInt32(0)
+        End While
+        closeConn()
+        openConn()
+        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", Conn)
+        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
+        Dim stok_sekarang = Cmd.ExecuteScalar()
+        closeConn()
+        openConn()
+        Cmd = New SqlCommand($"SELECT jumlah FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", Conn)
+        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
+        Dim jumlah_keluar = Cmd.ExecuteScalar()
+        closeConn()
+        openConn()
+        Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", Conn)
+        Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_sekarang + jumlah_keluar
+        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
+        Cmd.ExecuteNonQuery()
+        closeConn()
+        openConn()
+        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", Conn)
+        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
+        Dim stok_kemudian = Cmd.ExecuteScalar()
+        closeConn()
+        openConn()
+        Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", Conn)
+        Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_kemudian - Val(stok_edit)
+        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
+        Cmd.ExecuteNonQuery()
+        closeConn()
+        openConn()
+        Cmd = New SqlCommand("UPDATE tbl_barang_keluar SET jumlah = @stok WHERE no_nota_keluar = @nota", Conn)
+        Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = Val(stok_edit)
+        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
+        Cmd.ExecuteNonQuery()
+        closeConn()
+        Return Status.Success
+    End Function
 End Class

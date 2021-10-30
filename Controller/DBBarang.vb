@@ -151,7 +151,7 @@ Public Class DBBarang
     End Function
 
     Public Function searchBarang(nama_barang As String)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE nama_barang LIKE '%" + nama_barang + "%'", Conn)
+        Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE nama_barang LIKE '%" + nama_barang + "%' OR id_barang = " + nama_barang, Conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
@@ -170,12 +170,30 @@ Public Class DBBarang
         Try
             Cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Debug.WriteLine("reset id barang failled!!")
+            Debug.WriteLine("reset id barang failed!!")
             Return Status.FiledToResetUid
         End Try
         Call closeConn()
-        Debug.WriteLine("reset id barang sucess!!")
+        Debug.WriteLine("reset id barang success!!")
         Return Status.Success
+    End Function
+
+    Public Function get_total_stock()
+        openConn()
+        Cmd = New SqlCommand("SELECT SUM(stok) FROM tbl_barang", Conn)
+        Dim val As Integer
+        Try
+            val = Cmd.ExecuteScalar()
+        Catch ex As Exception
+            closeConn()
+            Return Status.DataError
+        End Try
+        closeConn()
+        If val < 1 Then
+            Return 0
+        Else
+            Return val
+        End If
     End Function
 
 End Class

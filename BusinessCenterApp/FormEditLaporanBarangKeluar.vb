@@ -73,7 +73,7 @@
 
     Private Sub BTN_Edit_Click(sender As Object, e As EventArgs) Handles BTN_Edit.Click
         If BTN_Edit.Text = "Edit" Then
-            BTN_Edit.Text = "Cencel"
+            BTN_Edit.Text = "Cancel"
             TB_Jumlah.Enabled = True
             BTN_SIMPAN.Enabled = True
             TB_NoNota.Enabled = False
@@ -141,6 +141,14 @@
         ebKstok = Nothing
     End Sub
 
+    Private Sub BTN_SIMPAN_Click(sender As Object, e As EventArgs) Handles BTN_SIMPAN.Click
+        Dim r = connect.restore_stock(TB_NoNota.Text, TB_Jumlah.Text)
+        If r = Status.Success Then
+            MessageBox.Show("Berhasil mengedit!")
+            kondisiawal()
+            FormBKeluarContent.showtbl()
+        End If
+        TB_NoNota.Enabled = True
     Private Sub TB_HargaBeli_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaBeli.TextChanged
         formatUang(TB_HargaBeli)
     End Sub
