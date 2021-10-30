@@ -19,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)config.conf" />
+    <None Include="$(MSBuildThisFileDirectory)database.sql" />
     <None Include="$(MSBuildThisFileDirectory)IDBRGidentityreset.sql" />
     <None Include="$(MSBuildThisFileDirectory)UIDidentityreset.sql" />
   </ItemGroup>
