@@ -108,7 +108,13 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function searchLPBK(nama_barang As String)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang_keluar WHERE nama_barang LIKE '%" + nama_barang + "%'", Conn)
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang.harga_beli, tbl_barang.harga_jual, 
+                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
+                              tbl_barang_keluar.tanggal, tbl_user.fullname 
+                              FROM tbl_barang_keluar 
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
+                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
+                              WHERE tbl_barang.nama_barang LIKE '%" + nama_barang + "%'", Conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
