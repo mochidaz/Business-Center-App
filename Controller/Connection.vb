@@ -47,7 +47,7 @@ Module editUser
 End Module
 
 Public MustInherit Class BaseConnection
-    Public Property Conn As SqlConnection = New SqlConnection("Server = DESKTOP-NS178TR\SQLEXPRESS" & "; Database = penjualan_db" & "; Integrated Security = true")
+    Public Property Conn As SqlConnection = New SqlConnection("Server = " & config().item("SERVER") & "; Database = " & config().item("DATABASE") & "; Integrated Security = true")
     Public Property Cmd As SqlCommand
 
     Public Sub openConn()
