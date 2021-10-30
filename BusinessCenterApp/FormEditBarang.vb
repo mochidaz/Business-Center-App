@@ -23,7 +23,7 @@
         kondisiAwal()
     End Sub
 
-    Private Sub TB_IDbarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB_IDbarang.KeyPress, TB_HBeli.KeyPress, TB_HJual.KeyPress, TB_Stok.KeyPress
+    Private Sub TB_IDbarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB_IDbarang.KeyPress, TB_HBeli.KeyPress, TB_HJual.KeyPress, TB_Stok.KeyPress, TB_CurHj.KeyPress, TB_CurHb.KeyPress
         If e.KeyChar <> ChrW(Keys.Back) Then
             If Char.IsNumber(e.KeyChar) Then
 
@@ -40,6 +40,22 @@
     Private Sub TB_IDbarang_TextChanged(sender As Object, e As EventArgs) Handles TB_IDbarang.TextChanged
         hideBTN()
         clearTB()
+    End Sub
+
+    Private Sub TB_HBeli_TextChanged(sender As Object, e As EventArgs) Handles TB_HBeli.TextChanged
+        TB_CurHb.Text = TB_HBeli.Text
+    End Sub
+
+    Private Sub TB_HJual_TextChanged(sender As Object, e As EventArgs) Handles TB_HJual.TextChanged
+        TB_CurHj.Text = TB_HJual.Text
+    End Sub
+
+    Private Sub TB_CurHb_TextChanged(sender As Object, e As EventArgs) Handles TB_CurHb.TextChanged
+        formatUang(TB_CurHb)
+    End Sub
+
+    Private Sub TB_CurHj_TextChanged(sender As Object, e As EventArgs) Handles TB_CurHj.TextChanged
+        formatUang(TB_CurHj)
     End Sub
 
     Private Sub BTN_OKUID_Click(sender As Object, e As EventArgs) Handles BTN_OKUID.Click

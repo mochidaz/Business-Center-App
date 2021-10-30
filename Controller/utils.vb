@@ -79,4 +79,19 @@ Module utils
             Return False
         End If
     End Function
+
+    Public Function formatUang(Text As Guna2TextBox)
+        If Len(Text.Text) > 0 Then
+            Text.Text = FormatCurrency(CDbl(Text.Text), 0)
+            Dim x As Integer = Text.SelectionStart.ToString
+            If x = 0 Then
+                Text.SelectionStart = Len(Text.Text)
+                Text.SelectionLength = 0
+            Else
+                Text.SelectionStart = x
+                Text.SelectionLength = 0
+            End If
+        End If
+    End Function
+
 End Module

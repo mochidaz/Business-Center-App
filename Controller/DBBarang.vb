@@ -113,30 +113,30 @@ Public Class DBBarang
         Call closeConn()
     End Function
 
-    Public Function readBarang()
-        Dim listid As New List(Of Integer)
-        Dim listnm As New List(Of String)
-        Dim listhb As New List(Of Integer)
-        Dim listhj As New List(Of Integer)
-        Dim liststk As New List(Of Integer)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang", Conn)
-        Call openConn()
-        Using rd = Cmd.ExecuteReader
-            While rd.Read()
-                listid.Add(rd.GetInt32(0))
-                listnm.Add(rd.GetString(1))
-                listhb.Add(rd.GetInt32(2))
-                listhj.Add(rd.GetInt32(3))
-                liststk.Add(rd.GetInt32(4))
-            End While
-        End Using
-        id_barang = listid.Select(Function(x) x.ToString()).ToArray()
-        nama_barang = listnm.ToArray
-        harga_beli = listhb.Select(Function(x) x.ToString()).ToArray()
-        harga_jual = listhj.Select(Function(x) x.ToString()).ToArray()
-        stok = liststk.Select(Function(x) x.ToString()).ToArray()
-        Call closeConn()
-    End Function
+    'Public Function readBarang()
+    '    Dim listid As New List(Of Integer)
+    '    Dim listnm As New List(Of String)
+    '    Dim listhb As New List(Of Integer)
+    '    Dim listhj As New List(Of Integer)
+    '    Dim liststk As New List(Of Integer)
+    '    Cmd = New SqlCommand("SELECT * FROM tbl_barang", Conn)
+    '    Call openConn()
+    '    Using rd = Cmd.ExecuteReader
+    '        While rd.Read()
+    '            listid.Add(rd.GetInt32(0))
+    '            listnm.Add(rd.GetString(1))
+    '            listhb.Add(rd.GetInt32(2))
+    '            listhj.Add(rd.GetInt32(3))
+    '            liststk.Add(rd.GetInt32(4))
+    '        End While
+    '    End Using
+    '    id_barang = listid.Select(Function(x) x.ToString()).ToArray()
+    '    nama_barang = listnm.ToArray
+    '    harga_beli = listhb.Select(Function(x) x.ToString()).ToArray()
+    '    harga_jual = listhj.Select(Function(x) x.ToString()).ToArray()
+    '    stok = liststk.Select(Function(x) x.ToString()).ToArray()
+    '    Call closeConn()
+    'End Function
 
     Public Function tblbarang()
         Cmd = New SqlCommand("SELECT * FROM tbl_barang", Conn)
@@ -197,12 +197,12 @@ Public Class DBBarang
     End Function
 
 End Class
-Module varbar
-    Public id_barang As String()
-    Public nama_barang As String()
-    Public harga_beli As String()
-    Public harga_jual As String()
-    Public stok As String()
-End Module
+'Module varbar
+'    Public id_barang As String()
+'    Public nama_barang As String()
+'    Public harga_beli As String()
+'    Public harga_jual As String()
+'    Public stok As String()
+'End Module
 
 

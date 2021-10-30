@@ -39,11 +39,13 @@ Partial Class FormEditBarang
         Me.TB_HJual = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TB_Stok = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BTN_EDITSTOK = New System.Windows.Forms.Button()
+        Me.TB_CurHb = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.TB_CurHj = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
         '
         'BTN_SIMPAN
         '
-        Me.BTN_SIMPAN.Location = New System.Drawing.Point(393, 228)
+        Me.BTN_SIMPAN.Location = New System.Drawing.Point(393, 272)
         Me.BTN_SIMPAN.Name = "BTN_SIMPAN"
         Me.BTN_SIMPAN.Size = New System.Drawing.Size(112, 27)
         Me.BTN_SIMPAN.TabIndex = 23
@@ -53,7 +55,7 @@ Partial Class FormEditBarang
         '
         'BTN_DELETBARANG
         '
-        Me.BTN_DELETBARANG.Location = New System.Drawing.Point(38, 228)
+        Me.BTN_DELETBARANG.Location = New System.Drawing.Point(38, 272)
         Me.BTN_DELETBARANG.Name = "BTN_DELETBARANG"
         Me.BTN_DELETBARANG.Size = New System.Drawing.Size(112, 27)
         Me.BTN_DELETBARANG.TabIndex = 24
@@ -63,7 +65,7 @@ Partial Class FormEditBarang
         '
         'BTN_EDITHJual
         '
-        Me.BTN_EDITHJual.Location = New System.Drawing.Point(430, 126)
+        Me.BTN_EDITHJual.Location = New System.Drawing.Point(430, 152)
         Me.BTN_EDITHJual.Name = "BTN_EDITHJual"
         Me.BTN_EDITHJual.Size = New System.Drawing.Size(75, 23)
         Me.BTN_EDITHJual.TabIndex = 22
@@ -83,7 +85,7 @@ Partial Class FormEditBarang
         '
         'BTN_EDITNBarang
         '
-        Me.BTN_EDITNBarang.Location = New System.Drawing.Point(430, 62)
+        Me.BTN_EDITNBarang.Location = New System.Drawing.Point(430, 65)
         Me.BTN_EDITNBarang.Name = "BTN_EDITNBarang"
         Me.BTN_EDITNBarang.Size = New System.Drawing.Size(75, 23)
         Me.BTN_EDITNBarang.TabIndex = 20
@@ -93,7 +95,7 @@ Partial Class FormEditBarang
         '
         'BTN_OKUID
         '
-        Me.BTN_OKUID.Location = New System.Drawing.Point(430, 30)
+        Me.BTN_OKUID.Location = New System.Drawing.Point(430, 36)
         Me.BTN_OKUID.Name = "BTN_OKUID"
         Me.BTN_OKUID.Size = New System.Drawing.Size(75, 23)
         Me.BTN_OKUID.TabIndex = 19
@@ -142,7 +144,7 @@ Partial Class FormEditBarang
         Me.TB_NBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_NBarang.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_NBarang.HoverState.Parent = Me.TB_NBarang
-        Me.TB_NBarang.Location = New System.Drawing.Point(183, 62)
+        Me.TB_NBarang.Location = New System.Drawing.Point(183, 65)
         Me.TB_NBarang.MaxLength = 50
         Me.TB_NBarang.Name = "TB_NBarang"
         Me.TB_NBarang.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -168,7 +170,7 @@ Partial Class FormEditBarang
         Me.TB_IDbarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_IDbarang.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_IDbarang.HoverState.Parent = Me.TB_IDbarang
-        Me.TB_IDbarang.Location = New System.Drawing.Point(183, 30)
+        Me.TB_IDbarang.Location = New System.Drawing.Point(183, 36)
         Me.TB_IDbarang.MaxLength = 4
         Me.TB_IDbarang.Name = "TB_IDbarang"
         Me.TB_IDbarang.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -183,9 +185,9 @@ Partial Class FormEditBarang
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(38, 126)
+        Me.Label4.Location = New System.Drawing.Point(38, 152)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(120, 32)
+        Me.Label4.Size = New System.Drawing.Size(120, 52)
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Harga Jual"
         '
@@ -195,7 +197,7 @@ Partial Class FormEditBarang
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(38, 94)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 32)
+        Me.Label3.Size = New System.Drawing.Size(120, 52)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Harga Beli"
         '
@@ -203,9 +205,9 @@ Partial Class FormEditBarang
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(38, 62)
+        Me.Label2.Location = New System.Drawing.Point(38, 65)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(120, 32)
+        Me.Label2.Size = New System.Drawing.Size(120, 23)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Nama Barang"
         '
@@ -213,9 +215,9 @@ Partial Class FormEditBarang
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(38, 30)
+        Me.Label1.Location = New System.Drawing.Point(38, 36)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(120, 32)
+        Me.Label1.Size = New System.Drawing.Size(120, 23)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "ID Barang"
         '
@@ -223,9 +225,9 @@ Partial Class FormEditBarang
         '
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(38, 158)
+        Me.Label5.Location = New System.Drawing.Point(38, 210)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(120, 32)
+        Me.Label5.Size = New System.Drawing.Size(120, 23)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Stok"
         '
@@ -244,7 +246,7 @@ Partial Class FormEditBarang
         Me.TB_HJual.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_HJual.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_HJual.HoverState.Parent = Me.TB_HJual
-        Me.TB_HJual.Location = New System.Drawing.Point(183, 126)
+        Me.TB_HJual.Location = New System.Drawing.Point(183, 152)
         Me.TB_HJual.MaxLength = 50
         Me.TB_HJual.Name = "TB_HJual"
         Me.TB_HJual.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -270,7 +272,7 @@ Partial Class FormEditBarang
         Me.TB_Stok.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Stok.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Stok.HoverState.Parent = Me.TB_Stok
-        Me.TB_Stok.Location = New System.Drawing.Point(183, 158)
+        Me.TB_Stok.Location = New System.Drawing.Point(183, 210)
         Me.TB_Stok.MaxLength = 50
         Me.TB_Stok.Name = "TB_Stok"
         Me.TB_Stok.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -283,7 +285,7 @@ Partial Class FormEditBarang
         '
         'BTN_EDITSTOK
         '
-        Me.BTN_EDITSTOK.Location = New System.Drawing.Point(430, 158)
+        Me.BTN_EDITSTOK.Location = New System.Drawing.Point(430, 210)
         Me.BTN_EDITSTOK.Name = "BTN_EDITSTOK"
         Me.BTN_EDITSTOK.Size = New System.Drawing.Size(75, 23)
         Me.BTN_EDITSTOK.TabIndex = 22
@@ -291,11 +293,65 @@ Partial Class FormEditBarang
         Me.BTN_EDITSTOK.Text = "Edit"
         Me.BTN_EDITSTOK.UseVisualStyleBackColor = True
         '
+        'TB_CurHb
+        '
+        Me.TB_CurHb.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_CurHb.DefaultText = ""
+        Me.TB_CurHb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_CurHb.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_CurHb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHb.DisabledState.Parent = Me.TB_CurHb
+        Me.TB_CurHb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHb.Enabled = False
+        Me.TB_CurHb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHb.FocusedState.Parent = Me.TB_CurHb
+        Me.TB_CurHb.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_CurHb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TB_CurHb.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHb.HoverState.Parent = Me.TB_CurHb
+        Me.TB_CurHb.Location = New System.Drawing.Point(183, 123)
+        Me.TB_CurHb.MaxLength = 50
+        Me.TB_CurHb.Name = "TB_CurHb"
+        Me.TB_CurHb.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_CurHb.PlaceholderText = ""
+        Me.TB_CurHb.SelectedText = ""
+        Me.TB_CurHb.ShadowDecoration.Parent = Me.TB_CurHb
+        Me.TB_CurHb.Size = New System.Drawing.Size(241, 23)
+        Me.TB_CurHb.TabIndex = 16
+        Me.TB_CurHb.TabStop = False
+        '
+        'TB_CurHj
+        '
+        Me.TB_CurHj.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_CurHj.DefaultText = ""
+        Me.TB_CurHj.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_CurHj.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_CurHj.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHj.DisabledState.Parent = Me.TB_CurHj
+        Me.TB_CurHj.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHj.Enabled = False
+        Me.TB_CurHj.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHj.FocusedState.Parent = Me.TB_CurHj
+        Me.TB_CurHj.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_CurHj.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TB_CurHj.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHj.HoverState.Parent = Me.TB_CurHj
+        Me.TB_CurHj.Location = New System.Drawing.Point(183, 181)
+        Me.TB_CurHj.MaxLength = 50
+        Me.TB_CurHj.Name = "TB_CurHj"
+        Me.TB_CurHj.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_CurHj.PlaceholderText = ""
+        Me.TB_CurHj.SelectedText = ""
+        Me.TB_CurHj.ShadowDecoration.Parent = Me.TB_CurHj
+        Me.TB_CurHj.Size = New System.Drawing.Size(241, 23)
+        Me.TB_CurHj.TabIndex = 16
+        Me.TB_CurHj.TabStop = False
+        '
         'FormEditBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(547, 320)
+        Me.ClientSize = New System.Drawing.Size(547, 339)
         Me.Controls.Add(Me.BTN_SIMPAN)
         Me.Controls.Add(Me.BTN_DELETBARANG)
         Me.Controls.Add(Me.BTN_EDITSTOK)
@@ -304,7 +360,9 @@ Partial Class FormEditBarang
         Me.Controls.Add(Me.BTN_EDITNBarang)
         Me.Controls.Add(Me.BTN_OKUID)
         Me.Controls.Add(Me.TB_Stok)
+        Me.Controls.Add(Me.TB_CurHj)
         Me.Controls.Add(Me.TB_HJual)
+        Me.Controls.Add(Me.TB_CurHb)
         Me.Controls.Add(Me.TB_HBeli)
         Me.Controls.Add(Me.TB_NBarang)
         Me.Controls.Add(Me.TB_IDbarang)
@@ -340,4 +398,6 @@ Partial Class FormEditBarang
     Friend WithEvents TB_HJual As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TB_Stok As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BTN_EDITSTOK As Button
+    Friend WithEvents TB_CurHb As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents TB_CurHj As Guna.UI2.WinForms.Guna2TextBox
 End Class
