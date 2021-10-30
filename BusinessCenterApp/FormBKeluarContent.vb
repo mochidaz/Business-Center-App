@@ -26,6 +26,11 @@
         Else
             BTN_EditBarang.Visible = False
         End If
+        DataGridView1.Columns(2).DefaultCellStyle.Format = "Rp##,0"
+        DataGridView1.Columns(3).DefaultCellStyle.Format = "Rp##,0"
+        DataGridView1.Columns(5).DefaultCellStyle.Format = "Rp##,0"
+        DataGridView1.Columns(6).DefaultCellStyle.Format = "Rp##,0"
+        DataGridView1.Columns(7).DefaultCellStyle.Format = "Rp##,0"
     End Sub
 
     Sub showtbl()
@@ -61,4 +66,16 @@
         FormEditLaporanBarangKeluar.ShowDialog()
     End Sub
 
+    Private Sub TB_Search_TextChanged(sender As Object, e As EventArgs) Handles TB_Search.TextChanged
+        If TB_Search.Text.Length > 0 Then
+            Dim bkinfo = connect.searchLPBK(TB_Search.Text)
+            Dim table As New DataTable
+            For Each table In bkinfo.tables
+                DataGridView1.DataSource = table
+            Next
+        Else
+            showtbl()
+        End If
+        DataGridView1.ClearSelection()
+    End Sub
 End Class

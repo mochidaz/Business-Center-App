@@ -32,13 +32,15 @@ Partial Class FormTambahBarang
         Me.TB_Stok = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BTN_Simpan = New System.Windows.Forms.Button()
         Me.BTN_Batal = New System.Windows.Forms.Button()
+        Me.TB_CurHb = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.TB_CurHj = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
         '
         'Label4
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(27, 123)
+        Me.Label4.Location = New System.Drawing.Point(27, 175)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(120, 32)
         Me.Label4.TabIndex = 7
@@ -48,9 +50,9 @@ Partial Class FormTambahBarang
         '
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(27, 91)
+        Me.Label3.Location = New System.Drawing.Point(27, 117)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 32)
+        Me.Label3.Size = New System.Drawing.Size(120, 52)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Harga Jual"
         '
@@ -60,7 +62,7 @@ Partial Class FormTambahBarang
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(27, 59)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(120, 32)
+        Me.Label2.Size = New System.Drawing.Size(120, 52)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Harga Beli"
         '
@@ -68,9 +70,9 @@ Partial Class FormTambahBarang
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(27, 27)
+        Me.Label1.Location = New System.Drawing.Point(27, 30)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(120, 32)
+        Me.Label1.Size = New System.Drawing.Size(120, 29)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Nama Barang"
         '
@@ -89,7 +91,7 @@ Partial Class FormTambahBarang
         Me.TB_HargaJual.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_HargaJual.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_HargaJual.HoverState.Parent = Me.TB_HargaJual
-        Me.TB_HargaJual.Location = New System.Drawing.Point(165, 91)
+        Me.TB_HargaJual.Location = New System.Drawing.Point(165, 117)
         Me.TB_HargaJual.MaxLength = 30
         Me.TB_HargaJual.Name = "TB_HargaJual"
         Me.TB_HargaJual.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -141,7 +143,7 @@ Partial Class FormTambahBarang
         Me.TB_NamaBrg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_NamaBrg.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_NamaBrg.HoverState.Parent = Me.TB_NamaBrg
-        Me.TB_NamaBrg.Location = New System.Drawing.Point(165, 27)
+        Me.TB_NamaBrg.Location = New System.Drawing.Point(165, 30)
         Me.TB_NamaBrg.MaxLength = 50
         Me.TB_NamaBrg.Name = "TB_NamaBrg"
         Me.TB_NamaBrg.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -167,7 +169,7 @@ Partial Class FormTambahBarang
         Me.TB_Stok.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Stok.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Stok.HoverState.Parent = Me.TB_Stok
-        Me.TB_Stok.Location = New System.Drawing.Point(165, 123)
+        Me.TB_Stok.Location = New System.Drawing.Point(165, 175)
         Me.TB_Stok.MaxLength = 6
         Me.TB_Stok.Name = "TB_Stok"
         Me.TB_Stok.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -180,7 +182,7 @@ Partial Class FormTambahBarang
         '
         'BTN_Simpan
         '
-        Me.BTN_Simpan.Location = New System.Drawing.Point(196, 184)
+        Me.BTN_Simpan.Location = New System.Drawing.Point(195, 228)
         Me.BTN_Simpan.Name = "BTN_Simpan"
         Me.BTN_Simpan.Size = New System.Drawing.Size(93, 33)
         Me.BTN_Simpan.TabIndex = 12
@@ -189,22 +191,78 @@ Partial Class FormTambahBarang
         '
         'BTN_Batal
         '
-        Me.BTN_Batal.Location = New System.Drawing.Point(313, 184)
+        Me.BTN_Batal.Location = New System.Drawing.Point(312, 228)
         Me.BTN_Batal.Name = "BTN_Batal"
         Me.BTN_Batal.Size = New System.Drawing.Size(93, 33)
         Me.BTN_Batal.TabIndex = 13
         Me.BTN_Batal.Text = "Batal"
         Me.BTN_Batal.UseVisualStyleBackColor = True
         '
+        'TB_CurHb
+        '
+        Me.TB_CurHb.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_CurHb.DefaultText = ""
+        Me.TB_CurHb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_CurHb.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_CurHb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHb.DisabledState.Parent = Me.TB_CurHb
+        Me.TB_CurHb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHb.Enabled = False
+        Me.TB_CurHb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHb.FocusedState.Parent = Me.TB_CurHb
+        Me.TB_CurHb.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_CurHb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TB_CurHb.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHb.HoverState.Parent = Me.TB_CurHb
+        Me.TB_CurHb.Location = New System.Drawing.Point(165, 88)
+        Me.TB_CurHb.MaxLength = 30
+        Me.TB_CurHb.Name = "TB_CurHb"
+        Me.TB_CurHb.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_CurHb.PlaceholderText = ""
+        Me.TB_CurHb.SelectedText = ""
+        Me.TB_CurHb.ShadowDecoration.Parent = Me.TB_CurHb
+        Me.TB_CurHb.Size = New System.Drawing.Size(241, 23)
+        Me.TB_CurHb.TabIndex = 9
+        Me.TB_CurHb.TabStop = False
+        '
+        'TB_CurHj
+        '
+        Me.TB_CurHj.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_CurHj.DefaultText = ""
+        Me.TB_CurHj.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_CurHj.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_CurHj.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHj.DisabledState.Parent = Me.TB_CurHj
+        Me.TB_CurHj.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_CurHj.Enabled = False
+        Me.TB_CurHj.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHj.FocusedState.Parent = Me.TB_CurHj
+        Me.TB_CurHj.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_CurHj.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TB_CurHj.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_CurHj.HoverState.Parent = Me.TB_CurHj
+        Me.TB_CurHj.Location = New System.Drawing.Point(165, 146)
+        Me.TB_CurHj.MaxLength = 30
+        Me.TB_CurHj.Name = "TB_CurHj"
+        Me.TB_CurHj.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_CurHj.PlaceholderText = ""
+        Me.TB_CurHj.SelectedText = ""
+        Me.TB_CurHj.ShadowDecoration.Parent = Me.TB_CurHj
+        Me.TB_CurHj.Size = New System.Drawing.Size(241, 23)
+        Me.TB_CurHj.TabIndex = 10
+        Me.TB_CurHj.TabStop = False
+        '
         'FormTambahBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 261)
+        Me.ClientSize = New System.Drawing.Size(434, 297)
         Me.Controls.Add(Me.BTN_Batal)
         Me.Controls.Add(Me.BTN_Simpan)
         Me.Controls.Add(Me.TB_Stok)
+        Me.Controls.Add(Me.TB_CurHj)
         Me.Controls.Add(Me.TB_HargaJual)
+        Me.Controls.Add(Me.TB_CurHb)
         Me.Controls.Add(Me.TB__HargaBeli)
         Me.Controls.Add(Me.TB_NamaBrg)
         Me.Controls.Add(Me.Label4)
@@ -231,4 +289,6 @@ Partial Class FormTambahBarang
     Friend WithEvents TB_Stok As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BTN_Simpan As Button
     Friend WithEvents BTN_Batal As Button
+    Friend WithEvents TB_CurHb As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents TB_CurHj As Guna.UI2.WinForms.Guna2TextBox
 End Class

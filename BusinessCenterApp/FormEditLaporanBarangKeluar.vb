@@ -98,15 +98,15 @@
     End Sub
 
     Private Sub TB_Jumlah_TextChanged(sender As Object, e As EventArgs) Handles TB_Jumlah.TextChanged
-        TB_Subtotal.Text = Val(TB_HargaJual.Text) * Val(TB_Jumlah.Text)
-        If Val(TB_HargaBeli.Text) < Val(TB_HargaJual.Text) Then
+        TB_Subtotal.Text = ebKhj * Val(TB_Jumlah.Text)
+        If ebKhb < ebKhj Then
             lbl_untungrugi.Text = "Keuntungan"
-            ebKuntung = (Val(TB_HargaJual.Text) - Val(TB_HargaBeli.Text)) * Val(TB_Jumlah.Text)
+            ebKuntung = (ebKhj - ebKhb) * Val(TB_Jumlah.Text)
             ebKrugi = 0
             TB_Keuntungan.Text = ebKuntung
-        ElseIf Val(TB_HargaBeli.Text) > Val(TB_HargaJual.Text) Then
+        ElseIf ebKhb > ebKhj Then
             lbl_untungrugi.Text = "Kerugian"
-            ebKrugi = (Val(TB_HargaBeli.Text) - Val(TB_HargaJual.Text)) * Val(TB_Jumlah.Text)
+            ebKrugi = (ebKhb - ebKhj) * Val(TB_Jumlah.Text)
             ebKuntung = 0
             TB_Keuntungan.Text = ebKrugi
         End If
@@ -148,4 +148,27 @@
         ebKstok = Nothing
     End Sub
 
+    Private Sub TB_HargaBeli_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaBeli.TextChanged
+        formatUang(TB_HargaBeli)
+    End Sub
+
+    Private Sub TB_HargaJual_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaJual.TextChanged
+        formatUang(TB_HargaJual)
+    End Sub
+
+    Private Sub TB_Subtotal_TextChanged(sender As Object, e As EventArgs) Handles TB_Subtotal.TextChanged
+        TB_CurStot.Text = TB_Subtotal.Text
+    End Sub
+
+    Private Sub TB_Keuntungan_TextChanged(sender As Object, e As EventArgs) Handles TB_Keuntungan.TextChanged
+        TB_CurKun.Text = TB_Keuntungan.Text
+    End Sub
+
+    Private Sub TB_CurStot_TextChanged(sender As Object, e As EventArgs) Handles TB_CurStot.TextChanged
+        formatUang(TB_CurStot)
+    End Sub
+
+    Private Sub TB_CurKun_TextChanged(sender As Object, e As EventArgs) Handles TB_CurKun.TextChanged
+        formatUang(TB_CurKun)
+    End Sub
 End Class

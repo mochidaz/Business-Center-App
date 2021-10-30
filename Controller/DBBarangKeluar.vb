@@ -107,6 +107,18 @@ Public Class DBBarangKeluar
         Call closeConn()
     End Function
 
+    Public Function searchLPBK(nama_barang As String)
+        Cmd = New SqlCommand("SELECT * FROM tbl_barang_keluar WHERE nama_barang LIKE '%" + nama_barang + "%'", Conn)
+        Using adapter = New SqlDataAdapter(Cmd)
+            Using ds = New DataSet
+                Call openConn()
+                adapter.Fill(ds)
+                Return ds
+            End Using
+        End Using
+        Call closeConn()
+    End Function
+
     Public Function penguranganStok(id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
         Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & stokbrg - jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", Conn)
         Try

@@ -1,4 +1,5 @@
-﻿Public Class FormTambahBarang
+﻿Imports Guna.UI2.WinForms
+Public Class FormTambahBarang
     Dim connect As New DBBarang
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
@@ -45,7 +46,7 @@
         e.Handled = Not (ValidCharsWithSpaceNoNum.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
     End Sub
 
-    Private Sub TB__HargaBeli_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB__HargaBeli.KeyPress, TB_HargaJual.KeyPress, TB_Stok.KeyPress
+    Private Sub TB__HargaBeli_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB__HargaBeli.KeyPress, TB_HargaJual.KeyPress, TB_Stok.KeyPress, TB_CurHj.KeyPress, TB_CurHb.KeyPress
         If e.KeyChar <> ChrW(Keys.Back) Then
             If Char.IsNumber(e.KeyChar) Then
 
@@ -54,4 +55,21 @@
             End If
         End If
     End Sub
+
+    Private Sub TB__HargaBeli_TextChanged(sender As Object, e As EventArgs) Handles TB__HargaBeli.TextChanged
+        TB_CurHb.Text = TB__HargaBeli.Text
+    End Sub
+
+    Private Sub TB_HargaJual_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaJual.TextChanged
+        TB_CurHj.Text = TB_HargaJual.Text
+    End Sub
+
+    Private Sub TB_CurHb_TextChanged(sender As Object, e As EventArgs) Handles TB_CurHb.TextChanged
+        formatUang(TB_CurHb)
+    End Sub
+
+    Private Sub TB_CurHj_TextChanged(sender As Object, e As EventArgs) Handles TB_CurHj.TextChanged
+        formatUang(TB_CurHj)
+    End Sub
+
 End Class

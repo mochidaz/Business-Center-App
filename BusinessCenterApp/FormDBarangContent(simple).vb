@@ -25,6 +25,8 @@
             BTN_TambahBarang.Visible = False
             BTN_EditBarang.Visible = False
         End If
+        DataGridView1.Columns(2).DefaultCellStyle.Format = "Rp##,0"
+        DataGridView1.Columns(3).DefaultCellStyle.Format = "Rp##,0"
     End Sub
 
     Sub showtblbarang()
