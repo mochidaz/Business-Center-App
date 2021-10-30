@@ -30,7 +30,7 @@ Partial Class FormDBoardContent
         Me.Jmlh_BT = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LBL_JmlBH = New System.Windows.Forms.Label()
         Me.Barang_Habis = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,7 +38,7 @@ Partial Class FormDBoardContent
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Barang_Terjual = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LBL_JmlBK = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PNL_Pendapatan = New System.Windows.Forms.Panel()
         Me.lbl_keuntungan = New System.Windows.Forms.Label()
@@ -143,7 +143,7 @@ Partial Class FormDBoardContent
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.PictureBox2)
-        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.LBL_JmlBH)
         Me.Panel2.Controls.Add(Me.Barang_Habis)
         Me.Panel2.Location = New System.Drawing.Point(519, 83)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
@@ -161,16 +161,16 @@ Partial Class FormDBoardContent
         Me.PictureBox2.TabIndex = 12
         Me.PictureBox2.TabStop = False
         '
-        'Label3
+        'LBL_JmlBH
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.OrangeRed
-        Me.Label3.Location = New System.Drawing.Point(94, 12)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(23, 25)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "0"
+        Me.LBL_JmlBH.AutoSize = True
+        Me.LBL_JmlBH.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_JmlBH.ForeColor = System.Drawing.Color.OrangeRed
+        Me.LBL_JmlBH.Location = New System.Drawing.Point(94, 12)
+        Me.LBL_JmlBH.Name = "LBL_JmlBH"
+        Me.LBL_JmlBH.Size = New System.Drawing.Size(23, 25)
+        Me.LBL_JmlBH.TabIndex = 5
+        Me.LBL_JmlBH.Text = "0"
         '
         'Barang_Habis
         '
@@ -241,7 +241,7 @@ Partial Class FormDBoardContent
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Controls.Add(Me.LBL_JmlBK)
         Me.Panel4.Controls.Add(Me.Barang_Terjual)
         Me.Panel4.Controls.Add(Me.PictureBox4)
         Me.Panel4.Location = New System.Drawing.Point(519, 163)
@@ -250,16 +250,16 @@ Partial Class FormDBoardContent
         Me.Panel4.Size = New System.Drawing.Size(150, 60)
         Me.Panel4.TabIndex = 7
         '
-        'Label5
+        'LBL_JmlBK
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.BlueViolet
-        Me.Label5.Location = New System.Drawing.Point(88, 12)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(23, 25)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "0"
+        Me.LBL_JmlBK.AutoSize = True
+        Me.LBL_JmlBK.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_JmlBK.ForeColor = System.Drawing.Color.BlueViolet
+        Me.LBL_JmlBK.Location = New System.Drawing.Point(88, 12)
+        Me.LBL_JmlBK.Name = "LBL_JmlBK"
+        Me.LBL_JmlBK.Size = New System.Drawing.Size(23, 25)
+        Me.LBL_JmlBK.TabIndex = 6
+        Me.LBL_JmlBK.Text = "0"
         '
         'PictureBox4
         '
@@ -735,9 +735,9 @@ Partial Class FormDBoardContent
     Friend WithEvents Barang_Baru As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Jmlh_BT As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents LBL_JmlBH As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents LBL_JmlBK As Label
     Friend WithEvents PNL_Pendapatan As Panel
     Friend WithEvents L_Pendapatan As Label
     Friend WithEvents Tambah_P_Pendapatan As Label

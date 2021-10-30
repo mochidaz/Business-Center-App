@@ -18,8 +18,7 @@
 
     Private Sub DBoardContent_Load(sender As Object, e As EventArgs) Handles Me.Load
         Timer1.Enabled = True
-        Label5.Text = connect.total_brg_keluar()
-        Jmlh_BT.Text = db_barang.get_total_stock()
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -39,6 +38,9 @@
         Else
             lbl_kerugian.Text = kerugian.ToString("#,###.00")
         End If
+        LBL_JmlBK.Text = connect.total_brg_keluar()
+        Jmlh_BT.Text = db_barang.get_total_stock()
+        LBL_JmlBH.Text = db_barang.getBarangHabis()
     End Sub
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
@@ -49,7 +51,7 @@
 
     End Sub
 
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles LBL_JmlBK.Click
 
     End Sub
 

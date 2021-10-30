@@ -48,12 +48,23 @@
                 TB_HargaJual.Text = ebKhj
                 TB_Jumlah.Text = ebKjml
                 TB_Tanggal.Text = ebKtgl
+                TB_Jam.Text = ebKjam
                 kondisiOK()
             Else
                 MessageBox.Show("No Nota Keluar tidak ada!!")
                 kondisiawal()
             End If
         End If
+    End Sub
+
+    Private Sub BTN_SIMPAN_Click(sender As Object, e As EventArgs) Handles BTN_SIMPAN.Click
+        Dim r = connect.restore_stock(TB_NoNota.Text, TB_Jumlah.Text)
+        If r = Status.Success Then
+            MessageBox.Show("Berhasil mengedit!")
+            kondisiawal()
+            FormBKeluarContent.showtbl()
+        End If
+        TB_NoNota.Enabled = True
     End Sub
 
     Private Sub BTN_DELETE_Click(sender As Object, e As EventArgs) Handles BTN_DELETE.Click
@@ -124,11 +135,13 @@
         TB_Jumlah.Text = Nothing
         TB_Subtotal.Text = Nothing
         TB_Keuntungan.Text = Nothing
+        TB_Jam.Text = Nothing
     End Sub
 
     Sub clearVar()
         ebKname = vbNullString
         ebKtgl = vbNullString
+        ebKjam = vbNullString
         eBhb = Nothing
         ebKhj = Nothing
         ebKjml = Nothing
@@ -136,16 +149,6 @@
         ebKrugi = Nothing
         ebKid = Nothing
         ebKstok = Nothing
-    End Sub
-
-    Private Sub BTN_SIMPAN_Click(sender As Object, e As EventArgs) Handles BTN_SIMPAN.Click
-        Dim r = connect.restore_stock(TB_NoNota.Text, TB_Jumlah.Text)
-        If r = Status.Success Then
-            MessageBox.Show("Berhasil mengedit!")
-            kondisiawal()
-            FormBKeluarContent.showtbl()
-        End If
-        TB_NoNota.Enabled = True
     End Sub
 
     Private Sub TB_HargaBeli_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaBeli.TextChanged
@@ -157,18 +160,11 @@
     End Sub
 
     Private Sub TB_Subtotal_TextChanged(sender As Object, e As EventArgs) Handles TB_Subtotal.TextChanged
-        TB_CurStot.Text = TB_Subtotal.Text
+        formatUang(TB_Subtotal)
     End Sub
 
     Private Sub TB_Keuntungan_TextChanged(sender As Object, e As EventArgs) Handles TB_Keuntungan.TextChanged
-        TB_CurKun.Text = TB_Keuntungan.Text
+        formatUang(TB_Keuntungan)
     End Sub
 
-    Private Sub TB_CurStot_TextChanged(sender As Object, e As EventArgs) Handles TB_CurStot.TextChanged
-        formatUang(TB_CurStot)
-    End Sub
-
-    Private Sub TB_CurKun_TextChanged(sender As Object, e As EventArgs) Handles TB_CurKun.TextChanged
-        formatUang(TB_CurKun)
-    End Sub
 End Class

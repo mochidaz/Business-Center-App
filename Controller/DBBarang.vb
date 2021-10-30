@@ -125,7 +125,7 @@ Public Class DBBarang
     '        While rd.Read()
     '            listid.Add(rd.GetInt32(0))
     '            listnm.Add(rd.GetString(1))
-    '            listhb.Add(rd.GetInt32(2))
+    '            listhb.Add(rd.GetInt32(2))                     USED ON FormDBarangContent_HARD // UNDONE // maybe usable next time
     '            listhj.Add(rd.GetInt32(3))
     '            liststk.Add(rd.GetInt32(4))
     '        End While
@@ -150,8 +150,8 @@ Public Class DBBarang
         Call closeConn()
     End Function
 
-    Public Function searchBarang(nama_barang As String)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE nama_barang LIKE '%" + nama_barang + "%' OR id_barang = " + nama_barang, Conn)
+    Public Function searchBarang(searchbox As String)
+        Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE nama_barang LIKE '%" + searchbox + "%' OR id_barang LIKE '%" + searchbox + "%'", Conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
@@ -196,11 +196,29 @@ Public Class DBBarang
         End If
     End Function
 
+    Public Function getBarangHabis()
+        openConn()
+        Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang WHERE stok = 0", Conn)
+        Dim val As Integer
+        Try
+            val = Cmd.ExecuteScalar()
+        Catch ex As Exception
+            closeConn()
+            Return Status.DataError
+        End Try
+        closeConn()
+        If val < 1 Then
+            Return 0
+        Else
+            Return val
+        End If
+    End Function
+
 End Class
 'Module varbar
 '    Public id_barang As String()
 '    Public nama_barang As String()
-'    Public harga_beli As String()
+'    Public harga_beli As String()                       USED ON FormDBarangContent_HARD (maybe?) // UNDONE // maybe usable next time
 '    Public harga_jual As String()
 '    Public stok As String()
 'End Module

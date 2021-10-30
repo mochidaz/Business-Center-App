@@ -70,6 +70,7 @@ Partial Class FormChangePassword
         Me.TB_CurrentPW.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_CurrentPW.HoverState.Parent = Me.TB_CurrentPW
         Me.TB_CurrentPW.Location = New System.Drawing.Point(156, 37)
+        Me.TB_CurrentPW.MaxLength = 30
         Me.TB_CurrentPW.Name = "TB_CurrentPW"
         Me.TB_CurrentPW.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TB_CurrentPW.PlaceholderText = ""
@@ -94,6 +95,7 @@ Partial Class FormChangePassword
         Me.TB_NewPW.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_NewPW.HoverState.Parent = Me.TB_NewPW
         Me.TB_NewPW.Location = New System.Drawing.Point(156, 81)
+        Me.TB_NewPW.MaxLength = 30
         Me.TB_NewPW.Name = "TB_NewPW"
         Me.TB_NewPW.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TB_NewPW.PlaceholderText = ""
@@ -145,6 +147,7 @@ Partial Class FormChangePassword
         Me.TB_ConfirmNpw.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_ConfirmNpw.HoverState.Parent = Me.TB_ConfirmNpw
         Me.TB_ConfirmNpw.Location = New System.Drawing.Point(156, 125)
+        Me.TB_ConfirmNpw.MaxLength = 30
         Me.TB_ConfirmNpw.Name = "TB_ConfirmNpw"
         Me.TB_ConfirmNpw.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TB_ConfirmNpw.PlaceholderText = ""
@@ -166,7 +169,7 @@ Partial Class FormChangePassword
         Me.BTN_Showcpw.ImageOffset = New System.Drawing.Point(0, 0)
         Me.BTN_Showcpw.ImageRotate = 0!
         Me.BTN_Showcpw.ImageSize = New System.Drawing.Size(22, 22)
-        Me.BTN_Showcpw.Location = New System.Drawing.Point(334, 38)
+        Me.BTN_Showcpw.Location = New System.Drawing.Point(333, 38)
         Me.BTN_Showcpw.Name = "BTN_Showcpw"
         Me.BTN_Showcpw.PressedState.ImageSize = New System.Drawing.Size(22, 22)
         Me.BTN_Showcpw.PressedState.Parent = Me.BTN_Showcpw
@@ -187,7 +190,7 @@ Partial Class FormChangePassword
         Me.BTN_Shownpw.ImageOffset = New System.Drawing.Point(0, 0)
         Me.BTN_Shownpw.ImageRotate = 0!
         Me.BTN_Shownpw.ImageSize = New System.Drawing.Size(22, 22)
-        Me.BTN_Shownpw.Location = New System.Drawing.Point(334, 82)
+        Me.BTN_Shownpw.Location = New System.Drawing.Point(333, 82)
         Me.BTN_Shownpw.Name = "BTN_Shownpw"
         Me.BTN_Shownpw.PressedState.ImageSize = New System.Drawing.Size(22, 22)
         Me.BTN_Shownpw.PressedState.Parent = Me.BTN_Shownpw
@@ -208,7 +211,7 @@ Partial Class FormChangePassword
         Me.BTN_Showcnfnpw.ImageOffset = New System.Drawing.Point(0, 0)
         Me.BTN_Showcnfnpw.ImageRotate = 0!
         Me.BTN_Showcnfnpw.ImageSize = New System.Drawing.Size(22, 22)
-        Me.BTN_Showcnfnpw.Location = New System.Drawing.Point(334, 127)
+        Me.BTN_Showcnfnpw.Location = New System.Drawing.Point(333, 127)
         Me.BTN_Showcnfnpw.Name = "BTN_Showcnfnpw"
         Me.BTN_Showcnfnpw.PressedState.ImageSize = New System.Drawing.Size(22, 22)
         Me.BTN_Showcnfnpw.PressedState.Parent = Me.BTN_Showcnfnpw

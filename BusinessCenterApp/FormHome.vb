@@ -191,7 +191,7 @@ Public Class FormHome
 
     Private Sub BTN_MENU_Click(sender As Object, e As EventArgs) Handles BTN_MENU.Click
         Label1.Focus()
-        MENUSTRIP.Show(BTN_MENU, -76, BTN_MENU.Height)
+        MENUSTRIP.Show(BTN_MENU, -124, BTN_MENU.Height)
     End Sub
 
     Private Sub ChangePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangePasswordToolStripMenuItem.Click
@@ -217,4 +217,7 @@ Public Class FormHome
         End If
     End Sub
 
+    Private Sub BarangKeluarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BarangKeluarToolStripMenuItem.Click
+        FormReportBK.ShowDialog()
+    End Sub
 End Class

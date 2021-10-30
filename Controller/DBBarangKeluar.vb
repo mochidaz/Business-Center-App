@@ -46,8 +46,8 @@ Public Class DBBarangKeluar
     Public Function TambahLaporanBK(nota_keluar As String, id_barang As Integer, jumlah As Integer, subtotal As Integer, uid As Integer, keuntungan As Integer, kerugian As Integer, stok As Integer)
         If LaporanExist(nota_keluar) = False Then
             If jumlah <= bKstok Then
-                Cmd = New SqlCommand("INSERT INTO tbl_barang_keluar (no_nota_keluar, id_barang, jumlah, subtotal, tanggal, uid, keuntungan, kerugian)
-                                  VALUES ('" & nota_keluar & "','" & id_barang & "','" & jumlah & "','" & subtotal & "','" & DateTime.Now.ToString("yyyy/MM/dd HH:mm") & "','" & uid & "','" & keuntungan & "','" & kerugian & "')", Conn)
+                Cmd = New SqlCommand("INSERT INTO tbl_barang_keluar (no_nota_keluar, id_barang, jumlah, subtotal, tanggal, uid, keuntungan, kerugian, jam)
+                                  VALUES ('" & nota_keluar & "','" & id_barang & "','" & jumlah & "','" & subtotal & "','" & Date.Now.ToString("yyyy/MM/dd") & "','" & uid & "','" & keuntungan & "','" & kerugian & "','" & TimeOfDay.ToString("HH:mm:ss") & "')", Conn)
                 Call openConn()
                 Try
                     If MessageBox.Show("Yakin ingin menyimpan laporan tersebut?", "Warning!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
@@ -71,7 +71,7 @@ Public Class DBBarangKeluar
         End If
     End Function
 
-    Public Function DeleteLaporanBK(no_nota_keluar As Integer, id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
+    Public Function DeleteLaporanBK(no_nota_keluar As String, id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
         Cmd = New SqlCommand("DELETE FROM tbl_barang_keluar WHERE no_nota_keluar = '" & no_nota_keluar & "'", Conn)
         Try
             If MessageBox.Show("Yakin ingin menghapus Laporan Barang Keluar tersebut?", "Warning!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
@@ -103,14 +103,14 @@ Public Class DBBarangKeluar
         Call closeConn()
     End Function
 
-    Public Function searchLPBK(nama_barang As String)
+    Public Function searchLPBK(searchbox As String)
         Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang.harga_beli, tbl_barang.harga_jual, 
                               tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
-                              tbl_barang_keluar.tanggal, tbl_user.fullname 
+                              tbl_barang_keluar.tanggal,tbl_barang_keluar.jam, tbl_user.fullname 
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
                               JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
-                              WHERE tbl_barang.nama_barang LIKE '%" + nama_barang + "%'", Conn)
+                              WHERE tbl_barang.nama_barang LIKE '%" + searchbox + "%' OR tbl_barang_keluar.no_nota_keluar LIKE '%" + searchbox + "%'", Conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
@@ -152,7 +152,7 @@ Public Class DBBarangKeluar
     Public Function SelectToTable()
         Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang.harga_beli, tbl_barang.harga_jual, 
                               tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
-                              tbl_barang_keluar.tanggal, tbl_user.fullname 
+                              tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
                               JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid", Conn)
@@ -168,7 +168,7 @@ Public Class DBBarangKeluar
 
     Public Function getinfobrgkluar(no_nota_keluar As String)
         Cmd = New SqlCommand("SELECT tbl_barang.nama_barang, tbl_barang.harga_beli, tbl_barang.harga_jual, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal,
-                              tbl_barang.id_barang, tbl_barang.stok
+                              tbl_barang_keluar.jam, tbl_barang.id_barang, tbl_barang.stok
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
                               WHERE no_nota_keluar = '" & no_nota_keluar & "'", Conn)
@@ -185,6 +185,7 @@ Public Class DBBarangKeluar
                     ebKhj = table.Rows(0)("harga_jual")
                     ebKjml = table.Rows(0)("jumlah")
                     ebKtgl = table.Rows(0)("tanggal")
+                    ebKjam = table.Rows(0)("jam").ToString
                     ebKid = table.Rows(0)("id_barang")
                     ebKstok = table.Rows(0)("stok")
                     Return Status.Success

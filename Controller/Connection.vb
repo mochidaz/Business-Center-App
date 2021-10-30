@@ -15,6 +15,7 @@ Module barangKeluar
     Public bKrugi As Integer = Nothing
     Public bKstok As Integer = Nothing
     Public bKjml As Integer = Nothing
+    Public bKstotal As Integer = Nothing
     Public pendapatan As Integer = Nothing
     Public keuntungan As Integer = Nothing
     Public kerugian As Integer = Nothing
@@ -23,6 +24,7 @@ End Module
 Module editbarangKeluar
     Public ebKname As String = vbNullString
     Public ebKtgl As String = vbNullString
+    Public ebKjam As String = vbNullString
     Public ebKhj As Integer = Nothing
     Public ebKhb As Integer = Nothing
     Public ebKjml As Integer = Nothing

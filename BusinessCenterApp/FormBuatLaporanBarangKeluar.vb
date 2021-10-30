@@ -17,10 +17,16 @@
 
     Private Sub FormBuatLaporanBarangKeluar_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         kondisiawal()
+        TB_NoNota.Text = Nothing
+        TB_IDBRG.Text = Nothing
+        TB_NamaBrg.Text = Nothing
     End Sub
 
     Private Sub FormBuatLaporanBarangKeluar_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         kondisiawal()
+        TB_NoNota.Text = Nothing
+        TB_IDBRG.Text = Nothing
+        TB_NamaBrg.Text = Nothing
     End Sub
 
     Private Sub TB_IDBRG_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB_IDBRG.KeyPress, TB_Jumlah.KeyPress
@@ -124,7 +130,7 @@
 
     Private Sub BTN_Simpan_Click(sender As Object, e As EventArgs) Handles BTN_Simpan.Click
         If emptyTextBox(Me) = False Then
-            Dim insert = connect.TambahLaporanBK(TB_NoNota.Text, Val(TB_IDBRG.Text), Val(TB_Jumlah.Text), Val(TB_Subtotal.Text), vUid, bKuntung, bKrugi, bKstok)
+            Dim insert = connect.TambahLaporanBK(TB_NoNota.Text, Val(TB_IDBRG.Text), Val(TB_Jumlah.Text), bKstotal, vUid, bKuntung, bKrugi, bKstok)
             If insert = Status.Success Then
                 MessageBox.Show("Berhasil menambahkan laporan barang keluar")
                 ClearTextBox(Me)
@@ -142,15 +148,16 @@
     End Sub
 
     Private Sub TB_Jumlah_TextChanged(sender As Object, e As EventArgs) Handles TB_Jumlah.TextChanged
-        TB_Subtotal.Text = Val(TB_HargaJual.Text) * Val(TB_Jumlah.Text)
-        If Val(TB_HargaBeli.Text) < Val(TB_HargaJual.Text) Then
+        bKstotal = bKhj * Val(TB_Jumlah.Text)
+        TB_Subtotal.Text = bKstotal
+        If bKhb < bKhj Then
             lbl_untungrugi.Text = "Keuntungan"
-            bKuntung = (Val(TB_HargaJual.Text) - Val(TB_HargaBeli.Text)) * Val(TB_Jumlah.Text)
+            bKuntung = (bKhj - bKhb) * Val(TB_Jumlah.Text)
             bKrugi = 0
             TB_Keuntungan.Text = bKuntung
-        ElseIf Val(TB_HargaBeli.Text) > Val(TB_HargaJual.Text) Then
+        ElseIf bKhb > bKhj Then
             lbl_untungrugi.Text = "Kerugian"
-            bKrugi = (Val(TB_HargaBeli.Text) - Val(TB_HargaJual.Text)) * Val(TB_Jumlah.Text)
+            bKrugi = (bKhb - bKhj) * Val(TB_Jumlah.Text)
             bKuntung = 0
             TB_Keuntungan.Text = bKrugi
         End If
@@ -158,7 +165,7 @@
 
     Sub kondisiawal()
         TB_Jumlah.Enabled = False
-        ClearTextBox(Me)
+        clearTB()
         RBTN_IDBRG.Checked = True
         RBTN_NMBRG.Checked = False
         BTN_OK.Enabled = False
@@ -186,4 +193,19 @@
         bKstok = Nothing
     End Sub
 
+    Private Sub TB_HargaBeli_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaBeli.TextChanged
+        formatUang(TB_HargaBeli)
+    End Sub
+
+    Private Sub TB_HargaJual_TextChanged(sender As Object, e As EventArgs) Handles TB_HargaJual.TextChanged
+        formatUang(TB_HargaJual)
+    End Sub
+
+    Private Sub TB_Subtotal_TextChanged(sender As Object, e As EventArgs) Handles TB_Subtotal.TextChanged
+        formatUang(TB_Subtotal)
+    End Sub
+
+    Private Sub TB_Keuntungan_TextChanged(sender As Object, e As EventArgs) Handles TB_Keuntungan.TextChanged
+        formatUang(TB_Keuntungan)
+    End Sub
 End Class
