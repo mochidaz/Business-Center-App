@@ -47,18 +47,19 @@ Module editUser
 End Module
 
 Public MustInherit Class BaseConnection
-    Public Property Conn As SqlConnection = New SqlConnection("Server = " & config().item("SERVER") & "; Database = " & config().item("DATABASE") & "; Integrated Security = true")
+    Public Property conn As SqlConnection = New SqlConnection("Server = " & config()(0) & "; Database = " & config()(1) & "; Integrated Security = true")
     Public Property Cmd As SqlCommand
 
     Public Sub openConn()
-        If Conn.State = ConnectionState.Closed Then
-            Conn.Open()
+        If conn.State = ConnectionState.Closed Then
+            Debug.WriteLine($"DEBUG: {config()(0)}")
+            conn.Open()
         End If
     End Sub
 
     Public Sub closeConn()
-        If Conn.State = ConnectionState.Open Then
-            Conn.Close()
+        If conn.State = ConnectionState.Open Then
+            conn.Close()
         End If
     End Sub
 

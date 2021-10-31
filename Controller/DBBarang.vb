@@ -196,6 +196,24 @@ Public Class DBBarang
         End If
     End Function
 
+    Public Function get_barang_habis()
+        openConn()
+        Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang WHERE stok < 1", conn)
+        Dim val As Integer
+        Try
+            val = Cmd.ExecuteScalar()
+        Catch ex As Exception
+            closeConn()
+            Return Status.DataError
+        End Try
+        closeConn()
+        If val < 1 Then
+            Return 0
+        Else
+            Return val
+        End If
+    End Function
+
 End Class
 'Module varbar
 '    Public id_barang As String()

@@ -139,11 +139,18 @@
     End Sub
 
     Private Sub BTN_SIMPAN_Click(sender As Object, e As EventArgs) Handles BTN_SIMPAN.Click
-        Dim r = connect.restore_stock(TB_NoNota.Text, TB_Jumlah.Text)
+        Dim r = connect.restore_stock(TB_NoNota.Text, TB_Jumlah.Text, Val(TB_Subtotal.Text), Val(TB_Keuntungan.Text))
         If r = Status.Success Then
             MessageBox.Show("Berhasil mengedit!")
             kondisiawal()
             FormBKeluarContent.showtbl()
+        ElseIf r = Status.DataIncomplete Then
+            MessageBox.Show("Tidak ada yang diedit!!")
+            kondisiawal()
+        Else
+
+            MessageBox.Show("Gagal mengedit!")
+            kondisiawal()
         End If
         TB_NoNota.Enabled = True
     End Sub
