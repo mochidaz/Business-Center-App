@@ -42,8 +42,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.BTN_Edit = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TB_Tanggal = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.TB_CurStot = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.TB_CurKun = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.TB_Jam = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
         '
         'TB_NoNota
@@ -135,7 +134,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Keuntungan.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Keuntungan.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Keuntungan.HoverState.Parent = Me.TB_Keuntungan
-        Me.TB_Keuntungan.Location = New System.Drawing.Point(171, 281)
+        Me.TB_Keuntungan.Location = New System.Drawing.Point(171, 252)
         Me.TB_Keuntungan.MaxLength = 50
         Me.TB_Keuntungan.Name = "TB_Keuntungan"
         Me.TB_Keuntungan.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -150,9 +149,9 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.lbl_untungrugi.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_untungrugi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_untungrugi.Location = New System.Drawing.Point(33, 281)
+        Me.lbl_untungrugi.Location = New System.Drawing.Point(33, 252)
         Me.lbl_untungrugi.Name = "lbl_untungrugi"
-        Me.lbl_untungrugi.Size = New System.Drawing.Size(120, 52)
+        Me.lbl_untungrugi.Size = New System.Drawing.Size(120, 23)
         Me.lbl_untungrugi.TabIndex = 12
         Me.lbl_untungrugi.Text = "Keuntungan"
         '
@@ -189,7 +188,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(33, 223)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(120, 52)
+        Me.Label6.Size = New System.Drawing.Size(120, 23)
         Me.Label6.TabIndex = 13
         Me.Label6.Text = "Subtotal"
         '
@@ -306,7 +305,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         'BTN_SIMPAN
         '
-        Me.BTN_SIMPAN.Location = New System.Drawing.Point(321, 366)
+        Me.BTN_SIMPAN.Location = New System.Drawing.Point(321, 301)
         Me.BTN_SIMPAN.Name = "BTN_SIMPAN"
         Me.BTN_SIMPAN.Size = New System.Drawing.Size(91, 27)
         Me.BTN_SIMPAN.TabIndex = 25
@@ -316,7 +315,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         'BTN_DELETE
         '
-        Me.BTN_DELETE.Location = New System.Drawing.Point(33, 366)
+        Me.BTN_DELETE.Location = New System.Drawing.Point(33, 301)
         Me.BTN_DELETE.Name = "BTN_DELETE"
         Me.BTN_DELETE.Size = New System.Drawing.Size(95, 27)
         Me.BTN_DELETE.TabIndex = 26
@@ -352,7 +351,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(120, 23)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Tanggal"
+        Me.Label2.Text = "Tanggal / Jam"
         '
         'TB_Tanggal
         '
@@ -377,77 +376,48 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Tanggal.PlaceholderText = ""
         Me.TB_Tanggal.SelectedText = ""
         Me.TB_Tanggal.ShadowDecoration.Parent = Me.TB_Tanggal
-        Me.TB_Tanggal.Size = New System.Drawing.Size(241, 23)
+        Me.TB_Tanggal.Size = New System.Drawing.Size(144, 23)
         Me.TB_Tanggal.TabIndex = 3
         Me.TB_Tanggal.TabStop = False
         '
-        'TB_CurStot
+        'TB_Jam
         '
-        Me.TB_CurStot.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TB_CurStot.DefaultText = ""
-        Me.TB_CurStot.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TB_CurStot.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TB_CurStot.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_CurStot.DisabledState.Parent = Me.TB_CurStot
-        Me.TB_CurStot.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_CurStot.Enabled = False
-        Me.TB_CurStot.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_CurStot.FocusedState.Parent = Me.TB_CurStot
-        Me.TB_CurStot.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TB_CurStot.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.TB_CurStot.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_CurStot.HoverState.Parent = Me.TB_CurStot
-        Me.TB_CurStot.Location = New System.Drawing.Point(171, 252)
-        Me.TB_CurStot.MaxLength = 50
-        Me.TB_CurStot.Name = "TB_CurStot"
-        Me.TB_CurStot.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TB_CurStot.PlaceholderText = ""
-        Me.TB_CurStot.SelectedText = ""
-        Me.TB_CurStot.ShadowDecoration.Parent = Me.TB_CurStot
-        Me.TB_CurStot.Size = New System.Drawing.Size(241, 23)
-        Me.TB_CurStot.TabIndex = 21
-        Me.TB_CurStot.TabStop = False
-        '
-        'TB_CurKun
-        '
-        Me.TB_CurKun.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TB_CurKun.DefaultText = ""
-        Me.TB_CurKun.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TB_CurKun.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TB_CurKun.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_CurKun.DisabledState.Parent = Me.TB_CurKun
-        Me.TB_CurKun.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_CurKun.Enabled = False
-        Me.TB_CurKun.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_CurKun.FocusedState.Parent = Me.TB_CurKun
-        Me.TB_CurKun.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TB_CurKun.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.TB_CurKun.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_CurKun.HoverState.Parent = Me.TB_CurKun
-        Me.TB_CurKun.Location = New System.Drawing.Point(171, 310)
-        Me.TB_CurKun.MaxLength = 50
-        Me.TB_CurKun.Name = "TB_CurKun"
-        Me.TB_CurKun.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TB_CurKun.PlaceholderText = ""
-        Me.TB_CurKun.SelectedText = ""
-        Me.TB_CurKun.ShadowDecoration.Parent = Me.TB_CurKun
-        Me.TB_CurKun.Size = New System.Drawing.Size(241, 23)
-        Me.TB_CurKun.TabIndex = 20
-        Me.TB_CurKun.TabStop = False
+        Me.TB_Jam.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_Jam.DefaultText = ""
+        Me.TB_Jam.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_Jam.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_Jam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_Jam.DisabledState.Parent = Me.TB_Jam
+        Me.TB_Jam.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_Jam.Enabled = False
+        Me.TB_Jam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_Jam.FocusedState.Parent = Me.TB_Jam
+        Me.TB_Jam.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_Jam.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TB_Jam.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_Jam.HoverState.Parent = Me.TB_Jam
+        Me.TB_Jam.Location = New System.Drawing.Point(321, 78)
+        Me.TB_Jam.MaxLength = 50
+        Me.TB_Jam.Name = "TB_Jam"
+        Me.TB_Jam.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_Jam.PlaceholderText = ""
+        Me.TB_Jam.SelectedText = ""
+        Me.TB_Jam.ShadowDecoration.Parent = Me.TB_Jam
+        Me.TB_Jam.Size = New System.Drawing.Size(91, 23)
+        Me.TB_Jam.TabIndex = 3
+        Me.TB_Jam.TabStop = False
         '
         'FormEditLaporanBarangKeluar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(503, 441)
+        Me.ClientSize = New System.Drawing.Size(503, 373)
         Me.Controls.Add(Me.BTN_Edit)
         Me.Controls.Add(Me.BTN_OK)
         Me.Controls.Add(Me.BTN_SIMPAN)
         Me.Controls.Add(Me.BTN_DELETE)
-        Me.Controls.Add(Me.TB_CurKun)
         Me.Controls.Add(Me.TB_Keuntungan)
         Me.Controls.Add(Me.lbl_untungrugi)
-        Me.Controls.Add(Me.TB_CurStot)
         Me.Controls.Add(Me.TB_Subtotal)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TB_Jumlah)
@@ -458,6 +428,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TB_NamaBrg)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.TB_Jam)
         Me.Controls.Add(Me.TB_Tanggal)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TB_NoNota)
@@ -492,6 +463,5 @@ Partial Class FormEditLaporanBarangKeluar
     Friend WithEvents BTN_Edit As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TB_Tanggal As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents TB_CurStot As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents TB_CurKun As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents TB_Jam As Guna.UI2.WinForms.Guna2TextBox
 End Class

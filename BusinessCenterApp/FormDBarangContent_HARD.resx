@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="Db_apkDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="TblbarangBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>152, 17</value>
+  </metadata>
+  <metadata name="Tbl_barangTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>338, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="TB_Search.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -138,18 +144,7 @@
         YII=
 </value>
   </data>
-  <data name="BTN_Refreshtbl.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAgNJREFUWEft
-        l89KVVEUhy9paA3Myomv4LA3SJSgQYTTLHsDG4iQEYVJ1sCBkQ7FkZoDewYd5wNYNAl1ktZQKai+73Q3
-        HK+7++ecDZfg/uBDXXe7zzpr7b3WupWO/jf1wAi8gk3YgW1Yh9cwDBchuQZgFr7B7wZ8h+dwBZJoDI4h
-        POAINmAaJuAhPK7a8g667g6U0iMIG+7BfeiGf8nPXPMR/J9f8AIKawHc5C1c0tCkPCvLEJx/AoV0AQb/
-        /lpIUxAiYSrbojegEwfQp6GRrld/ptJl+Aw60fA83IYPUO+gFdE4hCh0aYipH/bBhU81JFQveC3de1RD
-        TKvgAvkBNyClrJzuHb0Rhj48PLALZcuqV/dqFfPvvls5m2Ql8wvUOiBlUzEEpxDbW1bgTOhr+QllU+FL
-        xPb2QGYRyIfjPfih4Qq2VipgTKbRdNY6YNrPKXj7LvsrnUzFCYSHZ6GP6Ra4wCvj1Ump8HJeda98VBag
-        Q3DhPQ0J5d4WuWjo85oDHbB8ls1/rZoq8zYMT6hOLGpoh2ydtlCdsKUWla3cll5IlkwdEIcLh4xmZeqW
-        wJdwqCks60GIxCd4APU6pXfeOdG1wflJKCUHy9DJxKnXOjEDDqRhKLXZ5IfSr3AXksiD+QyaGcudoB3L
-        r0FyGeKbMA9r4JcScSR/CX4xaeWsdNRuVSp/AK3npfdoDdXYAAAAAElFTkSuQmCC
-</value>
-  </data>
+  <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>523, 17</value>
+  </metadata>
 </root>

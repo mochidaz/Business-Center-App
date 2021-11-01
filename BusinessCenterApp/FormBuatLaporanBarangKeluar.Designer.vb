@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormBuatLaporanBarangKeluar
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormBuatLaporanBarangKeluar
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TB_NoNota = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -60,7 +60,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_NoNota.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_NoNota.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_NoNota.HoverState.Parent = Me.TB_NoNota
-        Me.TB_NoNota.Location = New System.Drawing.Point(171, 44)
+        Me.TB_NoNota.Location = New System.Drawing.Point(160, 18)
         Me.TB_NoNota.MaxLength = 50
         Me.TB_NoNota.Name = "TB_NoNota"
         Me.TB_NoNota.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -75,7 +75,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(33, 44)
+        Me.Label1.Location = New System.Drawing.Point(22, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(120, 32)
         Me.Label1.TabIndex = 0
@@ -85,7 +85,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(33, 73)
+        Me.Label2.Location = New System.Drawing.Point(22, 47)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(120, 32)
         Me.Label2.TabIndex = 0
@@ -106,7 +106,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_IDBRG.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_IDBRG.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_IDBRG.HoverState.Parent = Me.TB_IDBRG
-        Me.TB_IDBRG.Location = New System.Drawing.Point(171, 73)
+        Me.TB_IDBRG.Location = New System.Drawing.Point(160, 47)
         Me.TB_IDBRG.MaxLength = 4
         Me.TB_IDBRG.Name = "TB_IDBRG"
         Me.TB_IDBRG.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -121,7 +121,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(33, 102)
+        Me.Label3.Location = New System.Drawing.Point(22, 76)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 32)
         Me.Label3.TabIndex = 0
@@ -143,7 +143,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_NamaBrg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_NamaBrg.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_NamaBrg.HoverState.Parent = Me.TB_NamaBrg
-        Me.TB_NamaBrg.Location = New System.Drawing.Point(171, 102)
+        Me.TB_NamaBrg.Location = New System.Drawing.Point(160, 76)
         Me.TB_NamaBrg.MaxLength = 50
         Me.TB_NamaBrg.Name = "TB_NamaBrg"
         Me.TB_NamaBrg.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -158,7 +158,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(33, 163)
+        Me.Label4.Location = New System.Drawing.Point(22, 137)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(120, 32)
         Me.Label4.TabIndex = 0
@@ -180,7 +180,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_HargaJual.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_HargaJual.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_HargaJual.HoverState.Parent = Me.TB_HargaJual
-        Me.TB_HargaJual.Location = New System.Drawing.Point(171, 163)
+        Me.TB_HargaJual.Location = New System.Drawing.Point(160, 137)
         Me.TB_HargaJual.MaxLength = 50
         Me.TB_HargaJual.Name = "TB_HargaJual"
         Me.TB_HargaJual.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -193,7 +193,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         'BTN_Simpan
         '
-        Me.BTN_Simpan.Location = New System.Drawing.Point(220, 303)
+        Me.BTN_Simpan.Location = New System.Drawing.Point(190, 279)
         Me.BTN_Simpan.Name = "BTN_Simpan"
         Me.BTN_Simpan.Size = New System.Drawing.Size(93, 34)
         Me.BTN_Simpan.TabIndex = 0
@@ -202,7 +202,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         'BTN_Batal
         '
-        Me.BTN_Batal.Location = New System.Drawing.Point(319, 303)
+        Me.BTN_Batal.Location = New System.Drawing.Point(308, 279)
         Me.BTN_Batal.Name = "BTN_Batal"
         Me.BTN_Batal.Size = New System.Drawing.Size(93, 34)
         Me.BTN_Batal.TabIndex = 0
@@ -213,7 +213,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(33, 192)
+        Me.Label5.Location = New System.Drawing.Point(22, 166)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(120, 32)
         Me.Label5.TabIndex = 0
@@ -235,7 +235,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_Jumlah.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Jumlah.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Jumlah.HoverState.Parent = Me.TB_Jumlah
-        Me.TB_Jumlah.Location = New System.Drawing.Point(171, 192)
+        Me.TB_Jumlah.Location = New System.Drawing.Point(160, 166)
         Me.TB_Jumlah.MaxLength = 50
         Me.TB_Jumlah.Name = "TB_Jumlah"
         Me.TB_Jumlah.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -250,7 +250,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(33, 221)
+        Me.Label6.Location = New System.Drawing.Point(22, 195)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(120, 32)
         Me.Label6.TabIndex = 0
@@ -272,7 +272,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_Subtotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Subtotal.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Subtotal.HoverState.Parent = Me.TB_Subtotal
-        Me.TB_Subtotal.Location = New System.Drawing.Point(171, 221)
+        Me.TB_Subtotal.Location = New System.Drawing.Point(160, 195)
         Me.TB_Subtotal.MaxLength = 50
         Me.TB_Subtotal.Name = "TB_Subtotal"
         Me.TB_Subtotal.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -286,7 +286,7 @@ Partial Class FormBuatLaporanBarangKeluar
         'RBTN_IDBRG
         '
         Me.RBTN_IDBRG.AutoSize = True
-        Me.RBTN_IDBRG.Location = New System.Drawing.Point(430, 78)
+        Me.RBTN_IDBRG.Location = New System.Drawing.Point(407, 50)
         Me.RBTN_IDBRG.Name = "RBTN_IDBRG"
         Me.RBTN_IDBRG.Size = New System.Drawing.Size(14, 13)
         Me.RBTN_IDBRG.TabIndex = 7
@@ -296,7 +296,7 @@ Partial Class FormBuatLaporanBarangKeluar
         'RBTN_NMBRG
         '
         Me.RBTN_NMBRG.AutoSize = True
-        Me.RBTN_NMBRG.Location = New System.Drawing.Point(430, 107)
+        Me.RBTN_NMBRG.Location = New System.Drawing.Point(407, 79)
         Me.RBTN_NMBRG.Name = "RBTN_NMBRG"
         Me.RBTN_NMBRG.Size = New System.Drawing.Size(14, 13)
         Me.RBTN_NMBRG.TabIndex = 7
@@ -305,7 +305,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         'BTN_OK
         '
-        Me.BTN_OK.Location = New System.Drawing.Point(461, 102)
+        Me.BTN_OK.Location = New System.Drawing.Point(427, 74)
         Me.BTN_OK.Name = "BTN_OK"
         Me.BTN_OK.Size = New System.Drawing.Size(60, 23)
         Me.BTN_OK.TabIndex = 8
@@ -316,7 +316,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(33, 131)
+        Me.Label7.Location = New System.Drawing.Point(22, 105)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(120, 32)
         Me.Label7.TabIndex = 0
@@ -338,7 +338,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_HargaBeli.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_HargaBeli.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_HargaBeli.HoverState.Parent = Me.TB_HargaBeli
-        Me.TB_HargaBeli.Location = New System.Drawing.Point(171, 131)
+        Me.TB_HargaBeli.Location = New System.Drawing.Point(160, 105)
         Me.TB_HargaBeli.MaxLength = 50
         Me.TB_HargaBeli.Name = "TB_HargaBeli"
         Me.TB_HargaBeli.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -353,7 +353,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.lbl_untungrugi.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_untungrugi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_untungrugi.Location = New System.Drawing.Point(33, 250)
+        Me.lbl_untungrugi.Location = New System.Drawing.Point(22, 224)
         Me.lbl_untungrugi.Name = "lbl_untungrugi"
         Me.lbl_untungrugi.Size = New System.Drawing.Size(120, 32)
         Me.lbl_untungrugi.TabIndex = 0
@@ -375,7 +375,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_Keuntungan.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Keuntungan.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Keuntungan.HoverState.Parent = Me.TB_Keuntungan
-        Me.TB_Keuntungan.Location = New System.Drawing.Point(171, 250)
+        Me.TB_Keuntungan.Location = New System.Drawing.Point(160, 224)
         Me.TB_Keuntungan.MaxLength = 50
         Me.TB_Keuntungan.Name = "TB_Keuntungan"
         Me.TB_Keuntungan.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -390,7 +390,7 @@ Partial Class FormBuatLaporanBarangKeluar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(533, 384)
+        Me.ClientSize = New System.Drawing.Size(499, 346)
         Me.Controls.Add(Me.BTN_OK)
         Me.Controls.Add(Me.RBTN_NMBRG)
         Me.Controls.Add(Me.RBTN_IDBRG)
