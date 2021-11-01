@@ -8,23 +8,30 @@ Module utils
     Public ReadOnly ValidCharsWithSpaceNoNum As String =
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
 
-    Private configpath As String = ".\config.conf"
+    Private path As String = ".\config.conf"
 
     Public Function config()
-        Dim list As New List(Of String)
-        Dim hashtable As New Hashtable()
+        Dim dictionary = New Dictionary(Of String, String)
         Try
-            Using Reader As New StreamReader(configpath)
+            Using Reader As New StreamReader(path)
                 While Reader.Peek <> -1
                     Dim splitter = Reader.ReadLine().Trim().Split("=")
-                    hashtable.Add(splitter(0).Trim(), splitter(1).Trim())
+                    Dim one = splitter(0).Trim()
+                    Dim two = splitter(1).Trim()
+                    dictionary.Add(one, two)
                 End While
             End Using
         Catch ex As Exception
             MsgBox("File config.conf tidak ditemukan!!")
             BusinessCenter.Close()
         End Try
-        Return hashtable
+        Debug.WriteLine(dictionary.ContainsValue("penjualan_db"))
+        Debug.WriteLine(dictionary.ContainsKey("SERVER"))
+        Dim d = New List(Of String)
+        For Each kvp As KeyValuePair(Of String, String) In dictionary
+            d.Add(kvp.Value)
+        Next
+        Return d
     End Function
 
     Public Function is_empty(frm As Form)

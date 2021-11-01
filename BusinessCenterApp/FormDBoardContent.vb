@@ -18,7 +18,9 @@
 
     Private Sub DBoardContent_Load(sender As Object, e As EventArgs) Handles Me.Load
         Timer1.Enabled = True
-
+        Label5.Text = connect.total_brg_keluar()
+        Jmlh_BT.Text = db_barang.get_total_stock()
+        Label3.Text = db_barang.get_barang_habis()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -56,6 +58,10 @@
     End Sub
 
     Private Sub PNL_BKLIST_Paint(sender As Object, e As PaintEventArgs) Handles PNL_BKLIST.Paint
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
     End Sub
 End Class

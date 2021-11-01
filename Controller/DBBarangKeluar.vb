@@ -251,9 +251,9 @@ Public Class DBBarangKeluar
         End If
     End Function
 
-    Public Function restore_stock(nota, stok_edit)
+    Public Function restore_stock(nota, stok_edit, subtotal, keuntungan)
         openConn()
-        Cmd = New SqlCommand("SELECT id_barang FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", Conn)
+        Cmd = New SqlCommand("SELECT id_barang FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", conn)
         Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
         Dim rd = Cmd.ExecuteReader()
         Dim r As Integer
@@ -262,38 +262,47 @@ Public Class DBBarangKeluar
         End While
         closeConn()
         openConn()
-        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", Conn)
+        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", conn)
         Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
         Dim stok_sekarang = Cmd.ExecuteScalar()
         closeConn()
         openConn()
-        Cmd = New SqlCommand($"SELECT jumlah FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", Conn)
+        Cmd = New SqlCommand($"SELECT jumlah FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", conn)
         Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
         Dim jumlah_keluar = Cmd.ExecuteScalar()
         closeConn()
-        openConn()
-        Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", Conn)
-        Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_sekarang + jumlah_keluar
-        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
-        Cmd.ExecuteNonQuery()
-        closeConn()
-        openConn()
-        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", Conn)
-        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
-        Dim stok_kemudian = Cmd.ExecuteScalar()
-        closeConn()
-        openConn()
-        Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", Conn)
-        Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_kemudian - Val(stok_edit)
-        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
-        Cmd.ExecuteNonQuery()
-        closeConn()
-        openConn()
-        Cmd = New SqlCommand("UPDATE tbl_barang_keluar SET jumlah = @stok WHERE no_nota_keluar = @nota", Conn)
-        Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = Val(stok_edit)
-        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
-        Cmd.ExecuteNonQuery()
-        closeConn()
-        Return Status.Success
+        If stok_edit > stok_sekarang + jumlah_keluar Then
+            Return Status.DataError
+        Else
+            If jumlah_keluar = stok_edit Then
+                Return Status.DataIncomplete
+            End If
+            openConn()
+            Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", conn)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_sekarang + jumlah_keluar
+            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
+            Cmd.ExecuteNonQuery()
+            closeConn()
+            openConn()
+            Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", conn)
+            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
+            Dim stok_kemudian = Cmd.ExecuteScalar()
+            closeConn()
+            openConn()
+            Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", conn)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_kemudian - Val(stok_edit)
+            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
+            Cmd.ExecuteNonQuery()
+            closeConn()
+            openConn()
+            Cmd = New SqlCommand("UPDATE tbl_barang_keluar SET jumlah = @stok, subtotal = @subtotal, keuntungan = @keuntungan WHERE no_nota_keluar = @nota", conn)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = Val(stok_edit)
+            Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
+            Cmd.Parameters.Add("@subtotal", SqlDbType.Int).Value = subtotal
+            Cmd.Parameters.Add("@keuntungan", SqlDbType.Int).Value = keuntungan
+            Cmd.ExecuteNonQuery()
+            closeConn()
+            Return Status.Success
+        End If
     End Function
 End Class
