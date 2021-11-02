@@ -54,7 +54,6 @@ Public MustInherit Class BaseConnection
 
     Public Sub openConn()
         If conn.State = ConnectionState.Closed Then
-            Debug.WriteLine($"DEBUG: {config()(0)}")
             conn.Open()
         End If
     End Sub

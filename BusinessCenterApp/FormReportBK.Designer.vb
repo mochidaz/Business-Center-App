@@ -27,7 +27,7 @@ Partial Class FormReportBK
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.tanggal = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'CrystalReportViewer1
@@ -84,21 +84,20 @@ Partial Class FormReportBK
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Tanggal"
         '
-        'DateTimePicker1
+        'tanggal
         '
-        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(118, 29)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 3
+        Me.tanggal.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.tanggal.Location = New System.Drawing.Point(128, 29)
+        Me.tanggal.Name = "tanggal"
+        Me.tanggal.Size = New System.Drawing.Size(200, 20)
+        Me.tanggal.TabIndex = 3
         '
         'FormReportBK
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(909, 535)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.tanggal)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
@@ -106,6 +105,7 @@ Partial Class FormReportBK
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormReportBK"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Report Barang Keluar"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -117,5 +117,5 @@ Partial Class FormReportBK
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents tanggal As DateTimePicker
 End Class

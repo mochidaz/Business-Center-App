@@ -23,11 +23,11 @@ Public Class FormReportBK
                 crtablelogoninfo.ConnectionInfo = crconnectioninfo
                 crtable.ApplyLogOnInfo(crtablelogoninfo)
             Next
-            CrystalReportViewer1.SelectionFormula = "({tbl_barang_keluar.tanggal})=#" & DateTimePicker1.Text & "#"
+            CrystalReportViewer1.SelectionFormula = "({tbl_barang_keluar.tanggal})= date ('" & tanggal.Text & "')"
             CrystalReportViewer1.ReportSource = crypt
             CrystalReportViewer1.Refresh()
             CrystalReportViewer1.RefreshReport()
-            Debug.WriteLine(DateTimePicker1.Text)
+            Debug.WriteLine(tanggal.Text)
         Catch ex As Exception
 
         End Try
@@ -39,5 +39,9 @@ Public Class FormReportBK
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         CrystalReportViewer1.ExportReport()
+    End Sub
+
+    Private Sub FormReportBK_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        CrystalReportViewer1.ReportSource = Nothing
     End Sub
 End Class

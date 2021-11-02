@@ -43,11 +43,11 @@ Public Class DBBarangKeluar
         Call closeConn()
     End Function
 
-    Public Function TambahLaporanBK(nota_keluar As String, id_barang As Integer, jumlah As Integer, subtotal As Integer, uid As Integer, keuntungan As Integer, kerugian As Integer, stok As Integer)
+    Public Function TambahLaporanBK(nota_keluar As String, id_barang As Integer, jumlah As Integer, subtotal As Integer, uid As Integer, keuntungan As Integer, kerugian As Integer, stok As Integer, harbel As Integer, harual As Integer)
         If LaporanExist(nota_keluar) = False Then
             If jumlah <= bKstok Then
-                Cmd = New SqlCommand("INSERT INTO tbl_barang_keluar (no_nota_keluar, id_barang, jumlah, subtotal, tanggal, uid, keuntungan, kerugian, jam)
-                                  VALUES ('" & nota_keluar & "','" & id_barang & "','" & jumlah & "','" & subtotal & "','" & Date.Now.ToString("yyyy/MM/dd") & "','" & uid & "','" & keuntungan & "','" & kerugian & "','" & TimeOfDay.ToString("HH:mm:ss") & "')", Conn)
+                Cmd = New SqlCommand("INSERT INTO tbl_barang_keluar (no_nota_keluar, id_barang, jumlah, subtotal, tanggal, uid, keuntungan, kerugian, jam, harga_beli, harga_jual)
+                                  VALUES ('" & nota_keluar & "','" & id_barang & "','" & jumlah & "','" & subtotal & "','" & Date.Now.ToString("yyyy/MM/dd") & "','" & uid & "','" & keuntungan & "','" & kerugian & "','" & TimeOfDay.ToString("HH:mm:ss") & "','" & harbel & "','" & harual & "')", conn)
                 Call openConn()
                 Try
                     If MessageBox.Show("Yakin ingin menyimpan laporan tersebut?", "Warning!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
@@ -104,13 +104,13 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function searchLPBK(searchbox As String)
-        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang.harga_beli, tbl_barang.harga_jual, 
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
                               tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
                               tbl_barang_keluar.tanggal,tbl_barang_keluar.jam, tbl_user.fullname 
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
                               JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
-                              WHERE tbl_barang.nama_barang LIKE '%" + searchbox + "%' OR tbl_barang_keluar.no_nota_keluar LIKE '%" + searchbox + "%'", Conn)
+                              WHERE tbl_barang.nama_barang LIKE '%" + searchbox + "%' OR tbl_barang_keluar.no_nota_keluar LIKE '%" + searchbox + "%'", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
@@ -150,12 +150,12 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function SelectToTable()
-        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang.harga_beli, tbl_barang.harga_jual, 
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
                               tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
                               tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
-                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid", Conn)
+                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
@@ -167,11 +167,11 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function getinfobrgkluar(no_nota_keluar As String)
-        Cmd = New SqlCommand("SELECT tbl_barang.nama_barang, tbl_barang.harga_beli, tbl_barang.harga_jual, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal,
+        Cmd = New SqlCommand("SELECT tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal,
                               tbl_barang_keluar.jam, tbl_barang.id_barang, tbl_barang.stok
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
-                              WHERE no_nota_keluar = '" & no_nota_keluar & "'", Conn)
+                              WHERE no_nota_keluar = '" & no_nota_keluar & "'", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using table = New DataTable
                 Call openConn()

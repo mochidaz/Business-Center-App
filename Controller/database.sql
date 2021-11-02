@@ -15,8 +15,6 @@ CREATE TABLE [dbo].[tbl_user] (
     CONSTRAINT [PK_tbl_user] PRIMARY KEY CLUSTERED ([uid] ASC)
 );
 
-INSERT INTO [dbo].[tbl_user] (fullname, username, password, status) VALUES ("Admin", "admin", "0192023a7bbd73250516f069df18b500", "admin")
-
 CREATE TABLE [dbo].[tbl_barang] (
     [id_barang]   INT          IDENTITY (1, 1) NOT NULL,
     [nama_barang] VARCHAR (50) NOT NULL,
@@ -29,9 +27,12 @@ CREATE TABLE [dbo].[tbl_barang] (
 CREATE TABLE [dbo].[tbl_barang_keluar] (
     [no_nota_keluar] VARCHAR (50)  NOT NULL,
     [id_barang]      INT           NOT NULL,
+    [harga_beli]     INT           NOT NULL,
+    [harga_jual]     INT           NOT NULL,
     [jumlah]         INT           NOT NULL,
     [subtotal]       INT           NOT NULL,
-    [tanggal]        SMALLDATETIME NOT NULL,
+    [tanggal]        date          NOT NULL,
+    [jam]            time (0)      NOT NULL,
     [uid]            INT           NOT NULL,
     [keuntungan]     INT           NOT NULL,
     [kerugian]       INT           NOT NULL,

@@ -130,7 +130,7 @@
 
     Private Sub BTN_Simpan_Click(sender As Object, e As EventArgs) Handles BTN_Simpan.Click
         If emptyTextBox(Me) = False Then
-            Dim insert = connect.TambahLaporanBK(TB_NoNota.Text, Val(TB_IDBRG.Text), Val(TB_Jumlah.Text), bKstotal, vUid, bKuntung, bKrugi, bKstok)
+            Dim insert = connect.TambahLaporanBK(TB_NoNota.Text, Val(TB_IDBRG.Text), Val(TB_Jumlah.Text), bKstotal, vUid, bKuntung, bKrugi, bKstok, bKhb, bKhj)
             If insert = Status.Success Then
                 MessageBox.Show("Berhasil menambahkan laporan barang keluar")
                 ClearTextBox(Me)
