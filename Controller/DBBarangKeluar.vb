@@ -72,7 +72,7 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function DeleteLaporanBK(no_nota_keluar As String, id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
-        Cmd = New SqlCommand("DELETE FROM tbl_barang_keluar WHERE no_nota_keluar = '" & no_nota_keluar & "'", Conn)
+        Cmd = New SqlCommand("DELETE FROM tbl_barang_keluar WHERE no_nota_keluar = '" & no_nota_keluar & "'", conn)
         Try
             If MessageBox.Show("Yakin ingin menghapus Laporan Barang Keluar tersebut?", "Warning!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
                 Exit Function
@@ -91,7 +91,7 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function LaporanExist(nota_keluar As String)
-        Using Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota_keluar & "'", Conn)
+        Using Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota_keluar & "'", conn)
             Call openConn()
             Dim result = Cmd.ExecuteScalar()
             If Convert.ToInt32(result) = 0 Then
@@ -122,7 +122,7 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function penguranganStok(id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
-        Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & stokbrg - jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", Conn)
+        Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & stokbrg - jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", conn)
         Try
             Call openConn()
             Cmd.ExecuteNonQuery()
@@ -136,7 +136,7 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function pengembalianStok(id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
-        Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & stokbrg + jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", Conn)
+        Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & stokbrg + jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", conn)
         Try
             Call openConn()
             Cmd.ExecuteNonQuery()
