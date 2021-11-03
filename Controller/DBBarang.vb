@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports Excel = Microsoft.Office.Interop.Excel
+
 Public Class DBBarang
     Inherits BaseConnection
 
@@ -212,6 +214,29 @@ Public Class DBBarang
         Else
             Return val
         End If
+    End Function
+
+    Public Function get_excel_barang(file_name, save)
+        Dim xlapp As Excel.Application = New Excel.Application
+        Dim wb As Excel.Workbook
+        Dim ws As Excel.Worksheet
+        Dim misvalue = Reflection.Missing.Value
+
+        wb = xlapp.Workbooks.Add(misvalue)
+        ws = wb.Sheets(file_name)
+        Dim adapter = New SqlDataAdapter("SELECT * FROM tbl_barang", conn)
+        Dim ds As DataSet
+        adapter.Fill(ds)
+
+        For i = 0 To ds.Tables(0).Rows.Count - 1
+            For j = 0 To ds.Tables(0).Columns.Count - 1
+                ws.Cells(i + 1, j + 1) = ds.Tables(0).Rows(i).Item(j)
+            Next
+        Next
+
+        ws.SaveAs(save & "\" & file_name)
+        wb.Close()
+        xlapp.Quit()
     End Function
 
 End Class
