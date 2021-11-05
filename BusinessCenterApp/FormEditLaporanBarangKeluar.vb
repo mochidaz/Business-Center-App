@@ -11,14 +11,11 @@
 
     Private Sub FormEditLaporanBarangKeluar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         kondisiawal()
+        TB_NoNota.Text = Nothing
     End Sub
 
     Private Sub FormEditLaporanBarangKeluar_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         TB_NoNota.Text = Nothing
-        kondisiawal()
-    End Sub
-
-    Private Sub TB_NoNota_TextChanged(sender As Object, e As EventArgs) Handles TB_NoNota.TextChanged
         kondisiawal()
     End Sub
 
@@ -36,74 +33,101 @@
         End If
     End Sub
 
-    Private Sub BTN_OKUID_Click(sender As Object, e As EventArgs) Handles BTN_OK.Click
-        If TB_NoNota.Text = Nothing Then
-            MessageBox.Show("Harap masukkan No Nota Keluar yang ingin di edit atau dihapus")
-            kondisiawal()
+    Private Sub BTN_OKnota_Click(sender As Object, e As EventArgs) Handles BTN_OKnota.Click
+        If BTN_OKnota.Text = "OK" Then
+            If TB_NoNota.Text = Nothing Then
+                MessageBox.Show("Harap masukkan No Nota Keluar yang ingin di edit atau dihapus")
+                kondisiawal()
+            Else
+                Dim bkinfo = connect.showdgvbk_nota(TB_NoNota.Text, DataGridView1)
+                If bkinfo = Status.Success Then
+                    kondisiOKnota()
+                    TB_Tanggal.Text = ebKtgl
+                    TB_Jam.Text = ebKjam
+                Else
+                    MessageBox.Show("No Nota Keluar tidak ada!!")
+                    kondisiawal()
+                End If
+            End If
         Else
-            Dim bkinfo = connect.getinfobrgkluar(TB_NoNota.Text)
-            If bkinfo = Status.Success Then
-                TB_NamaBrg.Text = ebKname
+            kondisiawal()
+        End If
+    End Sub
+
+    Private Sub BTN_OKid_Click(sender As Object, e As EventArgs) Handles BTN_OKid.Click
+        If TB_IDBRG.Text = Nothing Then
+            clearTB()
+            clearVar()
+            BTN_DeleteBrg.Enabled = False
+            MessageBox.Show("Harap masukkan id barang disamping yang ingin dihapus atau diedit!!")
+        Else
+            Dim lpbk = connect.showinfbk_idbrg(TB_NoNota.Text, Val(TB_IDBRG.Text), DataGridView1)
+            If lpbk = Status.Success Then
                 TB_HargaBeli.Text = ebKhb
                 TB_HargaJual.Text = ebKhj
-                TB_Jumlah.Text = ebKjml
-                TB_Tanggal.Text = ebKtgl
-                TB_Jam.Text = ebKjam
-                kondisiOK()
+                kondisiOKid()
             Else
-                MessageBox.Show("No Nota Keluar tidak ada!!")
-                kondisiawal()
+                BTN_DeleteBrg.Enabled = False
+                clearTB()
+                clearVar()
+                MessageBox.Show("ID Barang tidak ada!!")
             End If
         End If
     End Sub
 
+    Private Sub BTN_SimpanBrg_Click(sender As Object, e As EventArgs) Handles BTN_SimpanBrg.Click
+        If Val(TB_Jumlah.Text) = ebKjml Then
+            MessageBox.Show("Tidak ada yang dirubah")
+        Else
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                If row.Cells(0).Value = Val(TB_IDBRG.Text) Then
+                    row.Cells(4).Value = Val(TB_Jumlah.Text)
+                    row.Cells(5).Value = ebKstot
+                    row.Cells(6).Value = ebKuntung
+                    row.Cells(7).Value = ebKrugi
+                End If
+            Next
+            BTN_SimpanNota.Enabled = True
+        End If
 
-    Private Sub BTN_SIMPAN_Click(sender As Object, e As EventArgs) Handles BTN_SIMPAN.Click
-        Dim r = connect.restore_stock(TB_NoNota.Text, TB_Jumlah.Text, Val(TB_Subtotal.Text), Val(TB_Keuntungan.Text))
-        If r = Status.Success Then
-            MessageBox.Show("Berhasil mengedit!")
+    End Sub
+
+    Private Sub BTN_DeleteBrg_Click(sender As Object, e As EventArgs) Handles BTN_DeleteBrg.Click
+        Dim dlt = connect.DeleteBarangLPBK(TB_NoNota.Text, Val(TB_IDBRG.Text), DataGridView1)
+        If dlt = Status.Success Then
+            MessageBox.Show("Berhasil menghapus barang!!")
             kondisiawal()
+            FormBKeluarContent.showtbl()
+        End If
+    End Sub
+
+    Private Sub BTN_SimpanNota_Click(sender As Object, e As EventArgs) Handles BTN_SimpanNota.Click
+        Dim r = connect.EditLaporanBK(DataGridView1, TB_NoNota.Text)
+        If r = Status.Success Then
+            MessageBox.Show("Edit Nota Berhasil!!")
+            kondisiawal()
+            BTN_OKid.Enabled = False
             FormBKeluarContent.showtbl()
         ElseIf r = Status.DataIncomplete Then
             MessageBox.Show("Tidak ada yang diedit!!")
-            kondisiawal()
         Else
-            MessageBox.Show("Gagal mengedit!")
-            kondisiawal()
+            MessageBox.Show("Jumlah pada salah satu barang melebihi stok yang ada!!")
         End If
-        TB_NoNota.Enabled = True
     End Sub
 
-    Private Sub BTN_DELETE_Click(sender As Object, e As EventArgs) Handles BTN_DELETE.Click
-        Dim bk = connect.DeleteLaporanBK(TB_NoNota.Text, ebKid, ebKstok, Val(TB_Jumlah.Text))
+    Private Sub BTN_DeleteNota_Click(sender As Object, e As EventArgs) Handles BTN_DeleteNota.Click
+        Dim bk = connect.DeleteLaporanBK(TB_NoNota.Text, DataGridView1)
         If bk = Status.Success Then
             MessageBox.Show("Berhasil menghapus Laporan Barang Keluar")
             kondisiawal()
+            TB_NoNota.Text = Nothing
             FormBKeluarContent.showtbl()
-        End If
-    End Sub
-
-    Private Sub BTN_Edit_Click(sender As Object, e As EventArgs) Handles BTN_Edit.Click
-        If BTN_Edit.Text = "Edit" Then
-            BTN_Edit.Text = "Cancel"
-            TB_Jumlah.Enabled = True
-            BTN_SIMPAN.Enabled = True
-            TB_NoNota.Enabled = False
-            BTN_OK.Enabled = False
-            BTN_DELETE.Enabled = False
-        Else
-            BTN_Edit.Text = "Edit"
-            TB_Jumlah.Text = ebKjml
-            TB_Jumlah.Enabled = False
-            BTN_SIMPAN.Enabled = False
-            TB_NoNota.Enabled = True
-            BTN_OK.Enabled = True
-            BTN_DELETE.Enabled = True
         End If
     End Sub
 
     Private Sub TB_Jumlah_TextChanged(sender As Object, e As EventArgs) Handles TB_Jumlah.TextChanged
-        TB_Subtotal.Text = ebKhj * Val(TB_Jumlah.Text)
+        ebKstot = ebKhj * Val(TB_Jumlah.Text)
+        TB_Subtotal.Text = ebKstot
         If ebKhb < ebKhj Then
             lbl_untungrugi.Text = "Keuntungan"
             ebKuntung = (ebKhj - ebKhb) * Val(TB_Jumlah.Text)
@@ -115,40 +139,68 @@
             ebKuntung = 0
             TB_Keuntungan.Text = ebKrugi
         End If
+        If TB_Jumlah.Text.Length > 0 Then
+            BTN_SimpanBrg.Enabled = True
+        Else
+            BTN_SimpanBrg.Enabled = False
+        End If
+    End Sub
+
+    Private Sub TB_IDBRG_TextChanged(sender As Object, e As EventArgs) Handles TB_IDBRG.TextChanged
+        clearTB()
+        clearVar()
+        TB_Jumlah.Enabled = False
+        BTN_OKid.Enabled = True
+        BTN_DeleteBrg.Enabled = False
     End Sub
 
     Sub kondisiawal()
-        BTN_Edit.Text = "Edit"
+        DataGridView1.Rows.Clear()
+        BTN_OKnota.Text = "OK"
         TB_NoNota.Enabled = True
-        BTN_OK.Enabled = True
+        BTN_OKnota.Enabled = True
         TB_Jumlah.Enabled = False
-        BTN_SIMPAN.Enabled = False
-        BTN_DELETE.Enabled = False
-        BTN_Edit.Enabled = False
+        BTN_OKid.Enabled = False
+        BTN_SimpanNota.Enabled = False
+        BTN_DeleteNota.Enabled = False
+        BTN_SimpanBrg.Enabled = False
+        BTN_DeleteBrg.Enabled = False
+        BTN_OKid.Enabled = False
+        TB_IDBRG.Enabled = False
+        TB_IDBRG.Text = Nothing
+        TB_Tanggal.Text = Nothing
+        TB_Jam.Text = Nothing
         clearTB()
         clearVar()
     End Sub
 
-    Sub kondisiOK()
-        BTN_Edit.Enabled = True
-        BTN_DELETE.Enabled = True
+    Sub kondisiOKid()
+        kondisiOKnota()
+        BTN_SimpanNota.Enabled = False
+        BTN_SimpanBrg.Enabled = False
+        BTN_OKnota.Enabled = True
+        BTN_DeleteBrg.Enabled = True
+        TB_Jumlah.Enabled = True
+    End Sub
+
+    Sub kondisiOKnota()
+        BTN_OKnota.Text = "Cancel"
+        BTN_OKid.Enabled = True
+        TB_NoNota.Enabled = False
+        TB_IDBRG.Enabled = True
+        BTN_DeleteNota.Enabled = True
     End Sub
 
     Sub clearTB()
-        TB_NamaBrg.Text = Nothing
-        TB_Tanggal.Text = Nothing
         TB_HargaBeli.Text = Nothing
         TB_HargaJual.Text = Nothing
         TB_Jumlah.Text = Nothing
         TB_Subtotal.Text = Nothing
         TB_Keuntungan.Text = Nothing
-        TB_Jam.Text = Nothing
     End Sub
 
     Sub clearVar()
         ebKname = vbNullString
-        ebKtgl = vbNullString
-        ebKjam = vbNullString
         eBhb = Nothing
         ebKhj = Nothing
         ebKjml = Nothing

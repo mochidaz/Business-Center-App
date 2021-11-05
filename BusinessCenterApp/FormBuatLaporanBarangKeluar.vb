@@ -2,31 +2,27 @@
     Dim connect As New DBBarangKeluar
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
-    Private Sub FormBuatLaporanBarangKeluar_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+    Private Sub FormLaporanBK_NewUnimplemented_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         kondisiawal()
         TB_NoNota.Text = Nothing
         TB_IDBRG.Text = Nothing
         TB_NamaBrg.Text = Nothing
+        DataGridView1.Rows.Clear()
     End Sub
 
-    Private Sub FormBuatLaporanBarangKeluar_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+    Private Sub FormLaporanBK_NewUnimplemented_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         kondisiawal()
         TB_NoNota.Text = Nothing
         TB_IDBRG.Text = Nothing
         TB_NamaBrg.Text = Nothing
+        DataGridView1.Rows.Clear()
     End Sub
 
     Private Sub TB_IDBRG_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB_IDBRG.KeyPress, TB_Jumlah.KeyPress
@@ -109,7 +105,7 @@
                     TB_HargaBeli.Text = bKhb
                     TB_HargaJual.Text = bKhj
                     TB_Jumlah.Enabled = True
-                    BTN_OK.Text = "CENCEL"
+                    BTN_OK.Text = "Cancel"
                     TB_NamaBrg.Enabled = False
                 Else
                     TB_IDBRG.Text = Nothing
@@ -125,21 +121,45 @@
             clearTB()
             clearVar()
         End If
+    End Sub
 
+    Private Sub BTN_TambahBrg_Click(sender As Object, e As EventArgs) Handles BTN_TambahBrg.Click
+        If bKstok > TB_Jumlah.Text Then
+            DataGridView1.Rows.Add(TB_IDBRG.Text, TB_NamaBrg.Text, bKhb, bKhj, TB_Jumlah.Text, bKstotal, bKuntung, bKrugi)
+            BTN_DeleteBrg.Enabled = True
+            BTN_Simpan.Enabled = True
+            kondisisetelahOK()
+        Else
+            MessageBox.Show("Jumlah barang keluar melebihi stok barang yang ada!!")
+        End If
+    End Sub
+
+    Private Sub BTN_DeleteBrg_Click(sender As Object, e As EventArgs) Handles BTN_DeleteBrg.Click
+        Dim i As Integer
+        i = DataGridView1.CurrentCell.RowIndex
+        DataGridView1.Rows.RemoveAt(i)
+        If DataGridView1.RowCount > 0 Then
+            BTN_DeleteBrg.Enabled = True
+            BTN_Simpan.Enabled = True
+        Else
+            BTN_DeleteBrg.Enabled = False
+            BTN_Simpan.Enabled = False
+        End If
     End Sub
 
     Private Sub BTN_Simpan_Click(sender As Object, e As EventArgs) Handles BTN_Simpan.Click
-        If emptyTextBox(Me) = False Then
-            Dim insert = connect.TambahLaporanBK(TB_NoNota.Text, Val(TB_IDBRG.Text), Val(TB_Jumlah.Text), bKstotal, vUid, bKuntung, bKrugi, bKstok, bKhb, bKhj)
-            If insert = Status.Success Then
-                MessageBox.Show("Berhasil menambahkan laporan barang keluar")
+        If DataGridView1.RowCount > 0 Then
+            Dim lpbk = connect.TambahLaporanBK(DataGridView1, TB_NoNota.Text, vUid)
+            If lpbk = Status.Success Then
+                MessageBox.Show("Berhasil menambahkan laporan!!")
                 ClearTextBox(Me)
+                kondisiawal()
                 FormBKeluarContent.showtbl()
-            ElseIf insert = Status.LaporanExist Then
-                MessageBox.Show("Laporan dengan no nota yang sama sudah ada!!")
-            ElseIf insert = Status.StokBarangKosong Then
-                MessageBox.Show("Tidak dapat membuat laporan, karena jumlah barang keluar melebihi stok barang yang ada!!")
+            Else
+                MessageBox.Show("Gagal menambahkan laporan!!")
             End If
+        Else
+            MessageBox.Show("Barang belum ditambahkan!!")
         End If
     End Sub
 
@@ -161,15 +181,66 @@
             bKuntung = 0
             TB_Keuntungan.Text = bKrugi
         End If
+        If TB_Jumlah.Text.Length > 0 Then
+            BTN_TambahBrg.Enabled = True
+        Else
+            BTN_TambahBrg.Enabled = False
+        End If
+    End Sub
+
+    Private Sub BTN_OKNota_Click(sender As Object, e As EventArgs) Handles BTN_OKNota.Click
+        If BTN_OKNota.Text = "OK" Then
+            If TB_NoNota.Text.Length > 0 Then
+                Dim Le = connect.LaporanExist(TB_NoNota.Text)
+                If Le = False Then
+                    kondisisetelahOK()
+                Else
+                    MessageBox.Show("No Nota sudah ada!")
+                End If
+            Else
+                MessageBox.Show("No Nota tidak boleh kosong!")
+            End If
+        Else
+            kondisiawal()
+            DataGridView1.Rows.Clear()
+        End If
+    End Sub
+
+    Sub kondisisetelahOK()
+        clearTB()
+        clearVar()
+        BTN_OKNota.Text = "Cancel"
+        BTN_OK.Text = "OK"
+        TB_NoNota.Enabled = False
+        TB_IDBRG.Enabled = True
+        RBTN_IDBRG.Enabled = True
+        RBTN_NMBRG.Enabled = True
+        RBTN_IDBRG.Checked = True
+        RBTN_NMBRG.Checked = False
+        TB_IDBRG.Text = Nothing
+        TB_NamaBrg.Text = Nothing
     End Sub
 
     Sub kondisiawal()
-        TB_Jumlah.Enabled = False
         clearTB()
+        clearVar()
+        DataGridView1.Rows.Clear()
         RBTN_IDBRG.Checked = True
         RBTN_NMBRG.Checked = False
+        TB_IDBRG.Text = Nothing
+        TB_NamaBrg.Text = Nothing
+        RBTN_IDBRG.Enabled = False
+        RBTN_NMBRG.Enabled = False
         BTN_OK.Enabled = False
-        clearVar()
+        TB_IDBRG.Enabled = False
+        TB_NamaBrg.Enabled = False
+        TB_Jumlah.Enabled = False
+        TB_NoNota.Enabled = True
+        BTN_Simpan.Enabled = False
+        BTN_DeleteBrg.Enabled = False
+        BTN_TambahBrg.Enabled = False
+        BTN_OK.Text = "OK"
+        BTN_OKNota.Text = "OK"
     End Sub
 
     Sub clearTB()
@@ -208,4 +279,5 @@
     Private Sub TB_Keuntungan_TextChanged(sender As Object, e As EventArgs) Handles TB_Keuntungan.TextChanged
         formatUang(TB_Keuntungan)
     End Sub
+
 End Class

@@ -22,10 +22,9 @@ Partial Class FormEditLaporanBarangKeluar
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TB_NoNota = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TB_NamaBrg = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.TB_Keuntungan = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lbl_untungrugi = New System.Windows.Forms.Label()
         Me.TB_Subtotal = New Guna.UI2.WinForms.Guna2TextBox()
@@ -36,13 +35,27 @@ Partial Class FormEditLaporanBarangKeluar
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TB_HargaJual = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.BTN_SIMPAN = New System.Windows.Forms.Button()
-        Me.BTN_DELETE = New System.Windows.Forms.Button()
-        Me.BTN_OK = New System.Windows.Forms.Button()
-        Me.BTN_Edit = New System.Windows.Forms.Button()
+        Me.BTN_SimpanNota = New System.Windows.Forms.Button()
+        Me.BTN_DeleteBrg = New System.Windows.Forms.Button()
+        Me.BTN_OKnota = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TB_Tanggal = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TB_Jam = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TB_IDBRG = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.BTN_DeleteNota = New System.Windows.Forms.Button()
+        Me.BTN_OKid = New System.Windows.Forms.Button()
+        Me.BTN_SimpanBrg = New System.Windows.Forms.Button()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TB_NoNota
@@ -60,7 +73,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_NoNota.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_NoNota.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_NoNota.HoverState.Parent = Me.TB_NoNota
-        Me.TB_NoNota.Location = New System.Drawing.Point(171, 47)
+        Me.TB_NoNota.Location = New System.Drawing.Point(157, 36)
         Me.TB_NoNota.MaxLength = 50
         Me.TB_NoNota.Name = "TB_NoNota"
         Me.TB_NoNota.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -75,48 +88,11 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(33, 49)
+        Me.Label1.Location = New System.Drawing.Point(19, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(120, 23)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "No Nota Keluar"
-        '
-        'TB_NamaBrg
-        '
-        Me.TB_NamaBrg.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TB_NamaBrg.DefaultText = ""
-        Me.TB_NamaBrg.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TB_NamaBrg.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TB_NamaBrg.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_NamaBrg.DisabledState.Parent = Me.TB_NamaBrg
-        Me.TB_NamaBrg.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_NamaBrg.Enabled = False
-        Me.TB_NamaBrg.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_NamaBrg.FocusedState.Parent = Me.TB_NamaBrg
-        Me.TB_NamaBrg.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TB_NamaBrg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.TB_NamaBrg.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_NamaBrg.HoverState.Parent = Me.TB_NamaBrg
-        Me.TB_NamaBrg.Location = New System.Drawing.Point(171, 107)
-        Me.TB_NamaBrg.MaxLength = 50
-        Me.TB_NamaBrg.Name = "TB_NamaBrg"
-        Me.TB_NamaBrg.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TB_NamaBrg.PlaceholderText = ""
-        Me.TB_NamaBrg.SelectedText = ""
-        Me.TB_NamaBrg.ShadowDecoration.Parent = Me.TB_NamaBrg
-        Me.TB_NamaBrg.Size = New System.Drawing.Size(241, 23)
-        Me.TB_NamaBrg.TabIndex = 11
-        Me.TB_NamaBrg.TabStop = False
-        '
-        'Label3
-        '
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(33, 107)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 23)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Nama Barang"
         '
         'TB_Keuntungan
         '
@@ -134,7 +110,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Keuntungan.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Keuntungan.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Keuntungan.HoverState.Parent = Me.TB_Keuntungan
-        Me.TB_Keuntungan.Location = New System.Drawing.Point(171, 252)
+        Me.TB_Keuntungan.Location = New System.Drawing.Point(157, 239)
         Me.TB_Keuntungan.MaxLength = 50
         Me.TB_Keuntungan.Name = "TB_Keuntungan"
         Me.TB_Keuntungan.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -149,7 +125,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.lbl_untungrugi.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_untungrugi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_untungrugi.Location = New System.Drawing.Point(33, 252)
+        Me.lbl_untungrugi.Location = New System.Drawing.Point(19, 239)
         Me.lbl_untungrugi.Name = "lbl_untungrugi"
         Me.lbl_untungrugi.Size = New System.Drawing.Size(120, 23)
         Me.lbl_untungrugi.TabIndex = 12
@@ -171,7 +147,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Subtotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Subtotal.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Subtotal.HoverState.Parent = Me.TB_Subtotal
-        Me.TB_Subtotal.Location = New System.Drawing.Point(171, 223)
+        Me.TB_Subtotal.Location = New System.Drawing.Point(157, 210)
         Me.TB_Subtotal.MaxLength = 50
         Me.TB_Subtotal.Name = "TB_Subtotal"
         Me.TB_Subtotal.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -186,7 +162,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(33, 223)
+        Me.Label6.Location = New System.Drawing.Point(19, 210)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(120, 23)
         Me.Label6.TabIndex = 13
@@ -208,7 +184,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Jumlah.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Jumlah.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Jumlah.HoverState.Parent = Me.TB_Jumlah
-        Me.TB_Jumlah.Location = New System.Drawing.Point(171, 194)
+        Me.TB_Jumlah.Location = New System.Drawing.Point(157, 181)
         Me.TB_Jumlah.MaxLength = 50
         Me.TB_Jumlah.Name = "TB_Jumlah"
         Me.TB_Jumlah.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -223,7 +199,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(33, 194)
+        Me.Label5.Location = New System.Drawing.Point(19, 181)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(120, 23)
         Me.Label5.TabIndex = 14
@@ -245,7 +221,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_HargaBeli.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_HargaBeli.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_HargaBeli.HoverState.Parent = Me.TB_HargaBeli
-        Me.TB_HargaBeli.Location = New System.Drawing.Point(171, 136)
+        Me.TB_HargaBeli.Location = New System.Drawing.Point(157, 123)
         Me.TB_HargaBeli.MaxLength = 50
         Me.TB_HargaBeli.Name = "TB_HargaBeli"
         Me.TB_HargaBeli.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -260,7 +236,7 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(33, 136)
+        Me.Label7.Location = New System.Drawing.Point(19, 123)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(120, 23)
         Me.Label7.TabIndex = 15
@@ -282,7 +258,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_HargaJual.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_HargaJual.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_HargaJual.HoverState.Parent = Me.TB_HargaJual
-        Me.TB_HargaJual.Location = New System.Drawing.Point(171, 165)
+        Me.TB_HargaJual.Location = New System.Drawing.Point(157, 152)
         Me.TB_HargaJual.MaxLength = 50
         Me.TB_HargaJual.Name = "TB_HargaJual"
         Me.TB_HargaJual.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -297,57 +273,47 @@ Partial Class FormEditLaporanBarangKeluar
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(33, 165)
+        Me.Label4.Location = New System.Drawing.Point(19, 152)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(120, 23)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Harga Jual"
         '
-        'BTN_SIMPAN
+        'BTN_SimpanNota
         '
-        Me.BTN_SIMPAN.Location = New System.Drawing.Point(321, 301)
-        Me.BTN_SIMPAN.Name = "BTN_SIMPAN"
-        Me.BTN_SIMPAN.Size = New System.Drawing.Size(91, 27)
-        Me.BTN_SIMPAN.TabIndex = 25
-        Me.BTN_SIMPAN.TabStop = False
-        Me.BTN_SIMPAN.Text = "Simpan"
-        Me.BTN_SIMPAN.UseVisualStyleBackColor = True
+        Me.BTN_SimpanNota.Location = New System.Drawing.Point(868, 367)
+        Me.BTN_SimpanNota.Name = "BTN_SimpanNota"
+        Me.BTN_SimpanNota.Size = New System.Drawing.Size(91, 37)
+        Me.BTN_SimpanNota.TabIndex = 25
+        Me.BTN_SimpanNota.TabStop = False
+        Me.BTN_SimpanNota.Text = "Simpan Nota"
+        Me.BTN_SimpanNota.UseVisualStyleBackColor = True
         '
-        'BTN_DELETE
+        'BTN_DeleteBrg
         '
-        Me.BTN_DELETE.Location = New System.Drawing.Point(33, 301)
-        Me.BTN_DELETE.Name = "BTN_DELETE"
-        Me.BTN_DELETE.Size = New System.Drawing.Size(95, 27)
-        Me.BTN_DELETE.TabIndex = 26
-        Me.BTN_DELETE.TabStop = False
-        Me.BTN_DELETE.Text = "Delete"
-        Me.BTN_DELETE.UseVisualStyleBackColor = True
+        Me.BTN_DeleteBrg.Location = New System.Drawing.Point(19, 288)
+        Me.BTN_DeleteBrg.Name = "BTN_DeleteBrg"
+        Me.BTN_DeleteBrg.Size = New System.Drawing.Size(95, 28)
+        Me.BTN_DeleteBrg.TabIndex = 26
+        Me.BTN_DeleteBrg.TabStop = False
+        Me.BTN_DeleteBrg.Text = "Delete Barang"
+        Me.BTN_DeleteBrg.UseVisualStyleBackColor = True
         '
-        'BTN_OK
+        'BTN_OKnota
         '
-        Me.BTN_OK.Location = New System.Drawing.Point(416, 47)
-        Me.BTN_OK.Name = "BTN_OK"
-        Me.BTN_OK.Size = New System.Drawing.Size(75, 23)
-        Me.BTN_OK.TabIndex = 28
-        Me.BTN_OK.TabStop = False
-        Me.BTN_OK.Text = "OK"
-        Me.BTN_OK.UseVisualStyleBackColor = True
-        '
-        'BTN_Edit
-        '
-        Me.BTN_Edit.Location = New System.Drawing.Point(416, 194)
-        Me.BTN_Edit.Name = "BTN_Edit"
-        Me.BTN_Edit.Size = New System.Drawing.Size(75, 23)
-        Me.BTN_Edit.TabIndex = 28
-        Me.BTN_Edit.TabStop = False
-        Me.BTN_Edit.Text = "Edit"
-        Me.BTN_Edit.UseVisualStyleBackColor = True
+        Me.BTN_OKnota.Location = New System.Drawing.Point(402, 34)
+        Me.BTN_OKnota.Name = "BTN_OKnota"
+        Me.BTN_OKnota.Size = New System.Drawing.Size(75, 23)
+        Me.BTN_OKnota.TabIndex = 28
+        Me.BTN_OKnota.TabStop = False
+        Me.BTN_OKnota.Text = "OK"
+        Me.BTN_OKnota.UseVisualStyleBackColor = True
         '
         'Label2
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(33, 78)
+        Me.Label2.Location = New System.Drawing.Point(19, 65)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(120, 23)
         Me.Label2.TabIndex = 2
@@ -369,7 +335,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Tanggal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Tanggal.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Tanggal.HoverState.Parent = Me.TB_Tanggal
-        Me.TB_Tanggal.Location = New System.Drawing.Point(171, 78)
+        Me.TB_Tanggal.Location = New System.Drawing.Point(157, 65)
         Me.TB_Tanggal.MaxLength = 50
         Me.TB_Tanggal.Name = "TB_Tanggal"
         Me.TB_Tanggal.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -396,7 +362,7 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Jam.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TB_Jam.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_Jam.HoverState.Parent = Me.TB_Jam
-        Me.TB_Jam.Location = New System.Drawing.Point(321, 78)
+        Me.TB_Jam.Location = New System.Drawing.Point(307, 65)
         Me.TB_Jam.MaxLength = 50
         Me.TB_Jam.Name = "TB_Jam"
         Me.TB_Jam.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -407,15 +373,170 @@ Partial Class FormEditLaporanBarangKeluar
         Me.TB_Jam.TabIndex = 3
         Me.TB_Jam.TabStop = False
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
+        Me.DataGridView1.Location = New System.Drawing.Point(495, 12)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(464, 331)
+        Me.DataGridView1.TabIndex = 34
+        '
+        'Column8
+        '
+        Me.Column8.Frozen = True
+        Me.Column8.HeaderText = "ID"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 43
+        '
+        'Column1
+        '
+        Me.Column1.Frozen = True
+        Me.Column1.HeaderText = "Nama Barang"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 97
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Harga Beli"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 81
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Harga Jual"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 83
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Jumlah"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 65
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Subtotal"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 71
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Keuntungan"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 90
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Kerugian"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 74
+        '
+        'TB_IDBRG
+        '
+        Me.TB_IDBRG.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_IDBRG.DefaultText = ""
+        Me.TB_IDBRG.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_IDBRG.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_IDBRG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_IDBRG.DisabledState.Parent = Me.TB_IDBRG
+        Me.TB_IDBRG.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_IDBRG.Enabled = False
+        Me.TB_IDBRG.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_IDBRG.FocusedState.Parent = Me.TB_IDBRG
+        Me.TB_IDBRG.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_IDBRG.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TB_IDBRG.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_IDBRG.HoverState.Parent = Me.TB_IDBRG
+        Me.TB_IDBRG.Location = New System.Drawing.Point(157, 94)
+        Me.TB_IDBRG.MaxLength = 4
+        Me.TB_IDBRG.Name = "TB_IDBRG"
+        Me.TB_IDBRG.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_IDBRG.PlaceholderText = ""
+        Me.TB_IDBRG.SelectedText = ""
+        Me.TB_IDBRG.ShadowDecoration.Parent = Me.TB_IDBRG
+        Me.TB_IDBRG.Size = New System.Drawing.Size(241, 23)
+        Me.TB_IDBRG.TabIndex = 36
+        Me.TB_IDBRG.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(19, 94)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(120, 23)
+        Me.Label3.TabIndex = 35
+        Me.Label3.Text = "ID Barang"
+        '
+        'BTN_DeleteNota
+        '
+        Me.BTN_DeleteNota.Location = New System.Drawing.Point(495, 367)
+        Me.BTN_DeleteNota.Name = "BTN_DeleteNota"
+        Me.BTN_DeleteNota.Size = New System.Drawing.Size(95, 37)
+        Me.BTN_DeleteNota.TabIndex = 38
+        Me.BTN_DeleteNota.TabStop = False
+        Me.BTN_DeleteNota.Text = "Delete Nota"
+        Me.BTN_DeleteNota.UseVisualStyleBackColor = True
+        '
+        'BTN_OKid
+        '
+        Me.BTN_OKid.Location = New System.Drawing.Point(402, 94)
+        Me.BTN_OKid.Name = "BTN_OKid"
+        Me.BTN_OKid.Size = New System.Drawing.Size(75, 23)
+        Me.BTN_OKid.TabIndex = 39
+        Me.BTN_OKid.TabStop = False
+        Me.BTN_OKid.Text = "OK"
+        Me.BTN_OKid.UseVisualStyleBackColor = True
+        '
+        'BTN_SimpanBrg
+        '
+        Me.BTN_SimpanBrg.Location = New System.Drawing.Point(295, 288)
+        Me.BTN_SimpanBrg.Name = "BTN_SimpanBrg"
+        Me.BTN_SimpanBrg.Size = New System.Drawing.Size(103, 28)
+        Me.BTN_SimpanBrg.TabIndex = 40
+        Me.BTN_SimpanBrg.TabStop = False
+        Me.BTN_SimpanBrg.Text = "Simpan Barang"
+        Me.BTN_SimpanBrg.UseVisualStyleBackColor = True
+        '
         'FormEditLaporanBarangKeluar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(503, 373)
-        Me.Controls.Add(Me.BTN_Edit)
-        Me.Controls.Add(Me.BTN_OK)
-        Me.Controls.Add(Me.BTN_SIMPAN)
-        Me.Controls.Add(Me.BTN_DELETE)
+        Me.ClientSize = New System.Drawing.Size(985, 437)
+        Me.Controls.Add(Me.BTN_SimpanBrg)
+        Me.Controls.Add(Me.BTN_OKid)
+        Me.Controls.Add(Me.BTN_DeleteNota)
+        Me.Controls.Add(Me.TB_IDBRG)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.BTN_OKnota)
+        Me.Controls.Add(Me.BTN_SimpanNota)
+        Me.Controls.Add(Me.BTN_DeleteBrg)
         Me.Controls.Add(Me.TB_Keuntungan)
         Me.Controls.Add(Me.lbl_untungrugi)
         Me.Controls.Add(Me.TB_Subtotal)
@@ -426,8 +547,6 @@ Partial Class FormEditLaporanBarangKeluar
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.TB_HargaJual)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TB_NamaBrg)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TB_Jam)
         Me.Controls.Add(Me.TB_Tanggal)
         Me.Controls.Add(Me.Label2)
@@ -439,14 +558,13 @@ Partial Class FormEditLaporanBarangKeluar
         Me.Name = "FormEditLaporanBarangKeluar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Edit Laporan Barang Keluar"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents TB_NoNota As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TB_NamaBrg As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents TB_Keuntungan As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lbl_untungrugi As Label
     Friend WithEvents TB_Subtotal As Guna.UI2.WinForms.Guna2TextBox
@@ -457,11 +575,24 @@ Partial Class FormEditLaporanBarangKeluar
     Friend WithEvents Label7 As Label
     Friend WithEvents TB_HargaJual As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents BTN_SIMPAN As Button
-    Friend WithEvents BTN_DELETE As Button
-    Friend WithEvents BTN_OK As Button
-    Friend WithEvents BTN_Edit As Button
+    Friend WithEvents BTN_SimpanNota As Button
+    Friend WithEvents BTN_DeleteBrg As Button
+    Friend WithEvents BTN_OKnota As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TB_Tanggal As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TB_Jam As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents TB_IDBRG As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents BTN_DeleteNota As Button
+    Friend WithEvents BTN_OKid As Button
+    Friend WithEvents BTN_SimpanBrg As Button
 End Class

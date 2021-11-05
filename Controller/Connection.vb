@@ -32,6 +32,7 @@ Module editbarangKeluar
     Public ebKrugi As Integer = Nothing
     Public ebKid As Integer = Nothing
     Public ebKstok As Integer = Nothing
+    Public ebKstot As Integer = Nothing
 End Module
 
 Module editBarang

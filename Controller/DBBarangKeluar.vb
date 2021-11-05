@@ -1,6 +1,9 @@
 ﻿Imports System.Data.SqlClient
 Public Class DBBarangKeluar
     Inherits BaseConnection
+
+#Region "fungsi pada buat laporan barang keluar"
+
     Public Function selectBarang_id(id_barang As Integer)
         Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE id_barang = '" & id_barang & "'", Conn)
         Using adapter = New SqlDataAdapter(Cmd)
@@ -43,36 +46,82 @@ Public Class DBBarangKeluar
         Call closeConn()
     End Function
 
-    Public Function TambahLaporanBK(nota_keluar As String, id_barang As Integer, jumlah As Integer, subtotal As Integer, uid As Integer, keuntungan As Integer, kerugian As Integer, stok As Integer, harbel As Integer, harual As Integer)
-        If LaporanExist(nota_keluar) = False Then
-            If jumlah <= bKstok Then
-                Cmd = New SqlCommand("INSERT INTO tbl_barang_keluar (no_nota_keluar, id_barang, jumlah, subtotal, tanggal, uid, keuntungan, kerugian, jam, harga_beli, harga_jual)
-                                  VALUES ('" & nota_keluar & "','" & id_barang & "','" & jumlah & "','" & subtotal & "','" & Date.Now.ToString("yyyy/MM/dd") & "','" & uid & "','" & keuntungan & "','" & kerugian & "','" & TimeOfDay.ToString("HH:mm:ss") & "','" & harbel & "','" & harual & "')", conn)
-                Call openConn()
-                Try
-                    If MessageBox.Show("Yakin ingin menyimpan laporan tersebut?", "Warning!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
-                        Exit Function
-                    Else
-                        Cmd.ExecuteNonQuery()
-                    End If
-                Catch ex As Exception
-                    Call closeConn()
-                    Debug.WriteLine("Error tambah laporan")
-                    Return Status.DataIncomplete
-                End Try
-                Call closeConn()
-                penguranganStok(id_barang, stok, jumlah)
-                Return Status.Success
-            Else
-                Return Status.StokBarangKosong
-            End If
-        Else
-            Return Status.LaporanExist
-        End If
+    Public Function TambahLaporanBK(dgv As DataGridView, nota As String, uid As Integer)
+        ' dgv cell 0 = id barang
+        ' dgv cell 1 = nama barang
+        ' dgv cell 2 = harga beli
+        ' dgv cell 3 = harga jual
+        ' dgv cell 4 = jumlah
+        ' dgv cell 5 = subtotal
+        ' dgv cell 6 = keuntungan
+        ' dgv cell 7 = kerugian
+        For b As Integer = 0 To dgv.Rows.Count - 1
+            Cmd = New SqlCommand("INSERT INTO tbl_barang_keluar (no_nota_keluar, id_barang, jumlah, subtotal, tanggal, 
+                                                                 uid, keuntungan, kerugian, jam, harga_beli, harga_jual)
+                                  VALUES 
+                                  ('" & nota & "','" & dgv.Rows(b).Cells(0).Value & "',
+                                   '" & dgv.Rows(b).Cells(4).Value & "','" & dgv.Rows(b).Cells(5).Value & "',
+                                   '" & Date.Now.ToString("yyyy/MM/dd") & "','" & uid & "','" & dgv.Rows(b).Cells(6).Value & "',
+                                   '" & dgv.Rows(b).Cells(7).Value & "','" & TimeOfDay.ToString("HH:mm:ss") & "',
+                                   '" & dgv.Rows(b).Cells(2).Value & "','" & dgv.Rows(b).Cells(3).Value & "')", conn)
+            Try
+                openConn()
+                Cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                closeConn()
+                Debug.WriteLine("Error tambah laporan")
+                Return Status.DataIncomplete
+            End Try
+            closeConn()
+            penguranganStok(dgv.Rows(b).Cells(0).Value, Val(dgv.Rows(b).Cells(4).Value))
+            Debug.WriteLine(dgv.Rows(b).Cells(0).Value)
+        Next
+        Return Status.Success
     End Function
 
-    Public Function DeleteLaporanBK(no_nota_keluar As String, id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
-        Cmd = New SqlCommand("DELETE FROM tbl_barang_keluar WHERE no_nota_keluar = '" & no_nota_keluar & "'", Conn)
+#End Region
+
+#Region "fungsi pada edit / delete laporan barang keluar"
+
+    Public Function EditLaporanBK(dgv As DataGridView, nota As String)
+        For b As Integer = 0 To dgv.Rows.Count - 1
+            Dim a = tambahkurangStok(dgv.Rows(b).Cells(0).Value, nota, dgv.Rows(b).Cells(4).Value, dgv.Rows(b).Cells(5).Value,
+                             dgv.Rows(b).Cells(6).Value, dgv.Rows(b).Cells(7).Value)
+            If a = Status.Success Then
+                Return Status.Success
+            ElseIf a = Status.DataIncomplete Then
+                Return Status.DataIncomplete
+            Else
+                Return Status.DataError
+            End If
+        Next
+    End Function
+
+    Public Function DeleteBarangLPBK(nota As String, idbrg As Integer, dgv As DataGridView)
+        Cmd = New SqlCommand("DELETE FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "' AND id_barang = '" & idbrg & "'", conn)
+        Try
+            If MessageBox.Show("Yakin ingin menghapus barang yang dipilih?", "Warning!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
+                Exit Function
+            Else
+                Call openConn()
+                Cmd.ExecuteNonQuery()
+            End If
+        Catch ex As Exception
+            Call closeConn()
+            Debug.WriteLine("Failed to delete barang in lpbk!!")
+            Return Status.DataIncomplete
+        End Try
+        Call closeConn()
+        For Each row As DataGridViewRow In dgv.Rows
+            If row.Cells(0).Value.ToString = idbrg Then
+                pengembalianStok(idbrg, Val(row.Cells(4).Value))
+            End If
+        Next
+        Return Status.Success
+    End Function
+
+    Public Function DeleteLaporanBK(nota As String, dgv As DataGridView)
+        Cmd = New SqlCommand("DELETE FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "'", conn)
         Try
             If MessageBox.Show("Yakin ingin menghapus Laporan Barang Keluar tersebut?", "Warning!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
                 Exit Function
@@ -86,114 +135,145 @@ Public Class DBBarangKeluar
             Return Status.DataIncomplete
         End Try
         Call closeConn()
-        pengembalianStok(id_barang, stokbrg, jmlkeluar)
+        For b As Integer = 0 To dgv.Rows.Count - 1
+            pengembalianStok(dgv.Rows(b).Cells(0).Value, Val(dgv.Rows(b).Cells(4).Value))
+        Next
         Return Status.Success
     End Function
 
-    Public Function LaporanExist(nota_keluar As String)
-        Using Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota_keluar & "'", Conn)
-            Call openConn()
-            Dim result = Cmd.ExecuteScalar()
-            If Convert.ToInt32(result) = 0 Then
-                Return False
-            Else
-                Return True
-            End If
-        End Using
-        Call closeConn()
-    End Function
-
-    Public Function searchLPBK(searchbox As String)
-        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
-                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
-                              tbl_barang_keluar.tanggal,tbl_barang_keluar.jam, tbl_user.fullname 
-                              FROM tbl_barang_keluar 
-                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
-                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
-                              WHERE tbl_barang.nama_barang LIKE '%" + searchbox + "%' OR tbl_barang_keluar.no_nota_keluar LIKE '%" + searchbox + "%'", conn)
+    Public Function showdgvbk_nota(nota As String, dgv As DataGridView)
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.id_barang, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, 
+                                     tbl_barang_keluar.harga_jual, tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal,
+                                     tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, tbl_barang_keluar.tanggal,
+                                     tbl_barang_keluar.jam 
+                              FROM tbl_barang_keluar
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang
+                              WHERE no_nota_keluar = '" & nota & "'", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
-                Call openConn()
+                openConn()
                 adapter.Fill(ds)
-                Return ds
-            End Using
-        End Using
-        Call closeConn()
-    End Function
-
-    Public Function penguranganStok(id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
-        Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & stokbrg - jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", Conn)
-        Try
-            Call openConn()
-            Cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Debug.WriteLine("Error pengurangan stok!!")
-            Call closeConn()
-        End Try
-        Call closeConn()
-        Debug.WriteLine("Succes pengurangan stok!!")
-        Return Status.Success
-    End Function
-
-    Public Function pengembalianStok(id_barang As Integer, stokbrg As Integer, jmlkeluar As Integer)
-        Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & stokbrg + jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", Conn)
-        Try
-            Call openConn()
-            Cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Debug.WriteLine("Error pengembalian stok!!")
-            Call closeConn()
-        End Try
-        Call closeConn()
-        Debug.WriteLine("Succes pengembalian stok!!")
-        Return Status.Success
-    End Function
-
-    Public Function SelectToTable()
-        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
-                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
-                              tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
-                              FROM tbl_barang_keluar 
-                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
-                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid", conn)
-        Using adapter = New SqlDataAdapter(Cmd)
-            Using ds = New DataSet
-                Call openConn()
-                adapter.Fill(ds)
-                Return ds
-            End Using
-        End Using
-        Call closeConn()
-    End Function
-
-    Public Function getinfobrgkluar(no_nota_keluar As String)
-        Cmd = New SqlCommand("SELECT tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal,
-                              tbl_barang_keluar.jam, tbl_barang.id_barang, tbl_barang.stok
-                              FROM tbl_barang_keluar 
-                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
-                              WHERE no_nota_keluar = '" & no_nota_keluar & "'", conn)
-        Using adapter = New SqlDataAdapter(Cmd)
-            Using table = New DataTable
-                Call openConn()
-                adapter.Fill(table)
-                If table.Rows.Count() = 0 Then
+                If ds.Tables(0).Rows.Count = 0 Then
                     Debug.WriteLine("Error Select Barang from nota keluar")
                     Return Status.DataError
                 Else
-                    ebKname = table.Rows(0)("nama_barang")
-                    ebKhb = table.Rows(0)("harga_beli")
-                    ebKhj = table.Rows(0)("harga_jual")
-                    ebKjml = table.Rows(0)("jumlah")
-                    ebKtgl = table.Rows(0)("tanggal")
-                    ebKjam = table.Rows(0)("jam").ToString
-                    ebKid = table.Rows(0)("id_barang")
-                    ebKstok = table.Rows(0)("stok")
+                    ebKtgl = ds.Tables(0).Rows(0)("tanggal")
+                    ebKjam = ds.Tables(0).Rows(0)("jam").ToString
+                    For Each row As DataRow In ds.Tables(0).Rows
+                        dgv.Rows.Add(row(columnName:="id_barang"), row(columnName:="nama_barang"),
+                                     row(columnName:="harga_beli"), row(columnName:="harga_jual"),
+                                     row(columnName:="jumlah"), row(columnName:="subtotal"),
+                                     row(columnName:="keuntungan"), row(columnName:="kerugian"))
+                    Next
+                    closeConn()
                     Return Status.Success
                 End If
             End Using
         End Using
-        Call closeConn()
+        closeConn()
     End Function
+
+    Public Function showinfbk_idbrg(nota As String, idbrg As Integer, dgv As DataGridView)
+        Cmd = New SqlCommand("SELECT * FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "' AND id_barang = '" & idbrg & "'", conn)
+        Using adapter = New SqlDataAdapter(Cmd)
+            Using table = New DataTable
+                openConn()
+                adapter.Fill(table)
+                If table.Rows.Count() = 0 Then
+                    Debug.WriteLine("Error show info barang from nota and id barang")
+                    Return Status.DataError
+                Else
+                    ebKhb = table.Rows(0)("harga_beli")
+                    ebKhj = table.Rows(0)("harga_jual")
+                    Return Status.Success
+                End If
+            End Using
+        End Using
+        closeConn()
+    End Function
+#End Region
+
+#Region "Fungsi perubahan stok"
+
+    Public Function tambahkurangStok(idbrg As Integer, nota As String, stok_edit As Integer, subtotal As Integer, keuntungan As Integer, kerugian As Integer)
+        openConn()
+        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = '" & idbrg & "'", conn)
+        Dim stok_sekarang = Cmd.ExecuteScalar()
+        closeConn()
+        openConn()
+        Cmd = New SqlCommand("SELECT jumlah FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "' AND id_barang = '" & idbrg & "'", conn)
+        Dim jumlah_keluar = Cmd.ExecuteScalar()
+        closeConn()
+        If stok_edit > stok_sekarang + jumlah_keluar Then
+            Return Status.StokBarangKosong
+        Else
+            If jumlah_keluar = stok_edit Then
+                Return Status.DataIncomplete
+            End If
+            openConn()
+            Cmd = New SqlCommand("UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", conn)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_sekarang + jumlah_keluar
+            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = idbrg
+            Cmd.ExecuteNonQuery()
+            closeConn()
+            openConn()
+            Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", conn)
+            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = idbrg
+            Dim stok_kemudian = Cmd.ExecuteScalar()
+            closeConn()
+            openConn()
+            Cmd = New SqlCommand("UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", conn)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_kemudian - Val(stok_edit)
+            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = idbrg
+            Cmd.ExecuteNonQuery()
+            closeConn()
+            openConn()
+            Cmd = New SqlCommand("UPDATE tbl_barang_keluar SET jumlah = @stok, subtotal = @subtotal, keuntungan = @keuntungan, kerugian = @kerugian 
+                                  WHERE no_nota_keluar = @nota AND id_barang = '" & idbrg & "'", conn)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = Val(stok_edit)
+            Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
+            Cmd.Parameters.Add("@subtotal", SqlDbType.Int).Value = subtotal
+            Cmd.Parameters.Add("@keuntungan", SqlDbType.Int).Value = keuntungan
+            Cmd.Parameters.Add("@kerugian", SqlDbType.Int).Value = kerugian
+            Cmd.ExecuteNonQuery()
+            closeConn()
+            Return Status.Success
+        End If
+    End Function
+
+    Public Function penguranganStok(id_barang As Integer, jmlkeluar As Integer)
+        Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE id_barang = '" & id_barang & "'", conn)
+        openConn()
+        Using rd = Cmd.ExecuteReader
+            rd.Read()
+            If rd.HasRows = True Then
+                Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & rd.Item("stok") - jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", conn)
+                rd.Close()
+                Cmd.ExecuteNonQuery()
+                Debug.WriteLine("Succes pengurangan stok!!")
+            End If
+        End Using
+        closeConn()
+    End Function
+
+    Public Function pengembalianStok(id_barang As Integer, jmlkeluar As Integer)
+        Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE id_barang = '" & id_barang & "'", conn)
+        openConn()
+        Using rd = Cmd.ExecuteReader
+            rd.Read()
+            If rd.HasRows = True Then
+                Cmd = New SqlCommand("UPDATE tbl_barang SET stok = '" & rd.Item("stok") + jmlkeluar & "' WHERE id_barang = '" & id_barang & "' ", conn)
+                rd.Close()
+                Cmd.ExecuteNonQuery()
+                Debug.WriteLine("Succes pengembalian stok!!")
+            End If
+        End Using
+        closeConn()
+    End Function
+
+#End Region
+
+#Region "Fungsi mendapatkan total"
 
     Public Function totalPendapatan()
         Cmd = New SqlCommand("SELECT SUM(subtotal) FROM tbl_barang_keluar", Conn)
@@ -251,58 +331,54 @@ Public Class DBBarangKeluar
         End If
     End Function
 
-    Public Function restore_stock(nota, stok_edit, subtotal, keuntungan)
-        openConn()
-        Cmd = New SqlCommand("SELECT id_barang FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", conn)
-        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
-        Dim rd = Cmd.ExecuteReader()
-        Dim r As Integer
-        While rd.Read()
-            r = rd.GetInt32(0)
-        End While
-        closeConn()
-        openConn()
-        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", conn)
-        Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
-        Dim stok_sekarang = Cmd.ExecuteScalar()
-        closeConn()
-        openConn()
-        Cmd = New SqlCommand($"SELECT jumlah FROM tbl_barang_keluar WHERE no_nota_keluar = @nota", conn)
-        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
-        Dim jumlah_keluar = Cmd.ExecuteScalar()
-        closeConn()
-        If stok_edit > stok_sekarang + jumlah_keluar Then
-            Return Status.DataError
-        Else
-            If jumlah_keluar = stok_edit Then
-                Return Status.DataIncomplete
+#End Region
+
+    Public Function LaporanExist(nota_keluar As String)
+        Using Cmd = New SqlCommand("SELECT COUNT(*) FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota_keluar & "'", conn)
+            Call openConn()
+            Dim result = Cmd.ExecuteScalar()
+            If Convert.ToInt32(result) = 0 Then
+                Return False
+            Else
+                Return True
             End If
-            openConn()
-            Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", conn)
-            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_sekarang + jumlah_keluar
-            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
-            Cmd.ExecuteNonQuery()
-            closeConn()
-            openConn()
-            Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id", conn)
-            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
-            Dim stok_kemudian = Cmd.ExecuteScalar()
-            closeConn()
-            openConn()
-            Cmd = New SqlCommand($"UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", conn)
-            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_kemudian - Val(stok_edit)
-            Cmd.Parameters.Add("@id", SqlDbType.Int).Value = r
-            Cmd.ExecuteNonQuery()
-            closeConn()
-            openConn()
-            Cmd = New SqlCommand("UPDATE tbl_barang_keluar SET jumlah = @stok, subtotal = @subtotal, keuntungan = @keuntungan WHERE no_nota_keluar = @nota", conn)
-            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = Val(stok_edit)
-            Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
-            Cmd.Parameters.Add("@subtotal", SqlDbType.Int).Value = subtotal
-            Cmd.Parameters.Add("@keuntungan", SqlDbType.Int).Value = keuntungan
-            Cmd.ExecuteNonQuery()
-            closeConn()
-            Return Status.Success
-        End If
+        End Using
+        Call closeConn()
     End Function
+
+    Public Function searchLPBK(searchbox As String)
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
+                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
+                              tbl_barang_keluar.tanggal,tbl_barang_keluar.jam, tbl_user.fullname 
+                              FROM tbl_barang_keluar 
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
+                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
+                              WHERE tbl_barang.nama_barang LIKE '%" + searchbox + "%' OR tbl_barang_keluar.no_nota_keluar LIKE '%" + searchbox + "%'", conn)
+        Using adapter = New SqlDataAdapter(Cmd)
+            Using ds = New DataSet
+                Call openConn()
+                adapter.Fill(ds)
+                Return ds
+            End Using
+        End Using
+        Call closeConn()
+    End Function
+
+    Public Function SelectToTable()
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
+                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
+                              tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
+                              FROM tbl_barang_keluar 
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
+                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid", conn)
+        Using adapter = New SqlDataAdapter(Cmd)
+            Using ds = New DataSet
+                Call openConn()
+                adapter.Fill(ds)
+                Return ds
+            End Using
+        End Using
+        Call closeConn()
+    End Function
+
 End Class

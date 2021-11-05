@@ -105,10 +105,10 @@
     <Compile Include="BusinessCenterApp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLaporanBK_NewUnimplemented.Designer.vb">
-      <DependentUpon>FormLaporanBK_NewUnimplemented.vb</DependentUpon>
+    <Compile Include="FormBuatLaporanBarangKeluar.Designer.vb">
+      <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormLaporanBK_NewUnimplemented.vb">
+    <Compile Include="FormBuatLaporanBarangKeluar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReportLaporanBK.vb">
@@ -122,12 +122,6 @@
     </Compile>
     <Compile Include="DaftarBarangUserControl.vb">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FormBuatLaporanBarangKeluar.Designer.vb">
-      <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormBuatLaporanBarangKeluar.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDBarangContent.Designer.vb">
       <DependentUpon>FormDBarangContent.vb</DependentUpon>
@@ -238,8 +232,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormLaporanBK_NewUnimplemented.resx">
-      <DependentUpon>FormLaporanBK_NewUnimplemented.vb</DependentUpon>
+    <EmbeddedResource Include="FormBuatLaporanBarangKeluar.resx">
+      <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportLaporanBK.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -256,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DaftarBarangUserControl.resx">
       <DependentUpon>DaftarBarangUserControl.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBuatLaporanBarangKeluar.resx">
-      <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDBarangContent.resx">
       <DependentUpon>FormDBarangContent.vb</DependentUpon>
