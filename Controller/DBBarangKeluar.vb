@@ -95,7 +95,7 @@ Public Class DBBarangKeluar
             If a > 0 Then
                 Return Status.Success
             Else
-                Return Status.DataError
+                Return Status.DataIncomplete
             End If
         Else
             Return Status.StokBarangKosong
