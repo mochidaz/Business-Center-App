@@ -435,6 +435,22 @@ Public Class DBBarangKeluar
         Return total
     End Function
 
+    Public Function get_total_barang_keluar_bulanan(year, month)
+        openConn()
+        Cmd = New SqlCommand("SELECT COUNT(no_nota_keluar) FROM tbl_barang_keluar WHERE MONTH(tanggal) = @month AND YEAR(tanggal) = @year", conn)
+        Cmd.Parameters.Add("@month", SqlDbType.Int).Value = month
+        Cmd.Parameters.Add("@year", SqlDbType.Int).Value = year
+        Dim total = Cmd.ExecuteScalar()
+        closeConn()
+        Return total
+    End Function
+    Public Function get_total_barang_keluar_harian(hari)
+        openConn()
+        Cmd = New SqlCommand($"SELECT COUNT(no_nota_keluar) FROM tbl_barang_keluar WHERE tanggal = {hari}", conn)
+        Dim total = Cmd.ExecuteScalar()
+        closeConn()
+        Return total
+    End Function
 #End Region
 
 End Class
