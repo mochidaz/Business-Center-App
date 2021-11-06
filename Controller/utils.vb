@@ -10,6 +10,8 @@ Module utils
 
     Private path As String = ".\config.conf"
 
+    Public jum = 0
+
     Public Function config()
         Dim dictionary = New Dictionary(Of String, String)
         Try

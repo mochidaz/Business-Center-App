@@ -215,7 +215,6 @@ Public Class DBBarangKeluar
             Return Status.StokBarangKosong
         Else
             ' Menentukan apakah jumlah keluar tidak sama dengan stok edit lebih dari satu
-            Dim jum = 0
             If jumlah_keluar <> stok_edit Then
                 jum += 1
             End If
