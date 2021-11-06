@@ -21,6 +21,12 @@
         Label5.Text = connect.total_brg_keluar()
         Jmlh_BT.Text = db_barang.get_total_stock()
         Label3.Text = db_barang.getBarangHabis()
+        Guna2DataGridView1.ReadOnly = True
+        Dim x = connect.newest_barang_keluar()
+        Dim table As New DataTable
+        For Each table In x.tables
+            Guna2DataGridView1.DataSource = table
+        Next
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -45,4 +51,18 @@
         Label3.Text = db_barang.getBarangHabis()
     End Sub
 
+    Private Sub PNL_BKLIST_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
+
+    Private Sub Guna2DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Guna2DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub PNL_BKLIST_Paint_1(sender As Object, e As PaintEventArgs)
+    End Sub
+
+    Private Sub Guna2Panel3_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
 End Class
