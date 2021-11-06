@@ -1,4 +1,6 @@
-﻿Public Class FormDBarangContent_simple_
+﻿Imports System.IO
+
+Public Class FormDBarangContent_simple_
     Dim connect As New DBBarang
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
@@ -82,6 +84,13 @@
 
     Private Sub BTN_Refreshtbl_MouseUp(sender As Object, e As MouseEventArgs) Handles BTN_Refreshtbl.MouseUp
         BTN_Refreshtbl.BackColor = Color.FromKnownColor(KnownColor.ControlLight)
+    End Sub
+
+    Private Sub BTN_Excel_Click(sender As Object, e As EventArgs) Handles BTN_Excel.Click
+        Dim sfd As New SaveFileDialog
+        sfd.Filter = "Excel files (*.xls)|*.xls"
+        sfd.FilterIndex = 0
+        sfd.Title = "Save As"
     End Sub
 
 End Class
