@@ -399,4 +399,42 @@ Public Class DBBarangKeluar
 
     End Function
 
+
+#Region "Perhitungan pendapatan bulanan"
+
+    ' UNIMPLEMENTED
+    Private Function count_items(list As List(Of Integer))
+        Dim dict As New Dictionary(Of Integer, Integer)
+        Dim arr As New ArrayList()
+
+        Dim groups = list.GroupBy(Function(value) value)
+        For Each grp In groups
+            dict.Add(grp(0), grp.Count)
+        Next
+
+        Return dict
+
+    End Function
+
+    Public Function get_total_pendapatan_bulanan(year As Integer, month As Integer)
+        openConn()
+        Cmd = New SqlCommand("SELECT SUM(subtotal) FROM tbl_barang_keluar WHERE MONTH(tanggal) = @month AND YEAR(tanggal) = @year", conn)
+        Cmd.Parameters.Add("@month", SqlDbType.Int).Value = month
+        Cmd.Parameters.Add("@year", SqlDbType.Int).Value = year
+        Dim total = Cmd.ExecuteScalar()
+        closeConn()
+        Return total
+    End Function
+
+    'Format: YYYY-MM-DD
+    Public Function get_total_pendapatan_harian(hari As String)
+        openConn()
+        Cmd = New SqlCommand($"SELECT SUM(subtotal) FROM tbl_barang_keluar WHERE tanggal = {hari}", conn)
+        Dim total = Cmd.ExecuteScalar()
+        closeConn()
+        Return total
+    End Function
+
+#End Region
+
 End Class
