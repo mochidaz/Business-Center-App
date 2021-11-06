@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormDBarangContent_simple_
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormDBarangContent_simple_
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormDBarangContent_simple_))
@@ -31,6 +31,7 @@ Partial Class FormDBarangContent_simple_
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TB_Search = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BTN_Refreshtbl = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.BTN_Excel = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -99,7 +100,7 @@ Partial Class FormDBarangContent_simple_
         Me.DataGridView1.Location = New System.Drawing.Point(42, 127)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(948, 529)
+        Me.DataGridView1.Size = New System.Drawing.Size(948, 483)
         Me.DataGridView1.TabIndex = 6
         '
         'TB_Search
@@ -149,6 +150,27 @@ Partial Class FormDBarangContent_simple_
         Me.BTN_Refreshtbl.Size = New System.Drawing.Size(32, 32)
         Me.BTN_Refreshtbl.TabIndex = 8
         '
+        'BTN_Excel
+        '
+        Me.BTN_Excel.BorderRadius = 5
+        Me.BTN_Excel.CheckedState.Parent = Me.BTN_Excel
+        Me.BTN_Excel.CustomImages.Parent = Me.BTN_Excel
+        Me.BTN_Excel.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BTN_Excel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BTN_Excel.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BTN_Excel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BTN_Excel.DisabledState.Parent = Me.BTN_Excel
+        Me.BTN_Excel.FillColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.BTN_Excel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_Excel.ForeColor = System.Drawing.Color.White
+        Me.BTN_Excel.HoverState.Parent = Me.BTN_Excel
+        Me.BTN_Excel.Location = New System.Drawing.Point(472, 629)
+        Me.BTN_Excel.Name = "BTN_Excel"
+        Me.BTN_Excel.ShadowDecoration.Parent = Me.BTN_Excel
+        Me.BTN_Excel.Size = New System.Drawing.Size(119, 39)
+        Me.BTN_Excel.TabIndex = 5
+        Me.BTN_Excel.Text = "Export to Excel"
+        '
         'FormDBarangContent_simple_
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -159,6 +181,7 @@ Partial Class FormDBarangContent_simple_
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BTN_TambahBarang)
+        Me.Controls.Add(Me.BTN_Excel)
         Me.Controls.Add(Me.BTN_EditBarang)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
@@ -181,4 +204,5 @@ Partial Class FormDBarangContent_simple_
     Friend WithEvents Timer1 As Timer
     Friend WithEvents TB_Search As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BTN_Refreshtbl As Guna.UI2.WinForms.Guna2ImageButton
+    Friend WithEvents BTN_Excel As Guna.UI2.WinForms.Guna2Button
 End Class

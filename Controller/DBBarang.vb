@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Imports Excel = Microsoft.Office.Interop.Excel
+Imports System.Reflection
+Imports ClosedXML.Excel
 
 Public Class DBBarang
     Inherits BaseConnection
@@ -141,7 +142,8 @@ Public Class DBBarang
     'End Function
 
     Public Function tblbarang()
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang", Conn)
+        Cmd = New SqlCommand("SELECT id_barang as 'ID BARANG', nama_barang as 'NAMA BARANG', 
+                              harga_beli as 'HARGA BELI', harga_jual as 'HARGA JUAL', stok as 'STOK' FROM tbl_barang", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
@@ -216,27 +218,26 @@ Public Class DBBarang
         End If
     End Function
 
-    Public Function get_excel_barang(file_name, save)
-        Dim xlapp As Excel.Application = New Excel.Application
-        Dim wb As Excel.Workbook
-        Dim ws As Excel.Worksheet
-        Dim misvalue = Reflection.Missing.Value
-
-        wb = xlapp.Workbooks.Add(misvalue)
-        ws = wb.Sheets(file_name)
-        Dim adapter = New SqlDataAdapter("SELECT * FROM tbl_barang", conn)
-        Dim ds As DataSet
-        adapter.Fill(ds)
-
-        For i = 0 To ds.Tables(0).Rows.Count - 1
-            For j = 0 To ds.Tables(0).Columns.Count - 1
-                ws.Cells(i + 1, j + 1) = ds.Tables(0).Rows(i).Item(j)
+    Public Function get_excel_barang(file_name As String, dgv As DataGridView)
+        Dim wb As New XLWorkbook()
+        Dim dt As New DataTable
+        For Each col As DataGridViewColumn In dgv.Columns
+            dt.Columns.Add(col.HeaderText, col.ValueType)
+        Next
+        For Each row As DataGridViewRow In dgv.Rows
+            dt.Rows.Add()
+            For Each cell As DataGridViewCell In row.Cells
+                dt.Rows(dt.Rows.Count - 1)(cell.ColumnIndex) = cell.Value.ToString()
             Next
         Next
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            wb.Worksheets.Add(dt, "Barang")
+            wb.SaveAs(file_name)
+            Return Status.Success
+        Else
+            Return Status.DataError
+        End If
 
-        ws.SaveAs(save & "\" & file_name)
-        wb.Close()
-        xlapp.Quit()
     End Function
 
 End Class
