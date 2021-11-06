@@ -389,4 +389,14 @@ Public Class DBBarangKeluar
         Call closeConn()
     End Function
 
+    Public Function newest_barang_keluar()
+        Cmd = New SqlCommand("SELECT TOP 5 tbl_barang_keluar.id_barang, tbl_barang.nama_barang, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal FROM tbl_barang_keluar
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang ORDER BY tbl_barang_keluar.tanggal, tbl_barang_keluar.jam DESC", conn)
+        Dim adapter = New SqlDataAdapter(Cmd)
+        Dim ds = New DataSet
+        adapter.Fill(ds)
+        Return ds
+
+    End Function
+
 End Class
