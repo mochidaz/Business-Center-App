@@ -108,6 +108,7 @@
             kondisiawal()
             BTN_OKid.Enabled = False
             FormBKeluarContent.showtbl()
+            jum = 0
         ElseIf r = Status.DataIncomplete Then
             MessageBox.Show("Tidak ada yang diedit!!")
         Else
