@@ -168,24 +168,29 @@
     End Sub
 
     Private Sub TB_Jumlah_TextChanged(sender As Object, e As EventArgs) Handles TB_Jumlah.TextChanged
-        bKstotal = bKhj * Val(TB_Jumlah.Text)
-        TB_Subtotal.Text = bKstotal
-        If bKhb < bKhj Then
-            lbl_untungrugi.Text = "Keuntungan"
-            bKuntung = (bKhj - bKhb) * Val(TB_Jumlah.Text)
-            bKrugi = 0
-            TB_Keuntungan.Text = bKuntung
-        ElseIf bKhb > bKhj Then
-            lbl_untungrugi.Text = "Kerugian"
-            bKrugi = (bKhb - bKhj) * Val(TB_Jumlah.Text)
-            bKuntung = 0
-            TB_Keuntungan.Text = bKrugi
-        End If
-        If TB_Jumlah.Text.Length > 0 Then
-            BTN_TambahBrg.Enabled = True
-        Else
-            BTN_TambahBrg.Enabled = False
-        End If
+        Try
+            bKstotal = bKhj * Val(TB_Jumlah.Text)
+            TB_Subtotal.Text = bKstotal
+            If bKhb < bKhj Then
+                lbl_untungrugi.Text = "Keuntungan"
+                bKuntung = (bKhj - bKhb) * Val(TB_Jumlah.Text)
+                bKrugi = 0
+                TB_Keuntungan.Text = bKuntung
+            ElseIf bKhb > bKhj Then
+                lbl_untungrugi.Text = "Kerugian"
+                bKrugi = (bKhb - bKhj) * Val(TB_Jumlah.Text)
+                bKuntung = 0
+                TB_Keuntungan.Text = bKrugi
+            End If
+            If TB_Jumlah.Text.Length > 0 Then
+                BTN_TambahBrg.Enabled = True
+            Else
+                BTN_TambahBrg.Enabled = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Jumlah terlalu banyak!!")
+            TB_Jumlah.Text = "0"
+        End Try
     End Sub
 
     Private Sub BTN_OKNota_Click(sender As Object, e As EventArgs) Handles BTN_OKNota.Click
@@ -280,4 +285,7 @@
         formatUang(TB_Keuntungan)
     End Sub
 
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
 End Class

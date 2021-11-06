@@ -84,17 +84,12 @@ Public Class DBBarangKeluar
 #Region "fungsi pada edit / delete laporan barang keluar"
 
     Public Function EditLaporanBK(dgv As DataGridView, nota As String)
+        Dim a
         For b As Integer = 0 To dgv.Rows.Count - 1
-            Dim a = tambahkurangStok(dgv.Rows(b).Cells(0).Value, nota, dgv.Rows(b).Cells(4).Value, dgv.Rows(b).Cells(5).Value,
+            a = tambahkurangStok(dgv.Rows(b).Cells(0).Value, nota, dgv.Rows(b).Cells(4).Value, dgv.Rows(b).Cells(5).Value,
                              dgv.Rows(b).Cells(6).Value, dgv.Rows(b).Cells(7).Value)
-            If a = Status.Success Then
-                Return Status.Success
-            ElseIf a = Status.DataIncomplete Then
-                Return Status.DataIncomplete
-            Else
-                Return Status.DataError
-            End If
         Next
+        Return a
     End Function
 
     Public Function DeleteBarangLPBK(nota As String, idbrg As Integer, dgv As DataGridView)
@@ -197,11 +192,13 @@ Public Class DBBarangKeluar
 
     Public Function tambahkurangStok(idbrg As Integer, nota As String, stok_edit As Integer, subtotal As Integer, keuntungan As Integer, kerugian As Integer)
         openConn()
-        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = '" & idbrg & "'", conn)
+        Cmd = New SqlCommand("SELECT stok FROM tbl_barang WHERE id_barang = @id_barang", conn)
+        Cmd.Parameters.Add("@id_barang", SqlDbType.Int).Value = idbrg
         Dim stok_sekarang = Cmd.ExecuteScalar()
         closeConn()
         openConn()
-        Cmd = New SqlCommand("SELECT jumlah FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "' AND id_barang = '" & idbrg & "'", conn)
+        Cmd = New SqlCommand("SELECT jumlah FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "' AND id_barang = @id_barang", conn)
+        Cmd.Parameters.Add("@id_barang", SqlDbType.Int).Value = idbrg
         Dim jumlah_keluar = Cmd.ExecuteScalar()
         closeConn()
         If stok_edit > stok_sekarang + jumlah_keluar Then
@@ -223,14 +220,14 @@ Public Class DBBarangKeluar
             closeConn()
             openConn()
             Cmd = New SqlCommand("UPDATE tbl_barang SET stok = @stok WHERE id_barang = @id", conn)
-            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_kemudian - Val(stok_edit)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_kemudian - stok_edit
             Cmd.Parameters.Add("@id", SqlDbType.Int).Value = idbrg
             Cmd.ExecuteNonQuery()
             closeConn()
             openConn()
             Cmd = New SqlCommand("UPDATE tbl_barang_keluar SET jumlah = @stok, subtotal = @subtotal, keuntungan = @keuntungan, kerugian = @kerugian 
                                   WHERE no_nota_keluar = @nota AND id_barang = '" & idbrg & "'", conn)
-            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = Val(stok_edit)
+            Cmd.Parameters.Add("@stok", SqlDbType.Int).Value = stok_edit
             Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = nota
             Cmd.Parameters.Add("@subtotal", SqlDbType.Int).Value = subtotal
             Cmd.Parameters.Add("@keuntungan", SqlDbType.Int).Value = keuntungan
