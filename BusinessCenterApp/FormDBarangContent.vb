@@ -87,10 +87,18 @@ Public Class FormDBarangContent_simple_
     End Sub
 
     Private Sub BTN_Excel_Click(sender As Object, e As EventArgs) Handles BTN_Excel.Click
-        Dim sfd As New SaveFileDialog
-        sfd.Filter = "Excel files (*.xls)|*.xls"
+        Dim sfd As SaveFileDialog = New SaveFileDialog
+        sfd.Filter = "Excel files (*.xlsx)|*.xlsx"
         sfd.FilterIndex = 0
         sfd.Title = "Save As"
+        sfd.ShowDialog()
+        If sfd.FileName <> "" Then
+            Dim ex = connect.get_excel_barang(sfd.FileName, DataGridView1)
+            If ex = Status.Success Then
+                MessageBox.Show("Berhasil disimpan")
+            Else
+                MessageBox.Show("Gagal menyimpan")
+            End If
+        End If
     End Sub
-
 End Class
