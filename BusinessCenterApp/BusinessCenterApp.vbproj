@@ -116,17 +116,11 @@
     <Compile Include="BusinessCenterApp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportLaporanBK.vb">
+    <Compile Include="ReportLaporanBKHarian.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReportLaporanBK.rpt</DependentUpon>
+      <DependentUpon>ReportLaporanBKHarian.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DaftarBarangUserControl.Designer.vb">
-      <DependentUpon>DaftarBarangUserControl.vb</DependentUpon>
-    </Compile>
-    <Compile Include="DaftarBarangUserControl.vb">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FormBuatLaporanBarangKeluar.Designer.vb">
       <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
@@ -144,12 +138,6 @@
       <DependentUpon>FormDBoardContent.vb</DependentUpon>
     </Compile>
     <Compile Include="FormDBoardContent.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDBarangContent_HARD.Designer.vb">
-      <DependentUpon>FormDBarangContent_HARD.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormDBarangContent_HARD.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBMasukContent.Designer.vb">
@@ -207,10 +195,10 @@
       <DependentUpon>FormLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReportBK.Designer.vb">
-      <DependentUpon>FormReportBK.vb</DependentUpon>
+    <Compile Include="FormReportBKHarian.Designer.vb">
+      <DependentUpon>FormReportBKHarian.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormReportBK.vb">
+    <Compile Include="FormReportBKHarian.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTambahBarang.Designer.vb">
@@ -235,17 +223,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="DBoardUserControl.Designer.vb">
-      <DependentUpon>DBoardUserControl.vb</DependentUpon>
-    </Compile>
-    <Compile Include="DBoardUserControl.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ReportLaporanBK.rpt">
+    <EmbeddedResource Include="ReportLaporanBKHarian.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportLaporanBK.vb</LastGenOutput>
+      <LastGenOutput>ReportLaporanBKHarian.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBKeluarContent.resx">
       <DependentUpon>FormBKeluarContent.vb</DependentUpon>
@@ -256,20 +238,15 @@
     <EmbeddedResource Include="BusinessCenterApp.resx">
       <DependentUpon>BusinessCenterApp.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DaftarBarangUserControl.resx">
-      <DependentUpon>DaftarBarangUserControl.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormBuatLaporanBarangKeluar.resx">
       <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDBarangContent.resx">
       <DependentUpon>FormDBarangContent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDBarangContent_HARD.resx">
-      <DependentUpon>FormDBarangContent_HARD.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormDBoardContent.resx">
       <DependentUpon>FormDBoardContent.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChangePassword.resx">
       <DependentUpon>FormChangePassword.vb</DependentUpon>
@@ -292,8 +269,8 @@
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReportBK.resx">
-      <DependentUpon>FormReportBK.vb</DependentUpon>
+    <EmbeddedResource Include="FormReportBKHarian.resx">
+      <DependentUpon>FormReportBKHarian.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahBarang.resx">
       <DependentUpon>FormTambahBarang.vb</DependentUpon>
@@ -303,9 +280,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DBoardUserControl.resx">
-      <DependentUpon>DBoardUserControl.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

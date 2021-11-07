@@ -3,17 +3,11 @@ Public Class FormLogin
     Dim connect As New AuthController
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Private Sub BTN_SIGNIN_Click(sender As Object, e As EventArgs) Handles BTN_SIGNIN.Click

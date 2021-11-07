@@ -50,11 +50,13 @@ Partial Class FormHome
         Me.EditUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangMasukToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.datetimer = New System.Windows.Forms.Timer(Me.components)
         Me.sessiontimer = New System.Windows.Forms.Timer(Me.components)
-        Me.BarangMasukToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarangKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangMasukBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangKeluarBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PNL_TOPMENU.SuspendLayout()
         Me.PNL_ACCOUNT.SuspendLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -360,29 +362,42 @@ Partial Class FormHome
         '
         Me.EditUserToolStripMenuItem.Image = CType(resources.GetObject("EditUserToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EditUserToolStripMenuItem.Name = "EditUserToolStripMenuItem"
-        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EditUserToolStripMenuItem.Text = "Edit User"
         '
         'ChangePasswordToolStripMenuItem
         '
         Me.ChangePasswordToolStripMenuItem.Image = CType(resources.GetObject("ChangePasswordToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
         '
         'ReportToolStripMenuItem
         '
-        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BarangMasukToolStripMenuItem, Me.BarangKeluarToolStripMenuItem})
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BarangMasukToolStripMenuItem, Me.BarangMasukBulananToolStripMenuItem, Me.BarangKeluarToolStripMenuItem, Me.BarangKeluarBulananToolStripMenuItem})
         Me.ReportToolStripMenuItem.Image = CType(resources.GetObject("ReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReportToolStripMenuItem.Text = "Report"
         '
+        'BarangMasukToolStripMenuItem
+        '
+        Me.BarangMasukToolStripMenuItem.Enabled = False
+        Me.BarangMasukToolStripMenuItem.Name = "BarangMasukToolStripMenuItem"
+        Me.BarangMasukToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangMasukToolStripMenuItem.Text = "Barang Masuk (Harian)"
+        '
+        'BarangKeluarToolStripMenuItem
+        '
+        Me.BarangKeluarToolStripMenuItem.Name = "BarangKeluarToolStripMenuItem"
+        Me.BarangKeluarToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangKeluarToolStripMenuItem.Text = "Barang Keluar (Harian)"
+        '
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Image = CType(resources.GetObject("LogoutToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'datetimer
@@ -391,17 +406,18 @@ Partial Class FormHome
         'sessiontimer
         '
         '
-        'BarangMasukToolStripMenuItem
+        'BarangMasukBulananToolStripMenuItem
         '
-        Me.BarangMasukToolStripMenuItem.Name = "BarangMasukToolStripMenuItem"
-        Me.BarangMasukToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.BarangMasukToolStripMenuItem.Text = "Barang Masuk"
+        Me.BarangMasukBulananToolStripMenuItem.Enabled = False
+        Me.BarangMasukBulananToolStripMenuItem.Name = "BarangMasukBulananToolStripMenuItem"
+        Me.BarangMasukBulananToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangMasukBulananToolStripMenuItem.Text = "Barang Masuk (Bulanan)"
         '
-        'BarangKeluarToolStripMenuItem
+        'BarangKeluarBulananToolStripMenuItem
         '
-        Me.BarangKeluarToolStripMenuItem.Name = "BarangKeluarToolStripMenuItem"
-        Me.BarangKeluarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.BarangKeluarToolStripMenuItem.Text = "Barang Keluar"
+        Me.BarangKeluarBulananToolStripMenuItem.Name = "BarangKeluarBulananToolStripMenuItem"
+        Me.BarangKeluarBulananToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangKeluarBulananToolStripMenuItem.Text = "Barang Keluar (Bulanan)"
         '
         'FormHome
         '
@@ -462,4 +478,6 @@ Partial Class FormHome
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangMasukToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangKeluarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BarangMasukBulananToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BarangKeluarBulananToolStripMenuItem As ToolStripMenuItem
 End Class

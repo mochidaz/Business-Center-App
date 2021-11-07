@@ -22,7 +22,7 @@ Partial Class FormBuatLaporanBarangKeluar
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.RBTN_NMBRG = New System.Windows.Forms.RadioButton()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -33,7 +33,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BTN_OK = New System.Windows.Forms.Button()
+        Me.BTN_OKnb = New System.Windows.Forms.Button()
         Me.RBTN_IDBRG = New System.Windows.Forms.RadioButton()
         Me.BTN_Batal = New System.Windows.Forms.Button()
         Me.BTN_TambahBrg = New System.Windows.Forms.Button()
@@ -56,6 +56,7 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.TB_NoNota = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BTN_OKNota = New System.Windows.Forms.Button()
+        Me.BTN_OKib = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -78,14 +79,14 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
         Me.DataGridView1.Location = New System.Drawing.Point(501, 36)
@@ -152,14 +153,14 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.Column7.ReadOnly = True
         Me.Column7.Width = 74
         '
-        'BTN_OK
+        'BTN_OKnb
         '
-        Me.BTN_OK.Location = New System.Drawing.Point(424, 92)
-        Me.BTN_OK.Name = "BTN_OK"
-        Me.BTN_OK.Size = New System.Drawing.Size(60, 23)
-        Me.BTN_OK.TabIndex = 32
-        Me.BTN_OK.Text = "OK"
-        Me.BTN_OK.UseVisualStyleBackColor = True
+        Me.BTN_OKnb.Location = New System.Drawing.Point(424, 92)
+        Me.BTN_OKnb.Name = "BTN_OKnb"
+        Me.BTN_OKnb.Size = New System.Drawing.Size(60, 23)
+        Me.BTN_OKnb.TabIndex = 32
+        Me.BTN_OKnb.Text = "OK"
+        Me.BTN_OKnb.UseVisualStyleBackColor = True
         '
         'RBTN_IDBRG
         '
@@ -510,15 +511,25 @@ Partial Class FormBuatLaporanBarangKeluar
         Me.BTN_OKNota.Text = "OK"
         Me.BTN_OKNota.UseVisualStyleBackColor = True
         '
+        'BTN_OKib
+        '
+        Me.BTN_OKib.Location = New System.Drawing.Point(424, 65)
+        Me.BTN_OKib.Name = "BTN_OKib"
+        Me.BTN_OKib.Size = New System.Drawing.Size(60, 23)
+        Me.BTN_OKib.TabIndex = 34
+        Me.BTN_OKib.Text = "OK"
+        Me.BTN_OKib.UseVisualStyleBackColor = True
+        '
         'FormBuatLaporanBarangKeluar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(985, 551)
+        Me.Controls.Add(Me.BTN_OKib)
         Me.Controls.Add(Me.RBTN_NMBRG)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.BTN_OKNota)
-        Me.Controls.Add(Me.BTN_OK)
+        Me.Controls.Add(Me.BTN_OKnb)
         Me.Controls.Add(Me.RBTN_IDBRG)
         Me.Controls.Add(Me.BTN_Batal)
         Me.Controls.Add(Me.BTN_TambahBrg)
@@ -552,7 +563,7 @@ Partial Class FormBuatLaporanBarangKeluar
 
     Friend WithEvents RBTN_NMBRG As RadioButton
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents BTN_OK As Button
+    Friend WithEvents BTN_OKnb As Button
     Friend WithEvents RBTN_IDBRG As RadioButton
     Friend WithEvents BTN_Batal As Button
     Friend WithEvents BTN_TambahBrg As Button
@@ -583,4 +594,5 @@ Partial Class FormBuatLaporanBarangKeluar
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents BTN_OKib As Button
 End Class

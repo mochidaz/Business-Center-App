@@ -179,7 +179,10 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function showinfbk_idbrg(nota As String, idbrg As Integer, dgv As DataGridView)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "' AND id_barang = '" & idbrg & "'", conn)
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, tbl_barang.stok 
+                              FROM tbl_barang_keluar 
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang
+                              WHERE tbl_barang_keluar.no_nota_keluar = '" & nota & "' AND tbl_barang_keluar.id_barang = '" & idbrg & "'", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using table = New DataTable
                 openConn()
@@ -190,6 +193,7 @@ Public Class DBBarangKeluar
                 Else
                     ebKhb = table.Rows(0)("harga_beli")
                     ebKhj = table.Rows(0)("harga_jual")
+                    ebKstok = table.Rows(0)("stok")
                     Return Status.Success
                 End If
             End Using
@@ -373,9 +377,11 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function SelectToTable()
-        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
-                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
-                              tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar as 'NOTA', tbl_barang.nama_barang as 'NAMA BARANG', 
+                              tbl_barang_keluar.harga_beli as 'HARGA BELI', tbl_barang_keluar.harga_jual as 'HARGA JUAL', 
+                              tbl_barang_keluar.jumlah as 'JUMLAH', tbl_barang_keluar.subtotal as 'SUBTOTAL', 
+                              tbl_barang_keluar.keuntungan as 'KEUNTUNGAN', tbl_barang_keluar.kerugian as 'KERUGIAN', 
+                              tbl_barang_keluar.tanggal as 'TANGGAL', tbl_barang_keluar.jam as 'JAM', tbl_user.fullname as 'PETUGAS' 
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
                               JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid", conn)
@@ -390,7 +396,9 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function newest_barang_keluar()
-        Cmd = New SqlCommand("SELECT TOP 5 tbl_barang_keluar.id_barang, tbl_barang.nama_barang, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal FROM tbl_barang_keluar
+        Cmd = New SqlCommand("SELECT TOP 10 tbl_barang.nama_barang, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
+                              FROM tbl_barang_keluar
+                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang ORDER BY tbl_barang_keluar.tanggal, tbl_barang_keluar.jam DESC", conn)
         Dim adapter = New SqlDataAdapter(Cmd)
         Dim ds = New DataSet

@@ -3,20 +3,15 @@
     Dim db_barang As New DBBarang
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Private Sub DBoardContent_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Panel1.Focus()
         Timer1.Enabled = True
         Label5.Text = connect.total_brg_keluar()
         Jmlh_BT.Text = db_barang.get_total_stock()
@@ -51,18 +46,28 @@
         Label3.Text = db_barang.getBarangHabis()
     End Sub
 
-    Private Sub PNL_BKLIST_Paint(sender As Object, e As PaintEventArgs)
-
+    Private Sub Guna2DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles Guna2DataGridView1.CellFormatting
+        Static counter As Integer = 0
+        counter += 1
+        Dim row = Guna2DataGridView1.Rows(e.RowIndex)
+        If Not row.IsNewRow AndAlso e.ColumnIndex <> 0 Then
+            Dim cell = row.Cells(0)
+            cell.Value = (e.RowIndex + 1).ToString()
+        End If
     End Sub
 
-    Private Sub Guna2DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Guna2DataGridView1.CellContentClick
-
+    Private Sub Guna2DataGridView1_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles Guna2DataGridView1.DataBindingComplete
+        Dim height As Integer = 0
+        For Each dr As DataGridViewRow In Guna2DataGridView1.Rows
+            height += dr.Height
+        Next
+        Guna2DataGridView1.Height = height
+        Guna2DataGridView1.Columns(0).Width = 55
+        Guna2DataGridView1.Columns(1).Width = 116
+        Guna2DataGridView1.Columns(2).Width = 198
+        Guna2DataGridView1.Columns(3).Width = 93
+        Guna2DataGridView1.Columns(4).Width = 125
+        Guna2DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
     End Sub
 
-    Private Sub PNL_BKLIST_Paint_1(sender As Object, e As PaintEventArgs)
-    End Sub
-
-    Private Sub Guna2Panel3_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
 End Class

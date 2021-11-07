@@ -3,17 +3,11 @@
 Public Class FormHome
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Dim connect As New AuthController
@@ -218,6 +212,6 @@ Public Class FormHome
     End Sub
 
     Private Sub BarangKeluarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BarangKeluarToolStripMenuItem.Click
-        FormReportBK.ShowDialog()
+        FormReportBKHarian.ShowDialog()
     End Sub
 End Class

@@ -79,17 +79,20 @@
         If Val(TB_Jumlah.Text) = ebKjml Then
             MessageBox.Show("Tidak ada yang dirubah")
         Else
-            For Each row As DataGridViewRow In DataGridView1.Rows
-                If row.Cells(0).Value = Val(TB_IDBRG.Text) Then
-                    row.Cells(4).Value = Val(TB_Jumlah.Text)
-                    row.Cells(5).Value = ebKstot
-                    row.Cells(6).Value = ebKuntung
-                    row.Cells(7).Value = ebKrugi
-                End If
-            Next
-            BTN_SimpanNota.Enabled = True
+            If TB_Jumlah.Text > ebKstok Then
+                MessageBox.Show("Jumlah melebihi stok yang ada!!")
+            Else
+                For Each row As DataGridViewRow In DataGridView1.Rows
+                    If row.Cells(0).Value = Val(TB_IDBRG.Text) Then
+                        row.Cells(4).Value = Val(TB_Jumlah.Text)
+                        row.Cells(5).Value = ebKstot
+                        row.Cells(6).Value = ebKuntung
+                        row.Cells(7).Value = ebKrugi
+                    End If
+                Next
+                BTN_SimpanNota.Enabled = True
+            End If
         End If
-
     End Sub
 
     Private Sub BTN_DeleteBrg_Click(sender As Object, e As EventArgs) Handles BTN_DeleteBrg.Click
@@ -227,7 +230,4 @@
         formatUang(TB_Keuntungan)
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
 End Class
