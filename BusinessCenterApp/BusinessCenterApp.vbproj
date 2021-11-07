@@ -309,7 +309,9 @@
   <ItemGroup>
     <Content Include="bin\Debug\IDBRGidentityreset.sql" />
     <Content Include="bin\Debug\UIDidentityreset.sql" />
-    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="..\Controller\Controller.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
