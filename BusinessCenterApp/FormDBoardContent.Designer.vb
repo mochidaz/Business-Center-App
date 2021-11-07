@@ -23,13 +23,13 @@ Partial Class FormDBoardContent
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormDBoardContent))
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Guna2ShadowPanel3 = New Guna.UI2.WinForms.Guna2ShadowPanel()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.PNL_dgv = New Guna.UI2.WinForms.Guna2Panel()
@@ -45,7 +45,20 @@ Partial Class FormDBoardContent
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PNL_Bot = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2DataGridView2 = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Barang_Baru = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -70,26 +83,13 @@ Partial Class FormDBoardContent
         Me.Label20 = New System.Windows.Forms.Label()
         Me.lbl_kerugian = New System.Windows.Forms.Label()
         Me.PNL_Top = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2DataGridView2 = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Panel8 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Panel9 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Panel10 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel9 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel8 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Guna2ShadowPanel3.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
         Me.PNL_dgv.SuspendLayout()
@@ -97,24 +97,24 @@ Partial Class FormDBoardContent
         Me.PNL_DBBRGKLR.SuspendLayout()
         Me.PNL_BKTittle.SuspendLayout()
         Me.PNL_Bot.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pc_BarangTersedia, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PNL_Top.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.Guna2ShadowPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
         CType(Me.Guna2DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Guna2Panel6.SuspendLayout()
-        Me.Guna2Panel7.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Guna2Panel8.SuspendLayout()
-        Me.Guna2Panel9.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pc_BarangTersedia, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PNL_Top.SuspendLayout()
         Me.Guna2Panel10.SuspendLayout()
+        Me.Guna2Panel9.SuspendLayout()
+        Me.Guna2Panel8.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.Guna2Panel7.SuspendLayout()
+        Me.Guna2Panel6.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2ShadowPanel3
@@ -162,35 +162,35 @@ Partial Class FormDBoardContent
         Me.Guna2DataGridView1.AllowUserToDeleteRows = False
         Me.Guna2DataGridView1.AllowUserToResizeColumns = False
         Me.Guna2DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        Me.Guna2DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.Guna2DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.Guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.Guna2DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.Guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.Guna2DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.Guna2DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Guna2DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Guna2DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.Guna2DataGridView1.ColumnHeadersHeight = 4
         Me.Guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.Guna2DataGridView1.ColumnHeadersVisible = False
         Me.Guna2DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
         Me.Guna2DataGridView1.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Guna2DataGridView1.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Guna2DataGridView1.DefaultCellStyle = DataGridViewCellStyle3
         Me.Guna2DataGridView1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Guna2DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.Guna2DataGridView1.EnableHeadersVisualStyles = False
@@ -346,15 +346,229 @@ Partial Class FormDBoardContent
         Me.PNL_Bot.Size = New System.Drawing.Size(1030, 417)
         Me.PNL_Bot.TabIndex = 16
         '
-        'PictureBox3
+        'Panel5
         '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(56, 60)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 12
-        Me.PictureBox3.TabStop = False
+        Me.Panel5.Controls.Add(Me.Guna2ShadowPanel1)
+        Me.Panel5.Location = New System.Drawing.Point(111, 419)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Padding = New System.Windows.Forms.Padding(0, 0, 0, 30)
+        Me.Panel5.Size = New System.Drawing.Size(818, 392)
+        Me.Panel5.TabIndex = 14
+        '
+        'Guna2ShadowPanel1
+        '
+        Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ShadowPanel1.Controls.Add(Me.Guna2Panel1)
+        Me.Guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2ShadowPanel1.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2ShadowPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2ShadowPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2ShadowPanel1.Name = "Guna2ShadowPanel1"
+        Me.Guna2ShadowPanel1.Padding = New System.Windows.Forms.Padding(5, 1, 5, 5)
+        Me.Guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black
+        Me.Guna2ShadowPanel1.ShadowDepth = 40
+        Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(818, 362)
+        Me.Guna2ShadowPanel1.TabIndex = 13
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.BackColor = System.Drawing.Color.White
+        Me.Guna2Panel1.Controls.Add(Me.Guna2Panel2)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2Panel4)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2Panel5)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(5, 1)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
+        Me.Guna2Panel1.Size = New System.Drawing.Size(808, 356)
+        Me.Guna2Panel1.TabIndex = 0
+        '
+        'Guna2Panel2
+        '
+        Me.Guna2Panel2.AutoScroll = True
+        Me.Guna2Panel2.Controls.Add(Me.Guna2DataGridView2)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 72)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
+        Me.Guna2Panel2.Size = New System.Drawing.Size(808, 284)
+        Me.Guna2Panel2.TabIndex = 3
+        '
+        'Guna2DataGridView2
+        '
+        Me.Guna2DataGridView2.AllowUserToAddRows = False
+        Me.Guna2DataGridView2.AllowUserToDeleteRows = False
+        Me.Guna2DataGridView2.AllowUserToResizeColumns = False
+        Me.Guna2DataGridView2.AllowUserToResizeRows = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.Guna2DataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.Guna2DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.Guna2DataGridView2.BackgroundColor = System.Drawing.Color.White
+        Me.Guna2DataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.Guna2DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.Guna2DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Guna2DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.Guna2DataGridView2.ColumnHeadersHeight = 4
+        Me.Guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.Guna2DataGridView2.ColumnHeadersVisible = False
+        Me.Guna2DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
+        Me.Guna2DataGridView2.Cursor = System.Windows.Forms.Cursors.Default
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Guna2DataGridView2.DefaultCellStyle = DataGridViewCellStyle6
+        Me.Guna2DataGridView2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2DataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.Guna2DataGridView2.EnableHeadersVisualStyles = False
+        Me.Guna2DataGridView2.GridColor = System.Drawing.SystemColors.Control
+        Me.Guna2DataGridView2.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2DataGridView2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2DataGridView2.MultiSelect = False
+        Me.Guna2DataGridView2.Name = "Guna2DataGridView2"
+        Me.Guna2DataGridView2.ReadOnly = True
+        Me.Guna2DataGridView2.RowHeadersVisible = False
+        Me.Guna2DataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.Guna2DataGridView2.RowTemplate.Height = 48
+        Me.Guna2DataGridView2.RowTemplate.ReadOnly = True
+        Me.Guna2DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.Guna2DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.Guna2DataGridView2.Size = New System.Drawing.Size(808, 48)
+        Me.Guna2DataGridView2.TabIndex = 0
+        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.Guna2DataGridView2.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.Guna2DataGridView2.ThemeStyle.GridColor = System.Drawing.SystemColors.Control
+        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 4
+        Me.Guna2DataGridView2.ThemeStyle.ReadOnly = True
+        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.Height = 48
+        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'Guna2Panel4
+        '
+        Me.Guna2Panel4.Controls.Add(Me.Label2)
+        Me.Guna2Panel4.Controls.Add(Me.Label7)
+        Me.Guna2Panel4.Controls.Add(Me.Label8)
+        Me.Guna2Panel4.Controls.Add(Me.Label9)
+        Me.Guna2Panel4.Controls.Add(Me.Label10)
+        Me.Guna2Panel4.CustomBorderColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel4.CustomBorderThickness = New System.Windows.Forms.Padding(0, 0, 0, 3)
+        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 32)
+        Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
+        Me.Guna2Panel4.Size = New System.Drawing.Size(808, 40)
+        Me.Guna2Panel4.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Coral
+        Me.Label2.Location = New System.Drawing.Point(597, 11)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(64, 17)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "PETUGAS"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Coral
+        Me.Label7.Location = New System.Drawing.Point(426, 11)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(66, 17)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "TANGGAL"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Coral
+        Me.Label8.Location = New System.Drawing.Point(245, 11)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(59, 17)
+        Me.Label8.TabIndex = 2
+        Me.Label8.Text = "JUMLAH"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Coral
+        Me.Label9.Location = New System.Drawing.Point(64, 11)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(48, 17)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "NAMA"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Coral
+        Me.Label10.Location = New System.Drawing.Point(10, 11)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(28, 17)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "NO"
+        '
+        'Guna2Panel5
+        '
+        Me.Guna2Panel5.Controls.Add(Me.Label11)
+        Me.Guna2Panel5.CustomBorderColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel5.CustomBorderThickness = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.Guna2Panel5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Panel5.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel5.Name = "Guna2Panel5"
+        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
+        Me.Guna2Panel5.Size = New System.Drawing.Size(808, 32)
+        Me.Guna2Panel5.TabIndex = 1
+        '
+        'Label11
+        '
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(0, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(808, 32)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "Barang Masuk"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Barang_Baru
         '
@@ -381,7 +595,7 @@ Partial Class FormDBoardContent
         'PictureBox4
         '
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox4.Location = New System.Drawing.Point(3, 0)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(58, 60)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -435,7 +649,7 @@ Partial Class FormDBoardContent
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Location = New System.Drawing.Point(5, 0)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(54, 60)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -625,246 +839,69 @@ Partial Class FormDBoardContent
         Me.PNL_Top.Size = New System.Drawing.Size(1030, 263)
         Me.PNL_Top.TabIndex = 17
         '
-        'Guna2ShadowPanel1
+        'Guna2Panel10
         '
-        Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ShadowPanel1.Controls.Add(Me.Guna2Panel1)
-        Me.Guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2ShadowPanel1.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2ShadowPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2ShadowPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2ShadowPanel1.Name = "Guna2ShadowPanel1"
-        Me.Guna2ShadowPanel1.Padding = New System.Windows.Forms.Padding(5, 1, 5, 5)
-        Me.Guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black
-        Me.Guna2ShadowPanel1.ShadowDepth = 40
-        Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(818, 362)
-        Me.Guna2ShadowPanel1.TabIndex = 13
+        Me.Guna2Panel10.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel10.BorderColor = System.Drawing.Color.BlueViolet
+        Me.Guna2Panel10.BorderRadius = 5
+        Me.Guna2Panel10.BorderThickness = 1
+        Me.Guna2Panel10.Controls.Add(Me.Label5)
+        Me.Guna2Panel10.Controls.Add(Me.PictureBox4)
+        Me.Guna2Panel10.Controls.Add(Me.Barang_Terjual)
+        Me.Guna2Panel10.FillColor = System.Drawing.Color.White
+        Me.Guna2Panel10.Location = New System.Drawing.Point(722, 28)
+        Me.Guna2Panel10.Name = "Guna2Panel10"
+        Me.Guna2Panel10.ShadowDecoration.Parent = Me.Guna2Panel10
+        Me.Guna2Panel10.Size = New System.Drawing.Size(153, 60)
+        Me.Guna2Panel10.TabIndex = 20
         '
-        'Guna2Panel1
+        'Guna2Panel9
         '
-        Me.Guna2Panel1.BackColor = System.Drawing.Color.White
-        Me.Guna2Panel1.Controls.Add(Me.Guna2Panel2)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2Panel4)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2Panel5)
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.Location = New System.Drawing.Point(5, 1)
-        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(808, 356)
-        Me.Guna2Panel1.TabIndex = 0
+        Me.Guna2Panel9.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel9.BorderColor = System.Drawing.Color.DodgerBlue
+        Me.Guna2Panel9.BorderRadius = 5
+        Me.Guna2Panel9.BorderThickness = 1
+        Me.Guna2Panel9.Controls.Add(Me.PictureBox1)
+        Me.Guna2Panel9.Controls.Add(Me.Label4)
+        Me.Guna2Panel9.Controls.Add(Me.Barang_Baru)
+        Me.Guna2Panel9.FillColor = System.Drawing.Color.White
+        Me.Guna2Panel9.Location = New System.Drawing.Point(533, 28)
+        Me.Guna2Panel9.Name = "Guna2Panel9"
+        Me.Guna2Panel9.ShadowDecoration.Parent = Me.Guna2Panel9
+        Me.Guna2Panel9.Size = New System.Drawing.Size(153, 60)
+        Me.Guna2Panel9.TabIndex = 19
         '
-        'Guna2Panel2
+        'Guna2Panel8
         '
-        Me.Guna2Panel2.AutoScroll = True
-        Me.Guna2Panel2.Controls.Add(Me.Guna2DataGridView2)
-        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 72)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
-        Me.Guna2Panel2.Size = New System.Drawing.Size(808, 284)
-        Me.Guna2Panel2.TabIndex = 3
+        Me.Guna2Panel8.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel8.BorderColor = System.Drawing.Color.OrangeRed
+        Me.Guna2Panel8.BorderRadius = 5
+        Me.Guna2Panel8.BorderThickness = 1
+        Me.Guna2Panel8.Controls.Add(Me.PictureBox2)
+        Me.Guna2Panel8.Controls.Add(Me.Label3)
+        Me.Guna2Panel8.Controls.Add(Me.Barang_Habis)
+        Me.Guna2Panel8.FillColor = System.Drawing.Color.White
+        Me.Guna2Panel8.Location = New System.Drawing.Point(346, 28)
+        Me.Guna2Panel8.Name = "Guna2Panel8"
+        Me.Guna2Panel8.ShadowDecoration.Parent = Me.Guna2Panel8
+        Me.Guna2Panel8.Size = New System.Drawing.Size(153, 60)
+        Me.Guna2Panel8.TabIndex = 18
         '
-        'Guna2DataGridView2
+        'Panel1
         '
-        Me.Guna2DataGridView2.AllowUserToAddRows = False
-        Me.Guna2DataGridView2.AllowUserToDeleteRows = False
-        Me.Guna2DataGridView2.AllowUserToResizeColumns = False
-        Me.Guna2DataGridView2.AllowUserToResizeRows = False
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.White
-        Me.Guna2DataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
-        Me.Guna2DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.Guna2DataGridView2.BackgroundColor = System.Drawing.Color.White
-        Me.Guna2DataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.Guna2DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.Guna2DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Guna2DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
-        Me.Guna2DataGridView2.ColumnHeadersHeight = 4
-        Me.Guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.Guna2DataGridView2.ColumnHeadersVisible = False
-        Me.Guna2DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
-        Me.Guna2DataGridView2.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle12.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Guna2DataGridView2.DefaultCellStyle = DataGridViewCellStyle12
-        Me.Guna2DataGridView2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2DataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.Guna2DataGridView2.EnableHeadersVisualStyles = False
-        Me.Guna2DataGridView2.GridColor = System.Drawing.SystemColors.Control
-        Me.Guna2DataGridView2.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2DataGridView2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2DataGridView2.MultiSelect = False
-        Me.Guna2DataGridView2.Name = "Guna2DataGridView2"
-        Me.Guna2DataGridView2.ReadOnly = True
-        Me.Guna2DataGridView2.RowHeadersVisible = False
-        Me.Guna2DataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.Guna2DataGridView2.RowTemplate.Height = 48
-        Me.Guna2DataGridView2.RowTemplate.ReadOnly = True
-        Me.Guna2DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.Guna2DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Guna2DataGridView2.Size = New System.Drawing.Size(808, 48)
-        Me.Guna2DataGridView2.TabIndex = 0
-        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.Guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.Guna2DataGridView2.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.Guna2DataGridView2.ThemeStyle.GridColor = System.Drawing.SystemColors.Control
-        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.Guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 4
-        Me.Guna2DataGridView2.ThemeStyle.ReadOnly = True
-        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.Height = 48
-        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'Guna2Panel4
-        '
-        Me.Guna2Panel4.Controls.Add(Me.Label2)
-        Me.Guna2Panel4.Controls.Add(Me.Label7)
-        Me.Guna2Panel4.Controls.Add(Me.Label8)
-        Me.Guna2Panel4.Controls.Add(Me.Label9)
-        Me.Guna2Panel4.Controls.Add(Me.Label10)
-        Me.Guna2Panel4.CustomBorderColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel4.CustomBorderThickness = New System.Windows.Forms.Padding(0, 0, 0, 3)
-        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 32)
-        Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
-        Me.Guna2Panel4.Size = New System.Drawing.Size(808, 40)
-        Me.Guna2Panel4.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Coral
-        Me.Label2.Location = New System.Drawing.Point(597, 11)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(64, 17)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "PETUGAS"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.Coral
-        Me.Label7.Location = New System.Drawing.Point(426, 11)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(66, 17)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "TANGGAL"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.Coral
-        Me.Label8.Location = New System.Drawing.Point(245, 11)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(59, 17)
-        Me.Label8.TabIndex = 2
-        Me.Label8.Text = "JUMLAH"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Coral
-        Me.Label9.Location = New System.Drawing.Point(64, 11)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 17)
-        Me.Label9.TabIndex = 1
-        Me.Label9.Text = "NAMA"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.Coral
-        Me.Label10.Location = New System.Drawing.Point(10, 11)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(28, 17)
-        Me.Label10.TabIndex = 0
-        Me.Label10.Text = "NO"
-        '
-        'Guna2Panel5
-        '
-        Me.Guna2Panel5.Controls.Add(Me.Label11)
-        Me.Guna2Panel5.CustomBorderColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel5.CustomBorderThickness = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.Guna2Panel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2Panel5.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(808, 32)
-        Me.Guna2Panel5.TabIndex = 1
-        '
-        'Label11
-        '
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(0, 0)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(808, 32)
-        Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Barang Masuk"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Panel5
-        '
-        Me.Panel5.Controls.Add(Me.Guna2ShadowPanel1)
-        Me.Panel5.Location = New System.Drawing.Point(111, 419)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Padding = New System.Windows.Forms.Padding(0, 0, 0, 30)
-        Me.Panel5.Size = New System.Drawing.Size(818, 392)
-        Me.Panel5.TabIndex = 14
-        '
-        'Guna2Panel6
-        '
-        Me.Guna2Panel6.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel6.BorderRadius = 10
-        Me.Guna2Panel6.Controls.Add(Me.lbl_kerugian)
-        Me.Guna2Panel6.Controls.Add(Me.Label24)
-        Me.Guna2Panel6.Controls.Add(Me.Label20)
-        Me.Guna2Panel6.Controls.Add(Me.Label23)
-        Me.Guna2Panel6.Controls.Add(Me.Label21)
-        Me.Guna2Panel6.Controls.Add(Me.Label22)
-        Me.Guna2Panel6.FillColor = System.Drawing.Color.IndianRed
-        Me.Guna2Panel6.Location = New System.Drawing.Point(533, 128)
-        Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(219, 110)
-        Me.Guna2Panel6.TabIndex = 15
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.BorderColor = System.Drawing.Color.Green
+        Me.Panel1.BorderRadius = 5
+        Me.Panel1.BorderThickness = 1
+        Me.Panel1.Controls.Add(Me.Pc_BarangTersedia)
+        Me.Panel1.Controls.Add(Me.Jmlh_BT)
+        Me.Panel1.Controls.Add(Me.Barang_Tersedia)
+        Me.Panel1.FillColor = System.Drawing.Color.White
+        Me.Panel1.Location = New System.Drawing.Point(157, 28)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.ShadowDecoration.Parent = Me.Panel1
+        Me.Panel1.Size = New System.Drawing.Size(153, 60)
+        Me.Panel1.TabIndex = 17
         '
         'Guna2Panel7
         '
@@ -885,69 +922,32 @@ Partial Class FormDBoardContent
         Me.Guna2Panel7.Size = New System.Drawing.Size(221, 110)
         Me.Guna2Panel7.TabIndex = 16
         '
-        'Panel1
+        'Guna2Panel6
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Panel1.BorderColor = System.Drawing.Color.Green
-        Me.Panel1.BorderRadius = 5
-        Me.Panel1.BorderThickness = 1
-        Me.Panel1.Controls.Add(Me.Pc_BarangTersedia)
-        Me.Panel1.Controls.Add(Me.Jmlh_BT)
-        Me.Panel1.Controls.Add(Me.Barang_Tersedia)
-        Me.Panel1.FillColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(157, 28)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.ShadowDecoration.Parent = Me.Panel1
-        Me.Panel1.Size = New System.Drawing.Size(153, 60)
-        Me.Panel1.TabIndex = 17
+        Me.Guna2Panel6.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel6.BorderRadius = 10
+        Me.Guna2Panel6.Controls.Add(Me.lbl_kerugian)
+        Me.Guna2Panel6.Controls.Add(Me.Label24)
+        Me.Guna2Panel6.Controls.Add(Me.Label20)
+        Me.Guna2Panel6.Controls.Add(Me.Label23)
+        Me.Guna2Panel6.Controls.Add(Me.Label21)
+        Me.Guna2Panel6.Controls.Add(Me.Label22)
+        Me.Guna2Panel6.FillColor = System.Drawing.Color.IndianRed
+        Me.Guna2Panel6.Location = New System.Drawing.Point(533, 128)
+        Me.Guna2Panel6.Name = "Guna2Panel6"
+        Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
+        Me.Guna2Panel6.Size = New System.Drawing.Size(219, 110)
+        Me.Guna2Panel6.TabIndex = 15
         '
-        'Guna2Panel8
+        'PictureBox1
         '
-        Me.Guna2Panel8.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel8.BorderColor = System.Drawing.Color.OrangeRed
-        Me.Guna2Panel8.BorderRadius = 5
-        Me.Guna2Panel8.BorderThickness = 1
-        Me.Guna2Panel8.Controls.Add(Me.PictureBox2)
-        Me.Guna2Panel8.Controls.Add(Me.Label3)
-        Me.Guna2Panel8.Controls.Add(Me.Barang_Habis)
-        Me.Guna2Panel8.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel8.Location = New System.Drawing.Point(346, 28)
-        Me.Guna2Panel8.Name = "Guna2Panel8"
-        Me.Guna2Panel8.ShadowDecoration.Parent = Me.Guna2Panel8
-        Me.Guna2Panel8.Size = New System.Drawing.Size(153, 60)
-        Me.Guna2Panel8.TabIndex = 18
-        '
-        'Guna2Panel9
-        '
-        Me.Guna2Panel9.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel9.BorderColor = System.Drawing.Color.DodgerBlue
-        Me.Guna2Panel9.BorderRadius = 5
-        Me.Guna2Panel9.BorderThickness = 1
-        Me.Guna2Panel9.Controls.Add(Me.Label4)
-        Me.Guna2Panel9.Controls.Add(Me.PictureBox3)
-        Me.Guna2Panel9.Controls.Add(Me.Barang_Baru)
-        Me.Guna2Panel9.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel9.Location = New System.Drawing.Point(533, 28)
-        Me.Guna2Panel9.Name = "Guna2Panel9"
-        Me.Guna2Panel9.ShadowDecoration.Parent = Me.Guna2Panel9
-        Me.Guna2Panel9.Size = New System.Drawing.Size(153, 60)
-        Me.Guna2Panel9.TabIndex = 19
-        '
-        'Guna2Panel10
-        '
-        Me.Guna2Panel10.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel10.BorderColor = System.Drawing.Color.BlueViolet
-        Me.Guna2Panel10.BorderRadius = 5
-        Me.Guna2Panel10.BorderThickness = 1
-        Me.Guna2Panel10.Controls.Add(Me.Label5)
-        Me.Guna2Panel10.Controls.Add(Me.PictureBox4)
-        Me.Guna2Panel10.Controls.Add(Me.Barang_Terjual)
-        Me.Guna2Panel10.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel10.Location = New System.Drawing.Point(722, 28)
-        Me.Guna2Panel10.Name = "Guna2Panel10"
-        Me.Guna2Panel10.ShadowDecoration.Parent = Me.Guna2Panel10
-        Me.Guna2Panel10.Size = New System.Drawing.Size(153, 60)
-        Me.Guna2Panel10.TabIndex = 20
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(6, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(56, 60)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
         '
         'FormDBoardContent
         '
@@ -974,11 +974,7 @@ Partial Class FormDBoardContent
         Me.PNL_DBBRGKLR.PerformLayout()
         Me.PNL_BKTittle.ResumeLayout(False)
         Me.PNL_Bot.ResumeLayout(False)
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pc_BarangTersedia, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PNL_Top.ResumeLayout(False)
+        Me.Panel5.ResumeLayout(False)
         Me.Guna2ShadowPanel1.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel2.ResumeLayout(False)
@@ -986,19 +982,23 @@ Partial Class FormDBoardContent
         Me.Guna2Panel4.ResumeLayout(False)
         Me.Guna2Panel4.PerformLayout()
         Me.Guna2Panel5.ResumeLayout(False)
-        Me.Panel5.ResumeLayout(False)
-        Me.Guna2Panel6.ResumeLayout(False)
-        Me.Guna2Panel6.PerformLayout()
-        Me.Guna2Panel7.ResumeLayout(False)
-        Me.Guna2Panel7.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Guna2Panel8.ResumeLayout(False)
-        Me.Guna2Panel8.PerformLayout()
-        Me.Guna2Panel9.ResumeLayout(False)
-        Me.Guna2Panel9.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pc_BarangTersedia, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PNL_Top.ResumeLayout(False)
         Me.Guna2Panel10.ResumeLayout(False)
         Me.Guna2Panel10.PerformLayout()
+        Me.Guna2Panel9.ResumeLayout(False)
+        Me.Guna2Panel9.PerformLayout()
+        Me.Guna2Panel8.ResumeLayout(False)
+        Me.Guna2Panel8.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Guna2Panel7.ResumeLayout(False)
+        Me.Guna2Panel7.PerformLayout()
+        Me.Guna2Panel6.ResumeLayout(False)
+        Me.Guna2Panel6.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1019,7 +1019,6 @@ Partial Class FormDBoardContent
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Label4 As Label
     Friend WithEvents Barang_Baru As Label
-    Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Barang_Terjual As Label
     Friend WithEvents PictureBox4 As PictureBox
@@ -1062,4 +1061,5 @@ Partial Class FormDBoardContent
     Friend WithEvents Guna2Panel10 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel9 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel8 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
