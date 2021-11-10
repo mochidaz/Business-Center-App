@@ -109,6 +109,7 @@
             BTN_OKid.Enabled = False
             FormBKeluarContent.showtbl()
             jum = 0
+            connect.log_penjualan(vUid, TB_NoNota.Text, DateTime.Now())
         ElseIf r = Status.DataIncomplete Then
             MessageBox.Show("Tidak ada yang diedit!!")
         Else
