@@ -116,6 +116,18 @@
     <Compile Include="BusinessCenterApp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormReportBKBulanan.Designer.vb">
+      <DependentUpon>FormReportBKBulanan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportBKBulanan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportLaporanBKBulanan.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportLaporanBKBulanan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReportLaporanBKHarian.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +237,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormReportBKBulanan.resx">
+      <DependentUpon>FormReportBKBulanan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportLaporanBKBulanan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportLaporanBKBulanan.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportLaporanBKHarian.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportLaporanBKHarian.vb</LastGenOutput>
@@ -237,6 +256,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessCenterApp.resx">
       <DependentUpon>BusinessCenterApp.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuatLaporanBarangKeluar.resx">
       <DependentUpon>FormBuatLaporanBarangKeluar.vb</DependentUpon>
@@ -262,6 +282,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.vb</DependentUpon>

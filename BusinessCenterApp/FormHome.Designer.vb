@@ -51,12 +51,12 @@ Partial Class FormHome
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BarangMasukToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangMasukBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BarangKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangKeluarBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.datetimer = New System.Windows.Forms.Timer(Me.components)
         Me.sessiontimer = New System.Windows.Forms.Timer(Me.components)
-        Me.BarangMasukBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarangKeluarBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PNL_TOPMENU.SuspendLayout()
         Me.PNL_ACCOUNT.SuspendLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,6 +114,7 @@ Partial Class FormHome
         Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CirclePictureBox1.ShadowDecoration.Parent = Me.Guna2CirclePictureBox1
         Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(50, 50)
+        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.Guna2CirclePictureBox1.TabIndex = 3
         Me.Guna2CirclePictureBox1.TabStop = False
         '
@@ -356,20 +357,20 @@ Partial Class FormHome
         '
         Me.MENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditUserToolStripMenuItem, Me.ChangePasswordToolStripMenuItem, Me.ReportToolStripMenuItem, Me.LogoutToolStripMenuItem})
         Me.MENUSTRIP.Name = "MENUSTRIP"
-        Me.MENUSTRIP.Size = New System.Drawing.Size(181, 114)
+        Me.MENUSTRIP.Size = New System.Drawing.Size(169, 92)
         '
         'EditUserToolStripMenuItem
         '
         Me.EditUserToolStripMenuItem.Image = CType(resources.GetObject("EditUserToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EditUserToolStripMenuItem.Name = "EditUserToolStripMenuItem"
-        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.EditUserToolStripMenuItem.Text = "Edit User"
         '
         'ChangePasswordToolStripMenuItem
         '
         Me.ChangePasswordToolStripMenuItem.Image = CType(resources.GetObject("ChangePasswordToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
         '
         'ReportToolStripMenuItem
@@ -377,7 +378,7 @@ Partial Class FormHome
         Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BarangMasukToolStripMenuItem, Me.BarangMasukBulananToolStripMenuItem, Me.BarangKeluarToolStripMenuItem, Me.BarangKeluarBulananToolStripMenuItem})
         Me.ReportToolStripMenuItem.Image = CType(resources.GetObject("ReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
-        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.ReportToolStripMenuItem.Text = "Report"
         '
         'BarangMasukToolStripMenuItem
@@ -387,25 +388,6 @@ Partial Class FormHome
         Me.BarangMasukToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.BarangMasukToolStripMenuItem.Text = "Barang Masuk (Harian)"
         '
-        'BarangKeluarToolStripMenuItem
-        '
-        Me.BarangKeluarToolStripMenuItem.Name = "BarangKeluarToolStripMenuItem"
-        Me.BarangKeluarToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
-        Me.BarangKeluarToolStripMenuItem.Text = "Barang Keluar (Harian)"
-        '
-        'LogoutToolStripMenuItem
-        '
-        Me.LogoutToolStripMenuItem.Image = CType(resources.GetObject("LogoutToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.LogoutToolStripMenuItem.Text = "Logout"
-        '
-        'datetimer
-        '
-        '
-        'sessiontimer
-        '
-        '
         'BarangMasukBulananToolStripMenuItem
         '
         Me.BarangMasukBulananToolStripMenuItem.Enabled = False
@@ -413,11 +395,30 @@ Partial Class FormHome
         Me.BarangMasukBulananToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.BarangMasukBulananToolStripMenuItem.Text = "Barang Masuk (Bulanan)"
         '
+        'BarangKeluarToolStripMenuItem
+        '
+        Me.BarangKeluarToolStripMenuItem.Name = "BarangKeluarToolStripMenuItem"
+        Me.BarangKeluarToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangKeluarToolStripMenuItem.Text = "Barang Keluar (Harian)"
+        '
         'BarangKeluarBulananToolStripMenuItem
         '
         Me.BarangKeluarBulananToolStripMenuItem.Name = "BarangKeluarBulananToolStripMenuItem"
         Me.BarangKeluarBulananToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.BarangKeluarBulananToolStripMenuItem.Text = "Barang Keluar (Bulanan)"
+        '
+        'LogoutToolStripMenuItem
+        '
+        Me.LogoutToolStripMenuItem.Image = CType(resources.GetObject("LogoutToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.LogoutToolStripMenuItem.Text = "Logout"
+        '
+        'datetimer
+        '
+        '
+        'sessiontimer
+        '
         '
         'FormHome
         '

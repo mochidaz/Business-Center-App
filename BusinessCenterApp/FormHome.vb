@@ -214,4 +214,9 @@ Public Class FormHome
     Private Sub BarangKeluarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BarangKeluarToolStripMenuItem.Click
         FormReportBKHarian.ShowDialog()
     End Sub
+
+    Private Sub BarangKeluarBulananToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BarangKeluarBulananToolStripMenuItem.Click
+        FormReportBKBulanan.ShowDialog()
+    End Sub
+
 End Class
