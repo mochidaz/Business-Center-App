@@ -129,7 +129,9 @@ Public Class DBBarang
     End Function
 
     Public Function searchBarang(searchbox As String)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang WHERE nama_barang LIKE '%" + searchbox + "%' OR id_barang LIKE '%" + searchbox + "%'", Conn)
+        Cmd = New SqlCommand("SELECT id_barang as 'ID BARANG', nama_barang as 'NAMA BARANG', 
+                              harga_beli as 'HARGA BELI', harga_jual as 'HARGA JUAL', stok as 'STOK'
+                              FROM tbl_barang WHERE nama_barang LIKE '%" + searchbox + "%' OR id_barang LIKE '%" + searchbox + "%'", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 Call openConn()
