@@ -42,4 +42,12 @@ CREATE TABLE [dbo].[tbl_barang_keluar] (
     CONSTRAINT [FK_tbl_barang_keluar_tbl_barang] FOREIGN KEY ([id_barang]) REFERENCES [dbo].[tbl_barang] ([id_barang])
 );
 
+CREATE TABLE [dbo].[tbl_log] (
+    [id_log]          INT        IDENTITY (1, 1) NOT NULL,
+    [id_user]         INT                        NOT NULL,
+    [no_nota_keluar]  VARCHAR(50)                NOT NULL,
+    [tanggal_berubah] DATETIME                   NOT NULL,
+    CONSTRAINT [FK_tbl_log_id_user] FOREIGN KEY ([id_user]) REFERENCES [dbo].[tbl_user] ([uid])
+);
+
 go

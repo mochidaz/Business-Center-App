@@ -407,6 +407,21 @@ Public Class DBBarangKeluar
 
     End Function
 
+    Public Function log_penjualan(id_user, no_nota_keluar, tanggal_berubah)
+        Cmd = New SqlCommand("INSERT INTO tbl_log (id_user, no_nota_keluar, tanggal_berubah) VALUES (@id_user, @nota, @tanggal)", conn)
+        Cmd.Parameters.Add("@id_user", SqlDbType.Int).Value = id_user
+        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = no_nota_keluar
+        Cmd.Parameters.Add("@tanggal", SqlDbType.DateTime).Value = tanggal_berubah
+        openConn()
+        Try
+            Cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            closeConn()
+            Return Status.DataError
+        End Try
+        closeConn()
+        Return Status.Success
+    End Function
 
 #Region "Perhitungan pendapatan bulanan"
 
