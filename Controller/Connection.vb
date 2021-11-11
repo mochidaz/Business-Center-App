@@ -19,6 +19,12 @@ Module barangKeluar
     Public pendapatan As Integer = Nothing
     Public keuntungan As Integer = Nothing
     Public kerugian As Integer = Nothing
+    Public pendapatanB As Integer = Nothing
+    Public keuntunganB As Integer = Nothing
+    Public kerugianB As Integer = Nothing
+    Public pendapatanH As Integer = Nothing
+    Public keuntunganH As Integer = Nothing
+    Public kerugianH As Integer = Nothing
 End Module
 
 Module editbarangKeluar
