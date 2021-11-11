@@ -1,5 +1,4 @@
-﻿Imports System.Data.SqlClient
-Imports CrystalDecisions.CrystalReports.Engine
+﻿Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 
 Public Class FormReportBKHarian
@@ -36,7 +35,6 @@ Public Class FormReportBKHarian
             CrystalReportViewer1.ReportSource = crypt
             CrystalReportViewer1.Refresh()
             CrystalReportViewer1.RefreshReport()
-            Debug.WriteLine(tanggal.Text)
         Catch ex As Exception
 
         End Try

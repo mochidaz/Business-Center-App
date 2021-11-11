@@ -33,14 +33,13 @@ Partial Class FormReportBKHarian
         'CrystalReportViewer1
         '
         Me.CrystalReportViewer1.ActiveViewIndex = -1
-        Me.CrystalReportViewer1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 82)
+        Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 84)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
         Me.CrystalReportViewer1.ShowGroupTreeButton = False
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(909, 453)
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(909, 451)
         Me.CrystalReportViewer1.TabIndex = 0
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
@@ -92,7 +91,7 @@ Partial Class FormReportBKHarian
         Me.tanggal.Size = New System.Drawing.Size(200, 20)
         Me.tanggal.TabIndex = 3
         '
-        'FormReportBK
+        'FormReportBKHarian
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -104,9 +103,9 @@ Partial Class FormReportBKHarian
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "FormReportBK"
+        Me.Name = "FormReportBKHarian"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Report Barang Keluar"
+        Me.Text = "Report Barang Keluar Harian"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
