@@ -82,6 +82,7 @@ Public Class FormBKeluarContent
         For Each row As DataGridViewRow In DataGridView1.Rows
             row.HeaderCell.Value = String.Format("{0}", row.Index + 1)
         Next
+        DataGridView1.ClearSelection()
     End Sub
 
 End Class
