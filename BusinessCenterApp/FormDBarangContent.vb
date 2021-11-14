@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
 
-Public Class FormDBarangContent_simple_
+Public Class FormDBarangContent
     Dim connect As New DBBarang
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams

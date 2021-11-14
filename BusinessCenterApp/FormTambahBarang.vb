@@ -16,7 +16,7 @@ Public Class FormTambahBarang
             Dim insert = connect.TambahBarang(TB_NamaBrg.Text, Val(TB__HargaBeli.Text), Val(TB_HargaJual.Text), Val(TB_Stok.Text))
             If insert = Status.Success Then
                 MessageBox.Show("Berhasil Menambahkan Barang!")
-                FormDBarangContent_simple_.showtblbarang()
+                FormDBarangContent.showtblbarang()
                 ClearTextBox(Me)
 
             ElseIf insert = Status.BarangExist Then

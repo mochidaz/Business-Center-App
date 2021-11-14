@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FormDBarangContent_simple_
+Partial Class FormDBarangContent
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,7 +24,7 @@ Partial Class FormDBarangContent_simple_
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormDBarangContent_simple_))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormDBarangContent))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BTN_TambahBarang = New Guna.UI2.WinForms.Guna2Button()
         Me.BTN_EditBarang = New Guna.UI2.WinForms.Guna2Button()
@@ -183,7 +183,7 @@ Partial Class FormDBarangContent_simple_
         Me.BTN_Excel.TabIndex = 5
         Me.BTN_Excel.Text = "Export to Excel"
         '
-        'FormDBarangContent_simple_
+        'FormDBarangContent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -200,7 +200,7 @@ Partial Class FormDBarangContent_simple_
         Me.MaximumSize = New System.Drawing.Size(1030, 680)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(1030, 680)
-        Me.Name = "FormDBarangContent_simple_"
+        Me.Name = "FormDBarangContent"
         Me.Text = "DBarangContent_simple_"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

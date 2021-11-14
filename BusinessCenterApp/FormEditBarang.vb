@@ -81,7 +81,7 @@
             If brg = Status.Success Then
                 MessageBox.Show("Edit Barang Berhasil!!")
                 kondisiAwal()
-                FormDBarangContent_simple_.showtblbarang()
+                FormDBarangContent.showtblbarang()
             ElseIf brg = Status.NothingChanged Then
                 MessageBox.Show("Data tidak ada yang diubah!!")
             ElseIf brg = Status.BarangExist Then
@@ -97,7 +97,7 @@
         If brg = Status.Success Then
             MessageBox.Show("Berhasil Menghapus Barang!!")
             kondisiAwal()
-            FormDBarangContent_simple_.showtblbarang()
+            FormDBarangContent.showtblbarang()
         End If
     End Sub
 
