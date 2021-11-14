@@ -37,6 +37,8 @@ Partial Class FormHome
         Me.BTN_BRGKELUAR = New System.Windows.Forms.Button()
         Me.PNL_SIDEMENU = New System.Windows.Forms.Panel()
         Me.PNL_SUBMENU = New System.Windows.Forms.Panel()
+        Me.LogEL_SELECTED = New System.Windows.Forms.Panel()
+        Me.BTN_LogEL = New System.Windows.Forms.Button()
         Me.BKeluar_SELECTED = New System.Windows.Forms.Panel()
         Me.BMasuk_SELECTED = New System.Windows.Forms.Panel()
         Me.LBL_Date = New System.Windows.Forms.Label()
@@ -251,6 +253,8 @@ Partial Class FormHome
         '
         'PNL_SUBMENU
         '
+        Me.PNL_SUBMENU.Controls.Add(Me.LogEL_SELECTED)
+        Me.PNL_SUBMENU.Controls.Add(Me.BTN_LogEL)
         Me.PNL_SUBMENU.Controls.Add(Me.BKeluar_SELECTED)
         Me.PNL_SUBMENU.Controls.Add(Me.BMasuk_SELECTED)
         Me.PNL_SUBMENU.Controls.Add(Me.BTN_BRGMASUK)
@@ -258,8 +262,35 @@ Partial Class FormHome
         Me.PNL_SUBMENU.Location = New System.Drawing.Point(0, 340)
         Me.PNL_SUBMENU.Margin = New System.Windows.Forms.Padding(0)
         Me.PNL_SUBMENU.Name = "PNL_SUBMENU"
-        Me.PNL_SUBMENU.Size = New System.Drawing.Size(250, 150)
+        Me.PNL_SUBMENU.Size = New System.Drawing.Size(250, 222)
         Me.PNL_SUBMENU.TabIndex = 8
+        '
+        'LogEL_SELECTED
+        '
+        Me.LogEL_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.LogEL_SELECTED.Location = New System.Drawing.Point(0, 140)
+        Me.LogEL_SELECTED.Name = "LogEL_SELECTED"
+        Me.LogEL_SELECTED.Size = New System.Drawing.Size(10, 70)
+        Me.LogEL_SELECTED.TabIndex = 11
+        '
+        'BTN_LogEL
+        '
+        Me.BTN_LogEL.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.BTN_LogEL.FlatAppearance.BorderSize = 0
+        Me.BTN_LogEL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_LogEL.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_LogEL.ForeColor = System.Drawing.Color.White
+        Me.BTN_LogEL.Image = CType(resources.GetObject("BTN_LogEL.Image"), System.Drawing.Image)
+        Me.BTN_LogEL.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BTN_LogEL.Location = New System.Drawing.Point(0, 140)
+        Me.BTN_LogEL.Margin = New System.Windows.Forms.Padding(0)
+        Me.BTN_LogEL.Name = "BTN_LogEL"
+        Me.BTN_LogEL.Size = New System.Drawing.Size(250, 70)
+        Me.BTN_LogEL.TabIndex = 10
+        Me.BTN_LogEL.TabStop = False
+        Me.BTN_LogEL.Text = "Log Edit Laporan"
+        Me.BTN_LogEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BTN_LogEL.UseVisualStyleBackColor = False
         '
         'BKeluar_SELECTED
         '
@@ -481,4 +512,6 @@ Partial Class FormHome
     Friend WithEvents BarangKeluarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangMasukBulananToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangKeluarBulananToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LogEL_SELECTED As Panel
+    Friend WithEvents BTN_LogEL As Button
 End Class
