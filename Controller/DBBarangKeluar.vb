@@ -425,6 +425,21 @@ Public Class DBBarangKeluar
         Return Status.Success
     End Function
 
+    Public Function LogTotable()
+        Cmd = New SqlCommand("SELECT tbl_log.id_log as 'ID LOG', tbl_log.no_nota_keluar as 'NOTA KELUAR', 
+                                     tbl_log.tanggal_berubah as 'TANGGAL EDIT', tbl_user.fullname as 'OLEH'
+                              FROM tbl_log
+                              JOIN tbl_user ON tbl_log.id_user = tbl_user.uid", conn)
+        Using adapter = New SqlDataAdapter(Cmd)
+            Using ds = New DataSet
+                Call openConn()
+                adapter.Fill(ds)
+                Return ds
+            End Using
+        End Using
+        Call closeConn()
+    End Function
+
 #Region "Perhitungan untung rugi"
 
     ' UNIMPLEMENTED
