@@ -109,7 +109,7 @@
             BTN_OKid.Enabled = False
             FormBKeluarContent.showtbl()
             jum = 0
-            connect.log_penjualan(vUid, TB_NoNota.Text, DateTime.Now())
+            connect.log(vUid, TB_NoNota.Text, DateTime.Now(), "edit", "lpbk")
         ElseIf r = Status.DataIncomplete Then
             MessageBox.Show("Tidak ada yang diedit!!")
         Else
@@ -121,6 +121,7 @@
         Dim bk = connect.DeleteLaporanBK(TB_NoNota.Text, DataGridView1)
         If bk = Status.Success Then
             MessageBox.Show("Berhasil menghapus Laporan Barang Keluar")
+            connect.log(vUid, TB_NoNota.Text, DateTime.Now(), "delete", "lpbk")
             kondisiawal()
             TB_NoNota.Text = Nothing
             FormBKeluarContent.showtbl()

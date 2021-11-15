@@ -21,6 +21,7 @@ Public Class FormLogin
             Dim log = connect.AuthLogin(TB_UNAMELOG.Text, TB_PASSLOG.Text)
             If log = Status.Success Then
                 MessageBox.Show("Login berhasil!! Selamat datang, " & fname)
+                connect.log(vUid, TB_UNAMELOG.Text, DateTime.Now(), "login", "login/register")
                 BusinessCenter.ClearPanel(Me)
                 BusinessCenter.HomeShow()
             Else
