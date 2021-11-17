@@ -71,4 +71,22 @@ Public MustInherit Class BaseConnection
         End If
     End Sub
 
+    Public Function log(id_user, primary_key, tanggal_berubah, kegiatan, mengedit)
+        Cmd = New SqlCommand("INSERT INTO tbl_log (id_user, id_objek, tanggal_berubah, kegiatan, mengedit) VALUES (@id_user, @id, @tanggal, @kegiatan, @mengedit)", conn)
+        Cmd.Parameters.Add("@id_user", SqlDbType.Int).Value = id_user
+        Cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = primary_key
+        Cmd.Parameters.Add("@tanggal", SqlDbType.DateTime).Value = tanggal_berubah
+        Cmd.Parameters.Add("@kegiatan", SqlDbType.VarChar).Value = kegiatan
+        Cmd.Parameters.Add("@mengedit", SqlDbType.VarChar).Value = mengedit
+        openConn()
+        Try
+            Cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            closeConn()
+            Return Status.DataError
+        End Try
+        closeConn()
+        Return Status.Success
+    End Function
+
 End Class

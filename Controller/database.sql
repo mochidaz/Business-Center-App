@@ -45,8 +45,10 @@ CREATE TABLE [dbo].[tbl_barang_keluar] (
 CREATE TABLE [dbo].[tbl_log] (
     [id_log]          INT        IDENTITY (1, 1) NOT NULL,
     [id_user]         INT                        NOT NULL,
-    [no_nota_keluar]  VARCHAR(50)                NOT NULL,
+    [id_objek]  VARCHAR(100)                NOT NULL,
     [tanggal_berubah] DATETIME                   NOT NULL,
+    [kegiatan]  VARCHAR(20)                      NOT NULL,
+    [mengedit] VARCHAR(20)                      NOT NULL,
     CONSTRAINT [FK_tbl_log_id_user] FOREIGN KEY ([id_user]) REFERENCES [dbo].[tbl_user] ([uid])
 );
 

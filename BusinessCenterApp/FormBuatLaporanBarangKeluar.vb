@@ -209,6 +209,7 @@
             Dim lpbk = connect.TambahLaporanBK(DataGridView1, TB_NoNota.Text, vUid)
             If lpbk = Status.Success Then
                 MessageBox.Show("Berhasil menambahkan laporan!!")
+                connect.log(vUid, TB_NoNota.Text, DateTime.Now(), "tambah", "lpbk")
                 ClearTextBox(Me)
                 kondisiawal()
                 FormBKeluarContent.showtbl()

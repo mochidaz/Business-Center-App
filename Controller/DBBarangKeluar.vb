@@ -406,7 +406,6 @@ Public Class DBBarangKeluar
         Dim ds = New DataSet
         adapter.Fill(ds)
         Return ds
-
     End Function
 
     Public Function log_penjualan(id_user, no_nota_keluar, tanggal_berubah)
