@@ -1,20 +1,15 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 
-Public Class FormDBarangContent_simple_
+Public Class FormDBarangContent
     Dim connect As New DBBarang
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Private Sub DBarangContent_simple__Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -100,5 +95,11 @@ Public Class FormDBarangContent_simple_
                 MessageBox.Show("Gagal menyimpan")
             End If
         End If
+    End Sub
+
+    Private Sub DataGridView1_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles DataGridView1.DataBindingComplete
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            row.HeaderCell.Value = String.Format("{0}", row.Index + 1)
+        Next
     End Sub
 End Class

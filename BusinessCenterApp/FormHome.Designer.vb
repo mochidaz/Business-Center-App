@@ -37,6 +37,8 @@ Partial Class FormHome
         Me.BTN_BRGKELUAR = New System.Windows.Forms.Button()
         Me.PNL_SIDEMENU = New System.Windows.Forms.Panel()
         Me.PNL_SUBMENU = New System.Windows.Forms.Panel()
+        Me.LogEL_SELECTED = New System.Windows.Forms.Panel()
+        Me.BTN_LogEL = New System.Windows.Forms.Button()
         Me.BKeluar_SELECTED = New System.Windows.Forms.Panel()
         Me.BMasuk_SELECTED = New System.Windows.Forms.Panel()
         Me.LBL_Date = New System.Windows.Forms.Label()
@@ -50,11 +52,13 @@ Partial Class FormHome
         Me.EditUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangMasukToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangMasukBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BarangKeluarBulananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.datetimer = New System.Windows.Forms.Timer(Me.components)
         Me.sessiontimer = New System.Windows.Forms.Timer(Me.components)
-        Me.BarangMasukToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarangKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PNL_TOPMENU.SuspendLayout()
         Me.PNL_ACCOUNT.SuspendLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,6 +116,7 @@ Partial Class FormHome
         Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CirclePictureBox1.ShadowDecoration.Parent = Me.Guna2CirclePictureBox1
         Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(50, 50)
+        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.Guna2CirclePictureBox1.TabIndex = 3
         Me.Guna2CirclePictureBox1.TabStop = False
         '
@@ -248,6 +253,8 @@ Partial Class FormHome
         '
         'PNL_SUBMENU
         '
+        Me.PNL_SUBMENU.Controls.Add(Me.LogEL_SELECTED)
+        Me.PNL_SUBMENU.Controls.Add(Me.BTN_LogEL)
         Me.PNL_SUBMENU.Controls.Add(Me.BKeluar_SELECTED)
         Me.PNL_SUBMENU.Controls.Add(Me.BMasuk_SELECTED)
         Me.PNL_SUBMENU.Controls.Add(Me.BTN_BRGMASUK)
@@ -255,8 +262,35 @@ Partial Class FormHome
         Me.PNL_SUBMENU.Location = New System.Drawing.Point(0, 340)
         Me.PNL_SUBMENU.Margin = New System.Windows.Forms.Padding(0)
         Me.PNL_SUBMENU.Name = "PNL_SUBMENU"
-        Me.PNL_SUBMENU.Size = New System.Drawing.Size(250, 150)
+        Me.PNL_SUBMENU.Size = New System.Drawing.Size(250, 222)
         Me.PNL_SUBMENU.TabIndex = 8
+        '
+        'LogEL_SELECTED
+        '
+        Me.LogEL_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.LogEL_SELECTED.Location = New System.Drawing.Point(0, 140)
+        Me.LogEL_SELECTED.Name = "LogEL_SELECTED"
+        Me.LogEL_SELECTED.Size = New System.Drawing.Size(10, 70)
+        Me.LogEL_SELECTED.TabIndex = 11
+        '
+        'BTN_LogEL
+        '
+        Me.BTN_LogEL.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.BTN_LogEL.FlatAppearance.BorderSize = 0
+        Me.BTN_LogEL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_LogEL.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_LogEL.ForeColor = System.Drawing.Color.White
+        Me.BTN_LogEL.Image = CType(resources.GetObject("BTN_LogEL.Image"), System.Drawing.Image)
+        Me.BTN_LogEL.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BTN_LogEL.Location = New System.Drawing.Point(0, 140)
+        Me.BTN_LogEL.Margin = New System.Windows.Forms.Padding(0)
+        Me.BTN_LogEL.Name = "BTN_LogEL"
+        Me.BTN_LogEL.Size = New System.Drawing.Size(250, 70)
+        Me.BTN_LogEL.TabIndex = 10
+        Me.BTN_LogEL.TabStop = False
+        Me.BTN_LogEL.Text = "Log Edit Laporan"
+        Me.BTN_LogEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BTN_LogEL.UseVisualStyleBackColor = False
         '
         'BKeluar_SELECTED
         '
@@ -354,7 +388,7 @@ Partial Class FormHome
         '
         Me.MENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditUserToolStripMenuItem, Me.ChangePasswordToolStripMenuItem, Me.ReportToolStripMenuItem, Me.LogoutToolStripMenuItem})
         Me.MENUSTRIP.Name = "MENUSTRIP"
-        Me.MENUSTRIP.Size = New System.Drawing.Size(181, 114)
+        Me.MENUSTRIP.Size = New System.Drawing.Size(169, 92)
         '
         'EditUserToolStripMenuItem
         '
@@ -372,11 +406,37 @@ Partial Class FormHome
         '
         'ReportToolStripMenuItem
         '
-        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BarangMasukToolStripMenuItem, Me.BarangKeluarToolStripMenuItem})
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BarangMasukToolStripMenuItem, Me.BarangMasukBulananToolStripMenuItem, Me.BarangKeluarToolStripMenuItem, Me.BarangKeluarBulananToolStripMenuItem})
         Me.ReportToolStripMenuItem.Image = CType(resources.GetObject("ReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
-        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.ReportToolStripMenuItem.Text = "Report"
+        '
+        'BarangMasukToolStripMenuItem
+        '
+        Me.BarangMasukToolStripMenuItem.Enabled = False
+        Me.BarangMasukToolStripMenuItem.Name = "BarangMasukToolStripMenuItem"
+        Me.BarangMasukToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangMasukToolStripMenuItem.Text = "Barang Masuk (Harian)"
+        '
+        'BarangMasukBulananToolStripMenuItem
+        '
+        Me.BarangMasukBulananToolStripMenuItem.Enabled = False
+        Me.BarangMasukBulananToolStripMenuItem.Name = "BarangMasukBulananToolStripMenuItem"
+        Me.BarangMasukBulananToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangMasukBulananToolStripMenuItem.Text = "Barang Masuk (Bulanan)"
+        '
+        'BarangKeluarToolStripMenuItem
+        '
+        Me.BarangKeluarToolStripMenuItem.Name = "BarangKeluarToolStripMenuItem"
+        Me.BarangKeluarToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangKeluarToolStripMenuItem.Text = "Barang Keluar (Harian)"
+        '
+        'BarangKeluarBulananToolStripMenuItem
+        '
+        Me.BarangKeluarBulananToolStripMenuItem.Name = "BarangKeluarBulananToolStripMenuItem"
+        Me.BarangKeluarBulananToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.BarangKeluarBulananToolStripMenuItem.Text = "Barang Keluar (Bulanan)"
         '
         'LogoutToolStripMenuItem
         '
@@ -390,18 +450,6 @@ Partial Class FormHome
         '
         'sessiontimer
         '
-        '
-        'BarangMasukToolStripMenuItem
-        '
-        Me.BarangMasukToolStripMenuItem.Name = "BarangMasukToolStripMenuItem"
-        Me.BarangMasukToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.BarangMasukToolStripMenuItem.Text = "Barang Masuk"
-        '
-        'BarangKeluarToolStripMenuItem
-        '
-        Me.BarangKeluarToolStripMenuItem.Name = "BarangKeluarToolStripMenuItem"
-        Me.BarangKeluarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.BarangKeluarToolStripMenuItem.Text = "Barang Keluar"
         '
         'FormHome
         '
@@ -462,4 +510,8 @@ Partial Class FormHome
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangMasukToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangKeluarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BarangMasukBulananToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BarangKeluarBulananToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LogEL_SELECTED As Panel
+    Friend WithEvents BTN_LogEL As Button
 End Class

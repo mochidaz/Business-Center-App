@@ -3,17 +3,11 @@
 Public Class FormHome
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Dim connect As New AuthController
@@ -30,12 +24,14 @@ Public Class FormHome
         DBarang_SELECTED.Visible = False
         BMasuk_SELECTED.Visible = False
         BKeluar_SELECTED.Visible = False
+        LogEL_SELECTED.Visible = False
         BTN_RIWAYAT.Enabled = True
         BTN_DASHBOARD.BackColor = Color.FromArgb(15, 0, 53)
         BTN_DATABARANG.BackColor = Color.FromArgb(53, 40, 91)
         BTN_RIWAYAT.BackColor = Color.FromArgb(53, 40, 91)
         BTN_BRGMASUK.BackColor = Color.FromArgb(35, 28, 58)
         BTN_BRGKELUAR.BackColor = Color.FromArgb(35, 28, 58)
+        BTN_LogEL.BackColor = Color.FromArgb(35, 28, 58)
         Label1.Text = "Dashboard"
         sessiontimer.Enabled = True
         datetimer.Enabled = True
@@ -54,16 +50,19 @@ Public Class FormHome
         DBarang_SELECTED.Visible = False
         BMasuk_SELECTED.Visible = False
         BKeluar_SELECTED.Visible = False
+        LogEL_SELECTED.Visible = False
         BTN_RIWAYAT.Enabled = True
         BTN_DASHBOARD.BackColor = Color.FromArgb(15, 0, 53)
         BTN_DATABARANG.BackColor = Color.FromArgb(53, 40, 91)
         BTN_RIWAYAT.BackColor = Color.FromArgb(53, 40, 91)
         BTN_BRGMASUK.BackColor = Color.FromArgb(35, 28, 58)
         BTN_BRGKELUAR.BackColor = Color.FromArgb(35, 28, 58)
+        BTN_LogEL.BackColor = Color.FromArgb(35, 28, 58)
         DboardShow()
-        FormDBarangContent_simple_.Close()
+        FormDBarangContent.Close()
         FormBMasukContent.Close()
         FormBKeluarContent.Close()
+        FormLogEditLaporan.Close()
         Label1.Text = "Dashboard"
     End Sub
 
@@ -72,16 +71,19 @@ Public Class FormHome
         DBarang_SELECTED.Visible = True
         BMasuk_SELECTED.Visible = False
         BKeluar_SELECTED.Visible = False
+        LogEL_SELECTED.Visible = False
         BTN_RIWAYAT.Enabled = True
         BTN_DASHBOARD.BackColor = Color.FromArgb(53, 40, 91)
         BTN_DATABARANG.BackColor = Color.FromArgb(15, 0, 53)
         BTN_RIWAYAT.BackColor = Color.FromArgb(53, 40, 91)
         BTN_BRGMASUK.BackColor = Color.FromArgb(35, 28, 58)
         BTN_BRGKELUAR.BackColor = Color.FromArgb(35, 28, 58)
+        BTN_LogEL.BackColor = Color.FromArgb(35, 28, 58)
         DbarangShow()
         FormDBoardContent.Close()
         FormBMasukContent.Close()
         FormBKeluarContent.Close()
+        FormLogEditLaporan.Close()
         Label1.Text = "Data Barang"
     End Sub
 
@@ -106,16 +108,19 @@ Public Class FormHome
         DBarang_SELECTED.Visible = False
         BMasuk_SELECTED.Visible = True
         BKeluar_SELECTED.Visible = False
+        LogEL_SELECTED.Visible = False
         BTN_RIWAYAT.Enabled = False
         BTN_DASHBOARD.BackColor = Color.FromArgb(53, 40, 91)
         BTN_DATABARANG.BackColor = Color.FromArgb(53, 40, 91)
         BTN_RIWAYAT.BackColor = Color.FromArgb(42, 30, 78)
         BTN_BRGMASUK.BackColor = Color.FromArgb(15, 0, 53)
         BTN_BRGKELUAR.BackColor = Color.FromArgb(35, 28, 58)
+        BTN_LogEL.BackColor = Color.FromArgb(35, 28, 58)
         BmasukShow()
         FormDBoardContent.Close()
-        FormDBarangContent_simple_.Close()
+        FormDBarangContent.Close()
         FormBKeluarContent.Close()
+        FormLogEditLaporan.Close()
         Label1.Text = "Barang Masuk"
     End Sub
 
@@ -124,17 +129,41 @@ Public Class FormHome
         DBarang_SELECTED.Visible = False
         BMasuk_SELECTED.Visible = False
         BKeluar_SELECTED.Visible = True
+        LogEL_SELECTED.Visible = False
         BTN_RIWAYAT.Enabled = False
         BTN_DASHBOARD.BackColor = Color.FromArgb(53, 40, 91)
         BTN_DATABARANG.BackColor = Color.FromArgb(53, 40, 91)
         BTN_RIWAYAT.BackColor = Color.FromArgb(42, 30, 78)
         BTN_BRGMASUK.BackColor = Color.FromArgb(35, 28, 58)
         BTN_BRGKELUAR.BackColor = Color.FromArgb(15, 0, 53)
+        BTN_LogEL.BackColor = Color.FromArgb(35, 28, 58)
         BkeluarShow()
         FormDBoardContent.Close()
-        FormDBarangContent_simple_.Close()
+        FormDBarangContent.Close()
         FormBMasukContent.Close()
+        FormLogEditLaporan.Close()
         Label1.Text = "Barang Keluar"
+    End Sub
+
+    Private Sub BTN_LogEL_Click(sender As Object, e As EventArgs) Handles BTN_LogEL.Click
+        DBoard_SELECTED.Visible = False
+        DBarang_SELECTED.Visible = False
+        BMasuk_SELECTED.Visible = False
+        BKeluar_SELECTED.Visible = False
+        LogEL_SELECTED.Visible = True
+        BTN_RIWAYAT.Enabled = False
+        BTN_DASHBOARD.BackColor = Color.FromArgb(53, 40, 91)
+        BTN_DATABARANG.BackColor = Color.FromArgb(53, 40, 91)
+        BTN_RIWAYAT.BackColor = Color.FromArgb(42, 30, 78)
+        BTN_BRGMASUK.BackColor = Color.FromArgb(35, 28, 58)
+        BTN_BRGKELUAR.BackColor = Color.FromArgb(35, 28, 58)
+        BTN_LogEL.BackColor = Color.FromArgb(15, 0, 53)
+        LogELShow()
+        FormDBoardContent.Close()
+        FormDBarangContent.Close()
+        FormBMasukContent.Close()
+        FormBKeluarContent.Close()
+        Label1.Text = "Log Edit Laporan"
     End Sub
 
 #End Region
@@ -161,9 +190,9 @@ Public Class FormHome
     End Sub
 
     Sub DbarangShow()
-        FormDBarangContent_simple_.TopLevel = False
-        PNL_CONTENT.Controls.Add(FormDBarangContent_simple_)
-        FormDBarangContent_simple_.Show()
+        FormDBarangContent.TopLevel = False
+        PNL_CONTENT.Controls.Add(FormDBarangContent)
+        FormDBarangContent.Show()
     End Sub
 
     Sub BmasukShow()
@@ -176,6 +205,12 @@ Public Class FormHome
         FormBKeluarContent.TopLevel = False
         PNL_CONTENT.Controls.Add(FormBKeluarContent)
         FormBKeluarContent.Show()
+    End Sub
+
+    Sub LogELShow()
+        FormLogEditLaporan.TopLevel = False
+        PNL_CONTENT.Controls.Add(FormLogEditLaporan)
+        FormLogEditLaporan.Show()
     End Sub
 
     Private Sub EditUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditUserToolStripMenuItem.Click
@@ -218,6 +253,11 @@ Public Class FormHome
     End Sub
 
     Private Sub BarangKeluarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BarangKeluarToolStripMenuItem.Click
-        FormReportBK.ShowDialog()
+        FormReportBKHarian.ShowDialog()
     End Sub
+
+    Private Sub BarangKeluarBulananToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BarangKeluarBulananToolStripMenuItem.Click
+        FormReportBKBulanan.ShowDialog()
+    End Sub
+
 End Class

@@ -2,17 +2,11 @@
     Dim connect As New DBBarang
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Private Sub FormEditBarang_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -88,7 +82,7 @@
                 MessageBox.Show("Edit Barang Berhasil!!")
                 connect.log(vUid, TB_IDbarang.Text, DateTime.Now(), "edit", "barang")
                 kondisiAwal()
-                FormDBarangContent_simple_.showtblbarang()
+                FormDBarangContent.showtblbarang()
             ElseIf brg = Status.NothingChanged Then
                 MessageBox.Show("Data tidak ada yang diubah!!")
             ElseIf brg = Status.BarangExist Then
@@ -105,7 +99,7 @@
             MessageBox.Show("Berhasil Menghapus Barang!!")
             connect.log(vUid, TB_IDbarang.Text, DateTime.Now(), "delete", "barang")
             kondisiAwal()
-            FormDBarangContent_simple_.showtblbarang()
+            FormDBarangContent.showtblbarang()
         End If
     End Sub
 

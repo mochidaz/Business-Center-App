@@ -1,18 +1,14 @@
-﻿Public Class FormBKeluarContent
+﻿Imports System.ComponentModel
+
+Public Class FormBKeluarContent
     Dim connect As New DBBarangKeluar
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Private Sub BTN_TambahBarang_Click(sender As Object, e As EventArgs) Handles BTN_TambahBarang.Click
@@ -39,6 +35,9 @@
         For Each table In bkinfo.tables
             DataGridView1.DataSource = table
         Next
+        If DataGridView1.Rows.Count > 0 Then
+            DataGridView1.Sort(DataGridView1.Columns(0), ListSortDirection.Descending)
+        End If
     End Sub
 
     Private Sub BTN_Refreshtbl_Click(sender As Object, e As EventArgs) Handles BTN_Refreshtbl.Click
@@ -79,7 +78,11 @@
         DataGridView1.ClearSelection()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
+    Private Sub DataGridView1_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles DataGridView1.DataBindingComplete
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            row.HeaderCell.Value = String.Format("{0}", row.Index + 1)
+        Next
+        DataGridView1.ClearSelection()
     End Sub
+
 End Class

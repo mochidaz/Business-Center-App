@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FormDBarangContent_simple_
+Partial Class FormDBarangContent
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,8 @@ Partial Class FormDBarangContent_simple_
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormDBarangContent_simple_))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormDBarangContent))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BTN_TambahBarang = New Guna.UI2.WinForms.Guna2Button()
         Me.BTN_EditBarang = New Guna.UI2.WinForms.Guna2Button()
@@ -100,6 +101,17 @@ Partial Class FormDBarangContent_simple_
         Me.DataGridView1.Location = New System.Drawing.Point(42, 127)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.RowHeadersWidth = 55
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DataGridView1.RowTemplate.Height = 30
         Me.DataGridView1.Size = New System.Drawing.Size(948, 483)
         Me.DataGridView1.TabIndex = 6
         '
@@ -171,7 +183,7 @@ Partial Class FormDBarangContent_simple_
         Me.BTN_Excel.TabIndex = 5
         Me.BTN_Excel.Text = "Export to Excel"
         '
-        'FormDBarangContent_simple_
+        'FormDBarangContent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -188,7 +200,7 @@ Partial Class FormDBarangContent_simple_
         Me.MaximumSize = New System.Drawing.Size(1030, 680)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(1030, 680)
-        Me.Name = "FormDBarangContent_simple_"
+        Me.Name = "FormDBarangContent"
         Me.Text = "DBarangContent_simple_"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

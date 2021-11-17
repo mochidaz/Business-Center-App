@@ -46,9 +46,16 @@
     Private Sub RBTN_IDBRG_CheckedChanged(sender As Object, e As EventArgs) Handles RBTN_IDBRG.CheckedChanged
         If RBTN_IDBRG.Checked = True Then
             RBTN_NMBRG.Checked = False
-            BTN_OK.Enabled = False
+            BTN_OKib.Enabled = True
+            BTN_OKib.Visible = True
+            BTN_OKnb.Enabled = False
+            BTN_OKnb.Visible = False
             TB_IDBRG.Enabled = True
         Else
+            BTN_OKib.Enabled = False
+            BTN_OKib.Visible = False
+            BTN_OKnb.Enabled = True
+            BTN_OKnb.Visible = True
             TB_NamaBrg.Text = Nothing
             TB_IDBRG.Text = Nothing
             clearTB()
@@ -56,34 +63,21 @@
         End If
     End Sub
 
-    Private Sub TB_IDBRG_TextChanged(sender As Object, e As EventArgs) Handles TB_IDBRG.TextChanged
-        clearTB()
-        If TB_IDBRG.Text = Nothing Then
-            TB_NamaBrg.Text = Nothing
-            clearTB()
-            clearVar()
-        Else
-            Dim lpbk = connect.selectBarang_id(Val(TB_IDBRG.Text))
-            If lpbk = Status.Success Then
-                TB_NamaBrg.Text = bKname
-                TB_HargaBeli.Text = bKhb
-                TB_HargaJual.Text = bKhj
-                TB_Jumlah.Enabled = True
-            Else
-                TB_NamaBrg.Text = Nothing
-                clearTB()
-                clearVar()
-                MessageBox.Show("ID Barang tidak ada!!")
-            End If
-        End If
-    End Sub
-
     Private Sub RBTN_NMBRG_CheckedChanged(sender As Object, e As EventArgs) Handles RBTN_NMBRG.CheckedChanged
         If RBTN_NMBRG.Checked = True Then
             RBTN_IDBRG.Checked = False
-            BTN_OK.Enabled = True
+            BTN_OKnb.Enabled = True
+            BTN_OKnb.Visible = True
             TB_NamaBrg.Enabled = True
+            BTN_OKib.Enabled = False
+            BTN_OKib.Visible = False
+            BTN_OKnb.Enabled = True
+            BTN_OKnb.Visible = True
         Else
+            BTN_OKib.Enabled = True
+            BTN_OKib.Visible = True
+            BTN_OKnb.Enabled = False
+            BTN_OKnb.Visible = False
             TB_NamaBrg.Text = Nothing
             TB_IDBRG.Text = Nothing
             clearTB()
@@ -91,10 +85,12 @@
         End If
     End Sub
 
-    Private Sub BTN_OK_Click(sender As Object, e As EventArgs) Handles BTN_OK.Click
-        If BTN_OK.Text = "OK" Then
+    Private Sub BTN_OKnb_Click(sender As Object, e As EventArgs) Handles BTN_OKnb.Click
+        If BTN_OKnb.Text = "OK" Then
             If TB_NamaBrg.Text = Nothing Then
                 TB_IDBRG.Text = Nothing
+                RBTN_NMBRG.Enabled = True
+                RBTN_IDBRG.Enabled = True
                 clearTB()
                 clearVar()
                 MessageBox.Show("Harap masukkan nama barangnya!!")
@@ -105,9 +101,13 @@
                     TB_HargaBeli.Text = bKhb
                     TB_HargaJual.Text = bKhj
                     TB_Jumlah.Enabled = True
-                    BTN_OK.Text = "Cancel"
+                    BTN_OKnb.Text = "Cancel"
                     TB_NamaBrg.Enabled = False
+                    RBTN_NMBRG.Enabled = False
+                    RBTN_IDBRG.Enabled = False
                 Else
+                    RBTN_NMBRG.Enabled = True
+                    RBTN_IDBRG.Enabled = True
                     TB_IDBRG.Text = Nothing
                     clearTB()
                     clearVar()
@@ -115,7 +115,9 @@
                 End If
             End If
         Else
-            BTN_OK.Text = "OK"
+            RBTN_NMBRG.Enabled = True
+            RBTN_IDBRG.Enabled = True
+            BTN_OKnb.Text = "OK"
             TB_NamaBrg.Enabled = True
             TB_IDBRG.Text = Nothing
             clearTB()
@@ -123,14 +125,69 @@
         End If
     End Sub
 
-    Private Sub BTN_TambahBrg_Click(sender As Object, e As EventArgs) Handles BTN_TambahBrg.Click
-        If bKstok > TB_Jumlah.Text Then
-            DataGridView1.Rows.Add(TB_IDBRG.Text, TB_NamaBrg.Text, bKhb, bKhj, TB_Jumlah.Text, bKstotal, bKuntung, bKrugi)
-            BTN_DeleteBrg.Enabled = True
-            BTN_Simpan.Enabled = True
-            kondisisetelahOK()
+    Private Sub BTN_OKib_Click(sender As Object, e As EventArgs) Handles BTN_OKib.Click
+        If BTN_OKib.Text = "OK" Then
+            If TB_IDBRG.Text = Nothing Then
+                RBTN_NMBRG.Enabled = True
+                RBTN_IDBRG.Enabled = True
+                TB_NamaBrg.Text = Nothing
+                clearTB()
+                clearVar()
+                MessageBox.Show("Harap masukkan id barangnya!!")
+            Else
+                Dim lpbk = connect.selectBarang_id(Val(TB_IDBRG.Text))
+                If lpbk = Status.Success Then
+                    TB_NamaBrg.Text = bKname
+                    TB_HargaBeli.Text = bKhb
+                    TB_HargaJual.Text = bKhj
+                    TB_Jumlah.Enabled = True
+                    BTN_OKib.Text = "Cancel"
+                    TB_IDBRG.Enabled = False
+                    RBTN_NMBRG.Enabled = False
+                    RBTN_IDBRG.Enabled = False
+                Else
+                    RBTN_NMBRG.Enabled = True
+                    RBTN_IDBRG.Enabled = True
+                    TB_NamaBrg.Text = Nothing
+                    clearTB()
+                    clearVar()
+                    MessageBox.Show("ID Barang tidak ada!!")
+                End If
+            End If
         Else
-            MessageBox.Show("Jumlah barang keluar melebihi stok barang yang ada!!")
+            RBTN_NMBRG.Enabled = True
+            RBTN_IDBRG.Enabled = True
+            BTN_OKib.Text = "OK"
+            TB_IDBRG.Enabled = True
+            TB_NamaBrg.Text = Nothing
+            clearTB()
+            clearVar()
+        End If
+    End Sub
+
+    Private Sub BTN_TambahBrg_Click(sender As Object, e As EventArgs) Handles BTN_TambahBrg.Click
+        Dim bln As Boolean = False
+        If TB_Jumlah.Text = Nothing Then
+            MessageBox.Show("Jumlah tidak boleh kosong")
+        Else
+            If bKstok >= TB_Jumlah.Text Then
+                For b As Integer = 0 To DataGridView1.Rows.Count - 1
+                    If TB_IDBRG.Text = DataGridView1.Rows(b).Cells(0).Value Then
+                        MessageBox.Show("Barang sudah ada dalam daftar")
+                        bln = True
+                    Else
+                        bln = False
+                    End If
+                Next
+                If bln = False Then
+                    DataGridView1.Rows.Add(TB_IDBRG.Text, TB_NamaBrg.Text, bKhb, bKhj, TB_Jumlah.Text, bKstotal, bKuntung, bKrugi)
+                    BTN_DeleteBrg.Enabled = True
+                    BTN_Simpan.Enabled = True
+                    kondisisetelahOK()
+                End If
+            Else
+                MessageBox.Show("Jumlah barang keluar melebihi stok barang yang ada!!")
+            End If
         End If
     End Sub
 
@@ -216,7 +273,9 @@
         clearTB()
         clearVar()
         BTN_OKNota.Text = "Cancel"
-        BTN_OK.Text = "OK"
+        BTN_OKnb.Text = "OK"
+        BTN_OKib.Enabled = True
+        BTN_OKib.Text = "OK"
         TB_NoNota.Enabled = False
         TB_IDBRG.Enabled = True
         RBTN_IDBRG.Enabled = True
@@ -233,11 +292,12 @@
         DataGridView1.Rows.Clear()
         RBTN_IDBRG.Checked = True
         RBTN_NMBRG.Checked = False
+        TB_NoNota.Text = Nothing
         TB_IDBRG.Text = Nothing
         TB_NamaBrg.Text = Nothing
         RBTN_IDBRG.Enabled = False
         RBTN_NMBRG.Enabled = False
-        BTN_OK.Enabled = False
+        BTN_OKnb.Enabled = False
         TB_IDBRG.Enabled = False
         TB_NamaBrg.Enabled = False
         TB_Jumlah.Enabled = False
@@ -245,7 +305,11 @@
         BTN_Simpan.Enabled = False
         BTN_DeleteBrg.Enabled = False
         BTN_TambahBrg.Enabled = False
-        BTN_OK.Text = "OK"
+        BTN_OKnb.Visible = False
+        BTN_OKib.Enabled = False
+        BTN_OKib.Visible = True
+        BTN_OKnb.Text = "OK"
+        BTN_OKib.Text = "OK"
         BTN_OKNota.Text = "OK"
     End Sub
 
@@ -286,7 +350,4 @@
         formatUang(TB_Keuntungan)
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
 End Class

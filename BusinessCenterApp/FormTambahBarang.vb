@@ -3,17 +3,11 @@ Public Class FormTambahBarang
     Dim connect As New DBBarang
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
-
         Get
-
             Dim cp As CreateParams = MyBase.CreateParams
-
             cp.ExStyle = cp.ExStyle Or 33554432
-
             Return cp
-
         End Get
-
     End Property
 
     Private Sub BTN_Simpan_Click(sender As Object, e As EventArgs) Handles BTN_Simpan.Click
@@ -23,14 +17,12 @@ Public Class FormTambahBarang
             If insert = Status.Success Then
                 MessageBox.Show("Berhasil Menambahkan Barang!")
                 connect.log(vUid, TB_NamaBrg.Text, DateTime.Now(), "tambah", "barang")
-                FormDBarangContent_simple_.showtblbarang()
+                FormDBarangContent.showtblbarang()
                 ClearTextBox(Me)
-
             ElseIf insert = Status.BarangExist Then
                 MessageBox.Show("Barang sudah ada!")
             End If
         End If
-
     End Sub
 
     Private Sub BTN_Batal_Click(sender As Object, e As EventArgs) Handles BTN_Batal.Click

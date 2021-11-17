@@ -179,7 +179,10 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function showinfbk_idbrg(nota As String, idbrg As Integer, dgv As DataGridView)
-        Cmd = New SqlCommand("SELECT * FROM tbl_barang_keluar WHERE no_nota_keluar = '" & nota & "' AND id_barang = '" & idbrg & "'", conn)
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, tbl_barang.stok 
+                              FROM tbl_barang_keluar 
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang
+                              WHERE tbl_barang_keluar.no_nota_keluar = '" & nota & "' AND tbl_barang_keluar.id_barang = '" & idbrg & "'", conn)
         Using adapter = New SqlDataAdapter(Cmd)
             Using table = New DataTable
                 openConn()
@@ -190,6 +193,7 @@ Public Class DBBarangKeluar
                 Else
                     ebKhb = table.Rows(0)("harga_beli")
                     ebKhj = table.Rows(0)("harga_jual")
+                    ebKstok = table.Rows(0)("stok")
                     Return Status.Success
                 End If
             End Using
@@ -355,9 +359,11 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function searchLPBK(searchbox As String)
-        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
-                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
-                              tbl_barang_keluar.tanggal,tbl_barang_keluar.jam, tbl_user.fullname 
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar as 'NOTA', tbl_barang.nama_barang as 'NAMA BARANG', 
+                              tbl_barang_keluar.harga_beli as 'HARGA BELI', tbl_barang_keluar.harga_jual as 'HARGA JUAL', 
+                              tbl_barang_keluar.jumlah as 'JUMLAH', tbl_barang_keluar.subtotal as 'SUBTOTAL', 
+                              tbl_barang_keluar.keuntungan as 'KEUNTUNGAN', tbl_barang_keluar.kerugian as 'KERUGIAN', 
+                              tbl_barang_keluar.tanggal as 'TANGGAL', tbl_barang_keluar.jam as 'JAM', tbl_user.fullname as 'PETUGAS' 
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
                               JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
@@ -373,9 +379,11 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function SelectToTable()
-        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar, tbl_barang.nama_barang, tbl_barang_keluar.harga_beli, tbl_barang_keluar.harga_jual, 
-                              tbl_barang_keluar.jumlah, tbl_barang_keluar.subtotal, tbl_barang_keluar.keuntungan, tbl_barang_keluar.kerugian, 
-                              tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
+        Cmd = New SqlCommand("SELECT tbl_barang_keluar.no_nota_keluar as 'NOTA', tbl_barang.nama_barang as 'NAMA BARANG', 
+                              tbl_barang_keluar.harga_beli as 'HARGA BELI', tbl_barang_keluar.harga_jual as 'HARGA JUAL', 
+                              tbl_barang_keluar.jumlah as 'JUMLAH', tbl_barang_keluar.subtotal as 'SUBTOTAL', 
+                              tbl_barang_keluar.keuntungan as 'KEUNTUNGAN', tbl_barang_keluar.kerugian as 'KERUGIAN', 
+                              tbl_barang_keluar.tanggal as 'TANGGAL', tbl_barang_keluar.jam as 'JAM', tbl_user.fullname as 'PETUGAS' 
                               FROM tbl_barang_keluar 
                               JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang 
                               JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid", conn)
@@ -390,73 +398,127 @@ Public Class DBBarangKeluar
     End Function
 
     Public Function newest_barang_keluar()
-        Cmd = New SqlCommand("SELECT TOP 5 tbl_barang_keluar.id_barang, tbl_barang.nama_barang, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal FROM tbl_barang_keluar
-                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang ORDER BY tbl_barang_keluar.tanggal, tbl_barang_keluar.jam DESC", conn)
+        Cmd = New SqlCommand("SELECT TOP 10 tbl_barang.nama_barang, tbl_barang_keluar.jumlah, tbl_barang_keluar.tanggal, tbl_barang_keluar.jam, tbl_user.fullname 
+                              FROM tbl_barang_keluar
+                              JOIN tbl_user ON tbl_barang_keluar.uid = tbl_user.uid
+                              JOIN tbl_barang ON tbl_barang_keluar.id_barang = tbl_barang.id_barang ORDER BY tbl_barang_keluar.tanggal DESC, tbl_barang_keluar.jam DESC", conn)
         Dim adapter = New SqlDataAdapter(Cmd)
         Dim ds = New DataSet
         adapter.Fill(ds)
         Return ds
-
     End Function
 
-#Region "Perhitungan pendapatan bulanan"
+    Public Function log_penjualan(id_user, no_nota_keluar, tanggal_berubah)
+        Cmd = New SqlCommand("INSERT INTO tbl_log (id_user, no_nota_keluar, tanggal_berubah) VALUES (@id_user, @nota, @tanggal)", conn)
+        Cmd.Parameters.Add("@id_user", SqlDbType.Int).Value = id_user
+        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = no_nota_keluar
+        Cmd.Parameters.Add("@tanggal", SqlDbType.DateTime).Value = tanggal_berubah
+        openConn()
+        Try
+            Cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            closeConn()
+            Return Status.DataError
+        End Try
+        closeConn()
+        Return Status.Success
+    End Function
+
+    Public Function LogTotable()
+        Cmd = New SqlCommand("SELECT tbl_log.id_log as 'ID LOG', tbl_log.no_nota_keluar as 'NOTA KELUAR', 
+                                     tbl_log.tanggal_berubah as 'TANGGAL EDIT', tbl_user.fullname as 'OLEH'
+                              FROM tbl_log
+                              JOIN tbl_user ON tbl_log.id_user = tbl_user.uid", conn)
+        Using adapter = New SqlDataAdapter(Cmd)
+            Using ds = New DataSet
+                Call openConn()
+                adapter.Fill(ds)
+                Return ds
+            End Using
+        End Using
+        Call closeConn()
+    End Function
+
+#Region "Perhitungan untung rugi"
 
     ' UNIMPLEMENTED
-    Private Function count_items(list As List(Of Integer))
-        Dim dict As New Dictionary(Of Integer, Integer)
-        Dim arr As New ArrayList()
+    'Private Function count_items(list As List(Of Integer))
+    '    Dim dict As New Dictionary(Of Integer, Integer)
+    '    Dim arr As New ArrayList()
 
-        Dim groups = list.GroupBy(Function(value) value)
-        For Each grp In groups
-            dict.Add(grp(0), grp.Count)
-        Next
+    '    Dim groups = list.GroupBy(Function(value) value)
+    '    For Each grp In groups
+    '        dict.Add(grp(0), grp.Count)
+    '    Next
 
-        Return dict
+    '    Return dict
 
-    End Function
+    'End Function
 
     Public Function get_total_pendapatan_bulanan(year As Integer, month As Integer)
-        openConn()
         Cmd = New SqlCommand("SELECT SUM(subtotal) FROM tbl_barang_keluar WHERE MONTH(tanggal) = @month AND YEAR(tanggal) = @year", conn)
         Cmd.Parameters.Add("@month", SqlDbType.Int).Value = month
         Cmd.Parameters.Add("@year", SqlDbType.Int).Value = year
-        Dim total = Cmd.ExecuteScalar()
+        openConn()
+        Dim rd = Cmd.ExecuteReader
+        While rd.Read
+            If (rd.Item(0) IsNot DBNull.Value) Then
+                pendapatanB = rd.GetInt32(0)
+            Else
+                pendapatanB = Nothing
+            End If
+        End While
         closeConn()
-        Return total
+        Return pendapatanB
     End Function
 
     'Format: YYYY-MM-DD
-    Public Function get_total_pendapatan_harian(hari As String)
+    Public Function get_total_pendapatan_harian(tgl)
         openConn()
-        Cmd = New SqlCommand($"SELECT SUM(subtotal) FROM tbl_barang_keluar WHERE tanggal = {hari}", conn)
+        Cmd = New SqlCommand("SELECT SUM(subtotal) FROM tbl_barang_keluar WHERE tanggal = '" & tgl & "'", conn)
+        Dim rd = Cmd.ExecuteReader
+        While rd.Read
+            If (rd.Item(0) IsNot DBNull.Value) Then
+                pendapatanH = rd.GetInt32(0)
+            Else
+                pendapatanH = Nothing
+            End If
+        End While
+        closeConn()
+        Return pendapatanH
+    End Function
+
+    'Public Function get_total_barang_keluar_bulanan(year, month)
+    '    openConn()
+    '    Cmd = New SqlCommand("SELECT COUNT(no_nota_keluar) FROM tbl_barang_keluar WHERE MONTH(tanggal) = @month AND YEAR(tanggal) = @year", conn)
+    '    Cmd.Parameters.Add("@month", SqlDbType.Int).Value = month
+    '    Cmd.Parameters.Add("@year", SqlDbType.Int).Value = year                    //UNIMPLEMENTED//
+    '    Dim total = Cmd.ExecuteScalar()
+    '    closeConn()
+    '    Return total
+    'End Function
+
+    Public Function get_total_barang_keluar_harian()
+        openConn()
+        Cmd = New SqlCommand("SELECT COUNT(no_nota_keluar) FROM tbl_barang_keluar WHERE tanggal = '" & DateTime.Now.ToString("yyyy/MM/dd") & "'", conn)
         Dim total = Cmd.ExecuteScalar()
         closeConn()
         Return total
     End Function
 
-    Public Function get_total_barang_keluar_bulanan(year, month)
+    Public Function get_total_keuntungan_harian(tgl)
         openConn()
-        Cmd = New SqlCommand("SELECT COUNT(no_nota_keluar) FROM tbl_barang_keluar WHERE MONTH(tanggal) = @month AND YEAR(tanggal) = @year", conn)
-        Cmd.Parameters.Add("@month", SqlDbType.Int).Value = month
-        Cmd.Parameters.Add("@year", SqlDbType.Int).Value = year
-        Dim total = Cmd.ExecuteScalar()
+        Cmd = New SqlCommand("Select SUM(keuntungan) FROM tbl_barang_keluar WHERE tanggal = '" & tgl & "'", conn)
+        Dim rd = Cmd.ExecuteReader
+        While rd.Read
+            If (rd.Item(0) IsNot DBNull.Value) Then
+                keuntunganH = rd.GetInt32(0)
+            Else
+                keuntunganH = Nothing
+            End If
+        End While
         closeConn()
-        Return total
-    End Function
-    Public Function get_total_barang_keluar_harian(hari)
-        openConn()
-        Cmd = New SqlCommand($"SELECT COUNT(no_nota_keluar) FROM tbl_barang_keluar WHERE tanggal = {hari}", conn)
-        Dim total = Cmd.ExecuteScalar()
-        closeConn()
-        Return total
-    End Function
-
-    Public Function get_total_keuntungan_harian(hari)
-        openConn()
-        Cmd = New SqlCommand($"SELECT SUM(keuntungan) FROM tbl_barang_keluar WHERE tanggal = {hari}", conn)
-        Dim total = Cmd.ExecuteScalar()
-        closeConn()
-        Return total
+        Return keuntunganH
     End Function
 
     Public Function get_total_keuntungan_bulanan(year, month)
@@ -464,9 +526,48 @@ Public Class DBBarangKeluar
         Cmd = New SqlCommand("SELECT SUM(keuntungan) FROM tbl_barang_keluar WHERE MONTH(tanggal) = @month AND YEAR(tanggal) = @year", conn)
         Cmd.Parameters.Add("@month", SqlDbType.Int).Value = month
         Cmd.Parameters.Add("@year", SqlDbType.Int).Value = year
-        Dim total = Cmd.ExecuteScalar()
+        Dim rd = Cmd.ExecuteReader
+        While rd.Read
+            If (rd.Item(0) IsNot DBNull.Value) Then
+                keuntunganB = rd.GetInt32(0)
+            Else
+                keuntunganB = Nothing
+            End If
+        End While
         closeConn()
-        Return total
+        Return keuntunganB
+    End Function
+
+    Public Function get_total_kerugian_harian(tgl)
+        Cmd = New SqlCommand("Select SUM(kerugian) FROM tbl_barang_keluar WHERE tanggal = '" & tgl & "'", conn)
+        openConn()
+        Dim rd = Cmd.ExecuteReader
+        While rd.Read
+            If (rd.Item(0) IsNot DBNull.Value) Then
+                kerugianH = rd.GetInt32(0)
+            Else
+                kerugianH = Nothing
+            End If
+        End While
+        closeConn()
+        Return kerugianH
+    End Function
+
+    Public Function get_total_kerugian_bulanan(year, month)
+        openConn()
+        Cmd = New SqlCommand("SELECT SUM(kerugian) FROM tbl_barang_keluar WHERE MONTH(tanggal) = @month AND YEAR(tanggal) = @year", conn)
+        Cmd.Parameters.Add("@month", SqlDbType.Int).Value = month
+        Cmd.Parameters.Add("@year", SqlDbType.Int).Value = year
+        Dim rd = Cmd.ExecuteReader
+        While rd.Read
+            If (rd.Item(0) IsNot DBNull.Value) Then
+                kerugianB = rd.GetInt32(0)
+            Else
+                kerugianB = Nothing
+            End If
+        End While
+        closeConn()
+        Return kerugianB
     End Function
 #End Region
 
