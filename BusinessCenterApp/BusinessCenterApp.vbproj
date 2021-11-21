@@ -116,10 +116,10 @@
     <Compile Include="BusinessCenterApp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogEditLaporan.Designer.vb">
-      <DependentUpon>FormLogEditLaporan.vb</DependentUpon>
+    <Compile Include="FormLog.Designer.vb">
+      <DependentUpon>FormLog.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormLogEditLaporan.vb">
+    <Compile Include="FormLog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReportBKBulanan.Designer.vb">
@@ -243,8 +243,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormLogEditLaporan.resx">
-      <DependentUpon>FormLogEditLaporan.vb</DependentUpon>
+    <EmbeddedResource Include="FormLog.resx">
+      <DependentUpon>FormLog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportBKBulanan.resx">
       <DependentUpon>FormReportBKBulanan.vb</DependentUpon>

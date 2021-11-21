@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DBBarangMasuk.vb" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums.vb" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Log.vb" />
     <Compile Include="$(MSBuildThisFileDirectory)utils.vb" />
   </ItemGroup>
   <ItemGroup>

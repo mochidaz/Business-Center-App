@@ -80,7 +80,7 @@
             Dim log = connect.updateUser(Val(TB_UID.Text), TB_FNAME.Text, TB_UNAME.Text, CB_STATUS.Text)
             If log = Status.Success Then
                 MessageBox.Show("Edit user berhasil")
-                connect.log(vUid, TB_UNAME.Text, DateTime.Now(), "edit", "user")
+                connect.log(vUid, TB_UNAME.Text, DateTime.Now(), "edit", "data user")
                 kondisiawal()
             ElseIf log = Status.UsernameExistInvalid Then
                 MessageBox.Show("Username telah tersedia harap untuk menggunakan yang lain!!")
@@ -95,7 +95,7 @@
     Private Sub BTN_DELETUSER_Click(sender As Object, e As EventArgs) Handles BTN_DELETUSER.Click
         Dim log = connect.deleteUser(Val(TB_UID.Text))
         If log = Status.Success Then
-            connect.log(vUid, TB_UNAME.Text, DateTime.Now(), "delete", "user")
+            connect.log(vUid, TB_UNAME.Text, DateTime.Now(), "delete", "data user")
             MessageBox.Show("Berhasil Menghapus Akun")
             kondisiawal()
         End If

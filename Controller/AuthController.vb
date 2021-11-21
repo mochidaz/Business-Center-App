@@ -73,6 +73,10 @@ Public Class AuthController
                     Return Status.DataIncomplete
                 End Try
                 Call closeConn()
+                getUid(username)
+                If log(gUidReg, username, DateTime.Now(), "register", "account") = Status.Success Then
+                    gUidReg = vbNullString
+                End If
                 updateStatus(username)
                 Return Status.Success
             Else
@@ -200,6 +204,18 @@ Public Class AuthController
         End Using
         Call closeConn()
         Return vUid
+    End Function
+
+    Public Function getUid(unm As String)
+        Cmd = New SqlCommand("SELECT uid FROM tbl_user WHERE username = '" & unm & "'", conn)
+        openConn()
+        Using rd = Cmd.ExecuteReader
+            While rd.Read
+                gUidReg = rd.GetInt32(0)
+            End While
+        End Using
+        closeConn()
+        Return gUidReg
     End Function
 
     Public Function setFullname(uid As Integer)

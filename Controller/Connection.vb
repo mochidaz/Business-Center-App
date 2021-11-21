@@ -4,6 +4,7 @@ Module Account
     Public fname As String = vbNullString
     Public vUid As String = vbNullString
     Public ustatus As String = vbNullString
+    Public gUidReg As String = vbNullString
 End Module
 
 Module barangKeluar

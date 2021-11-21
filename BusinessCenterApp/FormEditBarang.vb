@@ -80,7 +80,7 @@
             Dim brg = connect.EditBarang(Val(TB_IDbarang.Text), TB_NBarang.Text, TB_HBeli.Text, TB_HJual.Text, TB_Stok.Text)
             If brg = Status.Success Then
                 MessageBox.Show("Edit Barang Berhasil!!")
-                connect.log(vUid, TB_IDbarang.Text, DateTime.Now(), "edit", "barang")
+                connect.log(vUid, TB_NBarang.Text, DateTime.Now(), "edit", "barang")
                 kondisiAwal()
                 FormDBarangContent.showtblbarang()
             ElseIf brg = Status.NothingChanged Then
@@ -97,7 +97,7 @@
         Dim brg = connect.DeleteBarang(Val(TB_IDbarang.Text))
         If brg = Status.Success Then
             MessageBox.Show("Berhasil Menghapus Barang!!")
-            connect.log(vUid, TB_IDbarang.Text, DateTime.Now(), "delete", "barang")
+            connect.log(vUid, TB_NBarang.Text, DateTime.Now(), "delete", "barang")
             kondisiAwal()
             FormDBarangContent.showtblbarang()
         End If

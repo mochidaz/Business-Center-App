@@ -31,19 +31,12 @@ Partial Class FormHome
         Me.LBL_FNAME = New System.Windows.Forms.Label()
         Me.LBL_STATUS = New System.Windows.Forms.Label()
         Me.BTN_DASHBOARD = New System.Windows.Forms.Button()
-        Me.BTN_DATABARANG = New System.Windows.Forms.Button()
-        Me.BTN_RIWAYAT = New System.Windows.Forms.Button()
-        Me.BTN_BRGMASUK = New System.Windows.Forms.Button()
-        Me.BTN_BRGKELUAR = New System.Windows.Forms.Button()
-        Me.PNL_SIDEMENU = New System.Windows.Forms.Panel()
-        Me.PNL_SUBMENU = New System.Windows.Forms.Panel()
-        Me.LogEL_SELECTED = New System.Windows.Forms.Panel()
-        Me.BTN_LogEL = New System.Windows.Forms.Button()
-        Me.BKeluar_SELECTED = New System.Windows.Forms.Panel()
-        Me.BMasuk_SELECTED = New System.Windows.Forms.Panel()
-        Me.LBL_Date = New System.Windows.Forms.Label()
-        Me.DBarang_SELECTED = New System.Windows.Forms.Panel()
+        Me.PNL_SIDE = New System.Windows.Forms.Panel()
+        Me.PNL_Menu = New System.Windows.Forms.Panel()
+        Me.PNL_btndboard = New System.Windows.Forms.Panel()
         Me.DBoard_SELECTED = New System.Windows.Forms.Panel()
+        Me.PNL_downdate = New System.Windows.Forms.Panel()
+        Me.LBL_Date = New System.Windows.Forms.Label()
         Me.PNL_CONTENT = New System.Windows.Forms.Panel()
         Me.PNL_TOP = New System.Windows.Forms.Panel()
         Me.BTN_MENU = New System.Windows.Forms.Button()
@@ -59,13 +52,32 @@ Partial Class FormHome
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.datetimer = New System.Windows.Forms.Timer(Me.components)
         Me.sessiontimer = New System.Windows.Forms.Timer(Me.components)
+        Me.pnl_sbmlap = New System.Windows.Forms.Panel()
+        Me.BMasuk_SELECTED = New System.Windows.Forms.Panel()
+        Me.BKeluar_SELECTED = New System.Windows.Forms.Panel()
+        Me.BTN_BRGKELUAR = New System.Windows.Forms.Button()
+        Me.BTN_BRGMASUK = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BTN_LAPORAN = New System.Windows.Forms.Button()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.DBarang_SELECTED = New System.Windows.Forms.Panel()
+        Me.BTN_DATABARANG = New System.Windows.Forms.Button()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.BTN_Log = New System.Windows.Forms.Button()
+        Me.Log_SELECTED = New System.Windows.Forms.Panel()
         Me.PNL_TOPMENU.SuspendLayout()
         Me.PNL_ACCOUNT.SuspendLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PNL_SIDEMENU.SuspendLayout()
-        Me.PNL_SUBMENU.SuspendLayout()
+        Me.PNL_SIDE.SuspendLayout()
+        Me.PNL_Menu.SuspendLayout()
+        Me.PNL_btndboard.SuspendLayout()
+        Me.PNL_downdate.SuspendLayout()
         Me.PNL_TOP.SuspendLayout()
         Me.MENUSTRIP.SuspendLayout()
+        Me.pnl_sbmlap.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel9.SuspendLayout()
+        Me.Panel11.SuspendLayout()
         Me.SuspendLayout()
         '
         'PNL_TOPMENU
@@ -144,197 +156,90 @@ Partial Class FormHome
         '
         'BTN_DASHBOARD
         '
+        Me.BTN_DASHBOARD.Dock = System.Windows.Forms.DockStyle.Top
         Me.BTN_DASHBOARD.FlatAppearance.BorderSize = 0
         Me.BTN_DASHBOARD.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTN_DASHBOARD.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTN_DASHBOARD.ForeColor = System.Drawing.Color.White
         Me.BTN_DASHBOARD.Image = CType(resources.GetObject("BTN_DASHBOARD.Image"), System.Drawing.Image)
-        Me.BTN_DASHBOARD.Location = New System.Drawing.Point(0, 130)
+        Me.BTN_DASHBOARD.Location = New System.Drawing.Point(0, 0)
         Me.BTN_DASHBOARD.Margin = New System.Windows.Forms.Padding(0)
         Me.BTN_DASHBOARD.Name = "BTN_DASHBOARD"
-        Me.BTN_DASHBOARD.Size = New System.Drawing.Size(250, 70)
-        Me.BTN_DASHBOARD.TabIndex = 0
+        Me.BTN_DASHBOARD.Size = New System.Drawing.Size(250, 72)
+        Me.BTN_DASHBOARD.TabIndex = 2
         Me.BTN_DASHBOARD.TabStop = False
         Me.BTN_DASHBOARD.Text = "Dashboard"
         Me.BTN_DASHBOARD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.BTN_DASHBOARD.UseVisualStyleBackColor = True
         '
-        'BTN_DATABARANG
+        'PNL_SIDE
         '
-        Me.BTN_DATABARANG.FlatAppearance.BorderSize = 0
-        Me.BTN_DATABARANG.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_DATABARANG.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_DATABARANG.ForeColor = System.Drawing.Color.White
-        Me.BTN_DATABARANG.Image = CType(resources.GetObject("BTN_DATABARANG.Image"), System.Drawing.Image)
-        Me.BTN_DATABARANG.Location = New System.Drawing.Point(0, 200)
-        Me.BTN_DATABARANG.Margin = New System.Windows.Forms.Padding(0)
-        Me.BTN_DATABARANG.Name = "BTN_DATABARANG"
-        Me.BTN_DATABARANG.Size = New System.Drawing.Size(250, 70)
-        Me.BTN_DATABARANG.TabIndex = 1
-        Me.BTN_DATABARANG.TabStop = False
-        Me.BTN_DATABARANG.Text = "Data Barang"
-        Me.BTN_DATABARANG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BTN_DATABARANG.UseVisualStyleBackColor = True
+        Me.PNL_SIDE.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(91, Byte), Integer))
+        Me.PNL_SIDE.Controls.Add(Me.PNL_Menu)
+        Me.PNL_SIDE.Controls.Add(Me.PNL_downdate)
+        Me.PNL_SIDE.Controls.Add(Me.PNL_ACCOUNT)
+        Me.PNL_SIDE.Controls.Add(Me.PNL_TOPMENU)
+        Me.PNL_SIDE.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PNL_SIDE.Location = New System.Drawing.Point(0, 0)
+        Me.PNL_SIDE.Margin = New System.Windows.Forms.Padding(0)
+        Me.PNL_SIDE.Name = "PNL_SIDE"
+        Me.PNL_SIDE.Size = New System.Drawing.Size(250, 720)
+        Me.PNL_SIDE.TabIndex = 7
         '
-        'BTN_RIWAYAT
+        'PNL_Menu
         '
-        Me.BTN_RIWAYAT.FlatAppearance.BorderSize = 0
-        Me.BTN_RIWAYAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_RIWAYAT.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_RIWAYAT.ForeColor = System.Drawing.Color.White
-        Me.BTN_RIWAYAT.Image = CType(resources.GetObject("BTN_RIWAYAT.Image"), System.Drawing.Image)
-        Me.BTN_RIWAYAT.Location = New System.Drawing.Point(0, 270)
-        Me.BTN_RIWAYAT.Margin = New System.Windows.Forms.Padding(0)
-        Me.BTN_RIWAYAT.Name = "BTN_RIWAYAT"
-        Me.BTN_RIWAYAT.Size = New System.Drawing.Size(250, 70)
-        Me.BTN_RIWAYAT.TabIndex = 2
-        Me.BTN_RIWAYAT.TabStop = False
-        Me.BTN_RIWAYAT.Text = "Laporan"
-        Me.BTN_RIWAYAT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BTN_RIWAYAT.UseVisualStyleBackColor = True
+        Me.PNL_Menu.AutoScroll = True
+        Me.PNL_Menu.Controls.Add(Me.Panel11)
+        Me.PNL_Menu.Controls.Add(Me.pnl_sbmlap)
+        Me.PNL_Menu.Controls.Add(Me.Panel2)
+        Me.PNL_Menu.Controls.Add(Me.Panel9)
+        Me.PNL_Menu.Controls.Add(Me.PNL_btndboard)
+        Me.PNL_Menu.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PNL_Menu.Location = New System.Drawing.Point(0, 130)
+        Me.PNL_Menu.Margin = New System.Windows.Forms.Padding(0)
+        Me.PNL_Menu.Name = "PNL_Menu"
+        Me.PNL_Menu.Size = New System.Drawing.Size(250, 548)
+        Me.PNL_Menu.TabIndex = 21
         '
-        'BTN_BRGMASUK
+        'PNL_btndboard
         '
-        Me.BTN_BRGMASUK.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.BTN_BRGMASUK.Enabled = False
-        Me.BTN_BRGMASUK.FlatAppearance.BorderSize = 0
-        Me.BTN_BRGMASUK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_BRGMASUK.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_BRGMASUK.ForeColor = System.Drawing.Color.White
-        Me.BTN_BRGMASUK.Image = CType(resources.GetObject("BTN_BRGMASUK.Image"), System.Drawing.Image)
-        Me.BTN_BRGMASUK.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BTN_BRGMASUK.Location = New System.Drawing.Point(0, 0)
-        Me.BTN_BRGMASUK.Margin = New System.Windows.Forms.Padding(0)
-        Me.BTN_BRGMASUK.Name = "BTN_BRGMASUK"
-        Me.BTN_BRGMASUK.Size = New System.Drawing.Size(250, 70)
-        Me.BTN_BRGMASUK.TabIndex = 3
-        Me.BTN_BRGMASUK.TabStop = False
-        Me.BTN_BRGMASUK.Text = "Barang Masuk"
-        Me.BTN_BRGMASUK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BTN_BRGMASUK.UseVisualStyleBackColor = False
-        '
-        'BTN_BRGKELUAR
-        '
-        Me.BTN_BRGKELUAR.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.BTN_BRGKELUAR.FlatAppearance.BorderSize = 0
-        Me.BTN_BRGKELUAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_BRGKELUAR.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_BRGKELUAR.ForeColor = System.Drawing.Color.White
-        Me.BTN_BRGKELUAR.Image = CType(resources.GetObject("BTN_BRGKELUAR.Image"), System.Drawing.Image)
-        Me.BTN_BRGKELUAR.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BTN_BRGKELUAR.Location = New System.Drawing.Point(0, 70)
-        Me.BTN_BRGKELUAR.Margin = New System.Windows.Forms.Padding(0)
-        Me.BTN_BRGKELUAR.Name = "BTN_BRGKELUAR"
-        Me.BTN_BRGKELUAR.Size = New System.Drawing.Size(250, 70)
-        Me.BTN_BRGKELUAR.TabIndex = 4
-        Me.BTN_BRGKELUAR.TabStop = False
-        Me.BTN_BRGKELUAR.Text = "Barang Keluar"
-        Me.BTN_BRGKELUAR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BTN_BRGKELUAR.UseVisualStyleBackColor = False
-        '
-        'PNL_SIDEMENU
-        '
-        Me.PNL_SIDEMENU.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.PNL_SIDEMENU.Controls.Add(Me.PNL_SUBMENU)
-        Me.PNL_SIDEMENU.Controls.Add(Me.LBL_Date)
-        Me.PNL_SIDEMENU.Controls.Add(Me.DBarang_SELECTED)
-        Me.PNL_SIDEMENU.Controls.Add(Me.DBoard_SELECTED)
-        Me.PNL_SIDEMENU.Controls.Add(Me.PNL_ACCOUNT)
-        Me.PNL_SIDEMENU.Controls.Add(Me.BTN_RIWAYAT)
-        Me.PNL_SIDEMENU.Controls.Add(Me.PNL_TOPMENU)
-        Me.PNL_SIDEMENU.Controls.Add(Me.BTN_DASHBOARD)
-        Me.PNL_SIDEMENU.Controls.Add(Me.BTN_DATABARANG)
-        Me.PNL_SIDEMENU.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PNL_SIDEMENU.Location = New System.Drawing.Point(0, 0)
-        Me.PNL_SIDEMENU.Margin = New System.Windows.Forms.Padding(0)
-        Me.PNL_SIDEMENU.Name = "PNL_SIDEMENU"
-        Me.PNL_SIDEMENU.Size = New System.Drawing.Size(250, 720)
-        Me.PNL_SIDEMENU.TabIndex = 7
-        '
-        'PNL_SUBMENU
-        '
-        Me.PNL_SUBMENU.Controls.Add(Me.LogEL_SELECTED)
-        Me.PNL_SUBMENU.Controls.Add(Me.BTN_LogEL)
-        Me.PNL_SUBMENU.Controls.Add(Me.BKeluar_SELECTED)
-        Me.PNL_SUBMENU.Controls.Add(Me.BMasuk_SELECTED)
-        Me.PNL_SUBMENU.Controls.Add(Me.BTN_BRGMASUK)
-        Me.PNL_SUBMENU.Controls.Add(Me.BTN_BRGKELUAR)
-        Me.PNL_SUBMENU.Location = New System.Drawing.Point(0, 340)
-        Me.PNL_SUBMENU.Margin = New System.Windows.Forms.Padding(0)
-        Me.PNL_SUBMENU.Name = "PNL_SUBMENU"
-        Me.PNL_SUBMENU.Size = New System.Drawing.Size(250, 222)
-        Me.PNL_SUBMENU.TabIndex = 8
-        '
-        'LogEL_SELECTED
-        '
-        Me.LogEL_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.LogEL_SELECTED.Location = New System.Drawing.Point(0, 140)
-        Me.LogEL_SELECTED.Name = "LogEL_SELECTED"
-        Me.LogEL_SELECTED.Size = New System.Drawing.Size(10, 70)
-        Me.LogEL_SELECTED.TabIndex = 11
-        '
-        'BTN_LogEL
-        '
-        Me.BTN_LogEL.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.BTN_LogEL.FlatAppearance.BorderSize = 0
-        Me.BTN_LogEL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_LogEL.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_LogEL.ForeColor = System.Drawing.Color.White
-        Me.BTN_LogEL.Image = CType(resources.GetObject("BTN_LogEL.Image"), System.Drawing.Image)
-        Me.BTN_LogEL.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BTN_LogEL.Location = New System.Drawing.Point(0, 140)
-        Me.BTN_LogEL.Margin = New System.Windows.Forms.Padding(0)
-        Me.BTN_LogEL.Name = "BTN_LogEL"
-        Me.BTN_LogEL.Size = New System.Drawing.Size(250, 70)
-        Me.BTN_LogEL.TabIndex = 10
-        Me.BTN_LogEL.TabStop = False
-        Me.BTN_LogEL.Text = "Log Edit Laporan"
-        Me.BTN_LogEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BTN_LogEL.UseVisualStyleBackColor = False
-        '
-        'BKeluar_SELECTED
-        '
-        Me.BKeluar_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.BKeluar_SELECTED.Location = New System.Drawing.Point(0, 70)
-        Me.BKeluar_SELECTED.Name = "BKeluar_SELECTED"
-        Me.BKeluar_SELECTED.Size = New System.Drawing.Size(10, 70)
-        Me.BKeluar_SELECTED.TabIndex = 9
-        '
-        'BMasuk_SELECTED
-        '
-        Me.BMasuk_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.BMasuk_SELECTED.Location = New System.Drawing.Point(0, 0)
-        Me.BMasuk_SELECTED.Name = "BMasuk_SELECTED"
-        Me.BMasuk_SELECTED.Size = New System.Drawing.Size(10, 70)
-        Me.BMasuk_SELECTED.TabIndex = 8
-        '
-        'LBL_Date
-        '
-        Me.LBL_Date.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.LBL_Date.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_Date.ForeColor = System.Drawing.Color.White
-        Me.LBL_Date.Location = New System.Drawing.Point(0, 689)
-        Me.LBL_Date.Name = "LBL_Date"
-        Me.LBL_Date.Size = New System.Drawing.Size(250, 31)
-        Me.LBL_Date.TabIndex = 2
-        Me.LBL_Date.Text = "DD/MM/YYYY" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HH/MM/SS"
-        Me.LBL_Date.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'DBarang_SELECTED
-        '
-        Me.DBarang_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.DBarang_SELECTED.Location = New System.Drawing.Point(0, 200)
-        Me.DBarang_SELECTED.Name = "DBarang_SELECTED"
-        Me.DBarang_SELECTED.Size = New System.Drawing.Size(10, 70)
-        Me.DBarang_SELECTED.TabIndex = 7
+        Me.PNL_btndboard.Controls.Add(Me.DBoard_SELECTED)
+        Me.PNL_btndboard.Controls.Add(Me.BTN_DASHBOARD)
+        Me.PNL_btndboard.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PNL_btndboard.Location = New System.Drawing.Point(0, 0)
+        Me.PNL_btndboard.Name = "PNL_btndboard"
+        Me.PNL_btndboard.Size = New System.Drawing.Size(250, 72)
+        Me.PNL_btndboard.TabIndex = 12
         '
         'DBoard_SELECTED
         '
         Me.DBoard_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.DBoard_SELECTED.Location = New System.Drawing.Point(0, 130)
+        Me.DBoard_SELECTED.Location = New System.Drawing.Point(0, 0)
         Me.DBoard_SELECTED.Name = "DBoard_SELECTED"
-        Me.DBoard_SELECTED.Size = New System.Drawing.Size(10, 70)
+        Me.DBoard_SELECTED.Size = New System.Drawing.Size(10, 72)
         Me.DBoard_SELECTED.TabIndex = 6
+        '
+        'PNL_downdate
+        '
+        Me.PNL_downdate.Controls.Add(Me.LBL_Date)
+        Me.PNL_downdate.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PNL_downdate.Location = New System.Drawing.Point(0, 678)
+        Me.PNL_downdate.Margin = New System.Windows.Forms.Padding(0)
+        Me.PNL_downdate.Name = "PNL_downdate"
+        Me.PNL_downdate.Size = New System.Drawing.Size(250, 42)
+        Me.PNL_downdate.TabIndex = 20
+        '
+        'LBL_Date
+        '
+        Me.LBL_Date.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_Date.ForeColor = System.Drawing.Color.White
+        Me.LBL_Date.Location = New System.Drawing.Point(0, 0)
+        Me.LBL_Date.Margin = New System.Windows.Forms.Padding(0)
+        Me.LBL_Date.Name = "LBL_Date"
+        Me.LBL_Date.Size = New System.Drawing.Size(250, 42)
+        Me.LBL_Date.TabIndex = 2
+        Me.LBL_Date.Text = "DD/MM/YYYY" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HH/MM/SS"
+        Me.LBL_Date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PNL_CONTENT
         '
@@ -451,13 +356,182 @@ Partial Class FormHome
         'sessiontimer
         '
         '
+        'pnl_sbmlap
+        '
+        Me.pnl_sbmlap.Controls.Add(Me.BMasuk_SELECTED)
+        Me.pnl_sbmlap.Controls.Add(Me.BKeluar_SELECTED)
+        Me.pnl_sbmlap.Controls.Add(Me.BTN_BRGKELUAR)
+        Me.pnl_sbmlap.Controls.Add(Me.BTN_BRGMASUK)
+        Me.pnl_sbmlap.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnl_sbmlap.Location = New System.Drawing.Point(0, 216)
+        Me.pnl_sbmlap.Name = "pnl_sbmlap"
+        Me.pnl_sbmlap.Size = New System.Drawing.Size(250, 144)
+        Me.pnl_sbmlap.TabIndex = 25
+        '
+        'BMasuk_SELECTED
+        '
+        Me.BMasuk_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.BMasuk_SELECTED.Location = New System.Drawing.Point(0, 0)
+        Me.BMasuk_SELECTED.Name = "BMasuk_SELECTED"
+        Me.BMasuk_SELECTED.Size = New System.Drawing.Size(10, 72)
+        Me.BMasuk_SELECTED.TabIndex = 9
+        '
+        'BKeluar_SELECTED
+        '
+        Me.BKeluar_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.BKeluar_SELECTED.Location = New System.Drawing.Point(0, 72)
+        Me.BKeluar_SELECTED.Name = "BKeluar_SELECTED"
+        Me.BKeluar_SELECTED.Size = New System.Drawing.Size(10, 72)
+        Me.BKeluar_SELECTED.TabIndex = 10
+        '
+        'BTN_BRGKELUAR
+        '
+        Me.BTN_BRGKELUAR.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.BTN_BRGKELUAR.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BTN_BRGKELUAR.FlatAppearance.BorderSize = 0
+        Me.BTN_BRGKELUAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_BRGKELUAR.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_BRGKELUAR.ForeColor = System.Drawing.Color.White
+        Me.BTN_BRGKELUAR.Image = CType(resources.GetObject("BTN_BRGKELUAR.Image"), System.Drawing.Image)
+        Me.BTN_BRGKELUAR.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BTN_BRGKELUAR.Location = New System.Drawing.Point(0, 72)
+        Me.BTN_BRGKELUAR.Margin = New System.Windows.Forms.Padding(0)
+        Me.BTN_BRGKELUAR.Name = "BTN_BRGKELUAR"
+        Me.BTN_BRGKELUAR.Size = New System.Drawing.Size(250, 72)
+        Me.BTN_BRGKELUAR.TabIndex = 8
+        Me.BTN_BRGKELUAR.TabStop = False
+        Me.BTN_BRGKELUAR.Text = "Barang Keluar"
+        Me.BTN_BRGKELUAR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BTN_BRGKELUAR.UseVisualStyleBackColor = False
+        '
+        'BTN_BRGMASUK
+        '
+        Me.BTN_BRGMASUK.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.BTN_BRGMASUK.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BTN_BRGMASUK.Enabled = False
+        Me.BTN_BRGMASUK.FlatAppearance.BorderSize = 0
+        Me.BTN_BRGMASUK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_BRGMASUK.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_BRGMASUK.ForeColor = System.Drawing.Color.White
+        Me.BTN_BRGMASUK.Image = CType(resources.GetObject("BTN_BRGMASUK.Image"), System.Drawing.Image)
+        Me.BTN_BRGMASUK.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BTN_BRGMASUK.Location = New System.Drawing.Point(0, 0)
+        Me.BTN_BRGMASUK.Margin = New System.Windows.Forms.Padding(0)
+        Me.BTN_BRGMASUK.Name = "BTN_BRGMASUK"
+        Me.BTN_BRGMASUK.Size = New System.Drawing.Size(250, 72)
+        Me.BTN_BRGMASUK.TabIndex = 7
+        Me.BTN_BRGMASUK.TabStop = False
+        Me.BTN_BRGMASUK.Text = "Barang Masuk"
+        Me.BTN_BRGMASUK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BTN_BRGMASUK.UseVisualStyleBackColor = False
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.BTN_LAPORAN)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 144)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(250, 72)
+        Me.Panel2.TabIndex = 24
+        '
+        'BTN_LAPORAN
+        '
+        Me.BTN_LAPORAN.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BTN_LAPORAN.FlatAppearance.BorderSize = 0
+        Me.BTN_LAPORAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_LAPORAN.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_LAPORAN.ForeColor = System.Drawing.Color.White
+        Me.BTN_LAPORAN.Image = CType(resources.GetObject("BTN_LAPORAN.Image"), System.Drawing.Image)
+        Me.BTN_LAPORAN.Location = New System.Drawing.Point(0, 0)
+        Me.BTN_LAPORAN.Margin = New System.Windows.Forms.Padding(0)
+        Me.BTN_LAPORAN.Name = "BTN_LAPORAN"
+        Me.BTN_LAPORAN.Size = New System.Drawing.Size(250, 72)
+        Me.BTN_LAPORAN.TabIndex = 5
+        Me.BTN_LAPORAN.TabStop = False
+        Me.BTN_LAPORAN.Text = "Laporan"
+        Me.BTN_LAPORAN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BTN_LAPORAN.UseVisualStyleBackColor = True
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.DBarang_SELECTED)
+        Me.Panel9.Controls.Add(Me.BTN_DATABARANG)
+        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel9.Location = New System.Drawing.Point(0, 72)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(250, 72)
+        Me.Panel9.TabIndex = 23
+        '
+        'DBarang_SELECTED
+        '
+        Me.DBarang_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.DBarang_SELECTED.Location = New System.Drawing.Point(0, 0)
+        Me.DBarang_SELECTED.Name = "DBarang_SELECTED"
+        Me.DBarang_SELECTED.Size = New System.Drawing.Size(10, 72)
+        Me.DBarang_SELECTED.TabIndex = 9
+        '
+        'BTN_DATABARANG
+        '
+        Me.BTN_DATABARANG.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BTN_DATABARANG.FlatAppearance.BorderSize = 0
+        Me.BTN_DATABARANG.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_DATABARANG.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_DATABARANG.ForeColor = System.Drawing.Color.White
+        Me.BTN_DATABARANG.Image = CType(resources.GetObject("BTN_DATABARANG.Image"), System.Drawing.Image)
+        Me.BTN_DATABARANG.Location = New System.Drawing.Point(0, 0)
+        Me.BTN_DATABARANG.Margin = New System.Windows.Forms.Padding(0)
+        Me.BTN_DATABARANG.Name = "BTN_DATABARANG"
+        Me.BTN_DATABARANG.Size = New System.Drawing.Size(250, 70)
+        Me.BTN_DATABARANG.TabIndex = 8
+        Me.BTN_DATABARANG.TabStop = False
+        Me.BTN_DATABARANG.Text = "Data Barang"
+        Me.BTN_DATABARANG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BTN_DATABARANG.UseVisualStyleBackColor = True
+        '
+        'Panel11
+        '
+        Me.Panel11.Controls.Add(Me.Log_SELECTED)
+        Me.Panel11.Controls.Add(Me.BTN_Log)
+        Me.Panel11.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel11.Location = New System.Drawing.Point(0, 360)
+        Me.Panel11.Name = "Panel11"
+        Me.Panel11.Size = New System.Drawing.Size(250, 72)
+        Me.Panel11.TabIndex = 26
+        '
+        'BTN_Log
+        '
+        Me.BTN_Log.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(91, Byte), Integer))
+        Me.BTN_Log.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BTN_Log.FlatAppearance.BorderSize = 0
+        Me.BTN_Log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_Log.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_Log.ForeColor = System.Drawing.Color.White
+        Me.BTN_Log.Image = CType(resources.GetObject("BTN_Log.Image"), System.Drawing.Image)
+        Me.BTN_Log.Location = New System.Drawing.Point(0, 0)
+        Me.BTN_Log.Margin = New System.Windows.Forms.Padding(0)
+        Me.BTN_Log.Name = "BTN_Log"
+        Me.BTN_Log.Size = New System.Drawing.Size(250, 72)
+        Me.BTN_Log.TabIndex = 12
+        Me.BTN_Log.TabStop = False
+        Me.BTN_Log.Text = " Log"
+        Me.BTN_Log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BTN_Log.UseVisualStyleBackColor = False
+        '
+        'Log_SELECTED
+        '
+        Me.Log_SELECTED.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Log_SELECTED.Location = New System.Drawing.Point(0, 0)
+        Me.Log_SELECTED.Name = "Log_SELECTED"
+        Me.Log_SELECTED.Size = New System.Drawing.Size(10, 72)
+        Me.Log_SELECTED.TabIndex = 13
+        '
         'FormHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1280, 720)
         Me.Controls.Add(Me.PNL_TOP)
-        Me.Controls.Add(Me.PNL_SIDEMENU)
+        Me.Controls.Add(Me.PNL_SIDE)
         Me.Controls.Add(Me.PNL_CONTENT)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
@@ -471,10 +545,16 @@ Partial Class FormHome
         Me.PNL_ACCOUNT.ResumeLayout(False)
         Me.PNL_ACCOUNT.PerformLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PNL_SIDEMENU.ResumeLayout(False)
-        Me.PNL_SUBMENU.ResumeLayout(False)
+        Me.PNL_SIDE.ResumeLayout(False)
+        Me.PNL_Menu.ResumeLayout(False)
+        Me.PNL_btndboard.ResumeLayout(False)
+        Me.PNL_downdate.ResumeLayout(False)
         Me.PNL_TOP.ResumeLayout(False)
         Me.MENUSTRIP.ResumeLayout(False)
+        Me.pnl_sbmlap.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel11.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -482,18 +562,10 @@ Partial Class FormHome
     Friend WithEvents PNL_TOPMENU As Panel
     Friend WithEvents PNL_ACCOUNT As Panel
     Friend WithEvents BTN_DASHBOARD As Button
-    Friend WithEvents BTN_DATABARANG As Button
-    Friend WithEvents BTN_RIWAYAT As Button
-    Friend WithEvents BTN_BRGMASUK As Button
-    Friend WithEvents BTN_BRGKELUAR As Button
-    Friend WithEvents PNL_SIDEMENU As Panel
+    Friend WithEvents PNL_SIDE As Panel
     Friend WithEvents PNL_CONTENT As Panel
     Friend WithEvents LBL_APPNAME As Label
     Friend WithEvents LBL_FNAME As Label
-    Friend WithEvents PNL_SUBMENU As Panel
-    Friend WithEvents BKeluar_SELECTED As Panel
-    Friend WithEvents BMasuk_SELECTED As Panel
-    Friend WithEvents DBarang_SELECTED As Panel
     Friend WithEvents DBoard_SELECTED As Panel
     Friend WithEvents Guna2CirclePictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents PNL_TOP As Panel
@@ -512,6 +584,21 @@ Partial Class FormHome
     Friend WithEvents BarangKeluarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangMasukBulananToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BarangKeluarBulananToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents LogEL_SELECTED As Panel
-    Friend WithEvents BTN_LogEL As Button
+    Friend WithEvents PNL_btndboard As Panel
+    Friend WithEvents PNL_downdate As Panel
+    Friend WithEvents PNL_Menu As Panel
+    Friend WithEvents pnl_sbmlap As Panel
+    Friend WithEvents BMasuk_SELECTED As Panel
+    Friend WithEvents BKeluar_SELECTED As Panel
+    Friend WithEvents BTN_BRGKELUAR As Button
+    Friend WithEvents BTN_BRGMASUK As Button
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents BTN_LAPORAN As Button
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents DBarang_SELECTED As Panel
+    Friend WithEvents BTN_DATABARANG As Button
+    Friend WithEvents Panel11 As Panel
+    Friend WithEvents Panel12 As Panel
+    Friend WithEvents BTN_Log As Button
+    Friend WithEvents Log_SELECTED As Panel
 End Class

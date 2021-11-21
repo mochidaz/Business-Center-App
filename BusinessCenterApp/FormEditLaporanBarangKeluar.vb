@@ -99,6 +99,7 @@
         Dim dlt = connect.DeleteBarangLPBK(TB_NoNota.Text, Val(TB_IDBRG.Text), DataGridView1)
         If dlt = Status.Success Then
             MessageBox.Show("Berhasil menghapus barang!!")
+            connect.log(vUid, TB_NoNota.Text, DateTime.Now(), "edit", "lpbk")
             kondisiawal()
             FormBKeluarContent.showtbl()
         End If
@@ -108,11 +109,11 @@
         Dim r = connect.EditLaporanBK(DataGridView1, TB_NoNota.Text)
         If r = Status.Success Then
             MessageBox.Show("Edit Nota Berhasil!!")
+            connect.log(vUid, TB_NoNota.Text, DateTime.Now(), "edit", "lpbk")
             kondisiawal()
             BTN_OKid.Enabled = False
             FormBKeluarContent.showtbl()
             jum = 0
-            connect.log(vUid, TB_NoNota.Text, DateTime.Now(), "edit", "lpbk")
         ElseIf r = Status.DataIncomplete Then
             MessageBox.Show("Tidak ada yang diedit!!")
         Else

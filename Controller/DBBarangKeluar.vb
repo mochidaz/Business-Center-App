@@ -408,37 +408,6 @@ Public Class DBBarangKeluar
         Return ds
     End Function
 
-    Public Function log_penjualan(id_user, no_nota_keluar, tanggal_berubah)
-        Cmd = New SqlCommand("INSERT INTO tbl_log (id_user, no_nota_keluar, tanggal_berubah) VALUES (@id_user, @nota, @tanggal)", conn)
-        Cmd.Parameters.Add("@id_user", SqlDbType.Int).Value = id_user
-        Cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = no_nota_keluar
-        Cmd.Parameters.Add("@tanggal", SqlDbType.DateTime).Value = tanggal_berubah
-        openConn()
-        Try
-            Cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            closeConn()
-            Return Status.DataError
-        End Try
-        closeConn()
-        Return Status.Success
-    End Function
-
-    Public Function LogTotable()
-        Cmd = New SqlCommand("SELECT tbl_log.id_log as 'ID LOG', tbl_log.no_nota_keluar as 'NOTA KELUAR', 
-                                     tbl_log.tanggal_berubah as 'TANGGAL EDIT', tbl_user.fullname as 'OLEH'
-                              FROM tbl_log
-                              JOIN tbl_user ON tbl_log.id_user = tbl_user.uid", conn)
-        Using adapter = New SqlDataAdapter(Cmd)
-            Using ds = New DataSet
-                Call openConn()
-                adapter.Fill(ds)
-                Return ds
-            End Using
-        End Using
-        Call closeConn()
-    End Function
-
 #Region "Perhitungan untung rugi"
 
     ' UNIMPLEMENTED
