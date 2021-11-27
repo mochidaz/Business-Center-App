@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class Log
+Public Class Logger
     Inherits BaseConnection
 
 #Region "Select Semua"
@@ -10,10 +10,24 @@ Public Class Log
                                      kegiatan as 'KEGIATAN', mengedit as 'BAGIAN'
                               FROM tbl_log
                               WHERE mengedit = '" & btn.text.ToLower & "'", conn)
+        Dim amount_checker = New SqlCommand("SELECT COUNT(*) id_log FROM tbl_log", conn)
+        openConn()
+        Dim num = amount_checker.ExecuteScalar()
+        closeConn()
+        If num < 1 Then
+            Return Status.DataError
+        End If
+
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet
                 openConn()
-                adapter.Fill(ds)
+                Try
+                    adapter.Fill(ds)
+
+                Catch ex As Exception
+                    closeConn()
+                    Return Status.DataError
+                End Try
                 Return ds
             End Using
         End Using
