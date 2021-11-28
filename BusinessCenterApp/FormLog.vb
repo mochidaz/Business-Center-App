@@ -1,7 +1,6 @@
 ﻿Imports System.ComponentModel
-
 Public Class FormLog
-    Dim connect As New Log
+    Dim connect As New Logger
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
