@@ -38,8 +38,10 @@ CREATE TABLE [dbo].[tbl_barang_keluar] (
     [jam]            TIME (0)     NOT NULL,
     [harga_beli]     INT          NOT NULL,
     [harga_jual]     INT          NOT NULL,
-    CONSTRAINT [FK_tbl_barang_keluar_tbl_user] FOREIGN KEY ([uid]) REFERENCES [dbo].[tbl_user] ([uid]),
+    CONSTRAINT [FK_tbl_barang_keluar_tbl_user] FOREIGN KEY ([uid]) REFERENCES [dbo].[tbl_user] ([uid])
+    ON DELETE SET NULL,
     CONSTRAINT [FK_tbl_barang_keluar_tbl_barang] FOREIGN KEY ([id_barang]) REFERENCES [dbo].[tbl_barang] ([id_barang])
+    ON DELETE SET NULL
 );
 
 CREATE TABLE [dbo].[tbl_log] (
