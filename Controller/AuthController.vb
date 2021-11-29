@@ -277,22 +277,6 @@ Public Class AuthController
         End Using
     End Function
 
-    Public Function UIDidentReset()
-        Call openConn()
-        Dim objReader = New IO.StreamReader(".\UIDidentityreset.sql")
-        Cmd.CommandType = CommandType.Text
-        Cmd.CommandText = objReader.ReadToEnd
-        Try
-            Cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Debug.WriteLine("reset uid failled!!")
-            Return Status.FiledToResetUid
-        End Try
-        Call closeConn()
-        Debug.WriteLine("reset uid sucess!!")
-        Return Status.Success
-    End Function
-
     Public Function deleteUser(uid As Integer)
         Cmd = New SqlCommand("DELETE FROM tbl_user WHERE uid = @uid", Conn)
         Cmd.Parameters.Add("@uid", SqlDbType.Int).Value = uid
@@ -309,7 +293,6 @@ Public Class AuthController
             Return Status.FailedToDeleteUser
         End Try
         Call closeConn()
-        UIDidentReset()
         Return Status.Success
     End Function
 

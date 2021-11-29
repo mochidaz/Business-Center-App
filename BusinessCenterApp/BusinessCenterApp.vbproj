@@ -337,10 +337,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\IDBRGidentityreset.sql" />
-    <Content Include="bin\Debug\UIDidentityreset.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="..\Controller\Controller.projitems" Label="Shared" />

@@ -43,7 +43,6 @@ Public Class DBBarang
             Return Status.DataIncomplete
         End Try
         Call closeConn()
-        IDBRGidentityreset()
         Return Status.Success
     End Function
 
@@ -140,22 +139,6 @@ Public Class DBBarang
             End Using
         End Using
         Call closeConn()
-    End Function
-
-    Public Function IDBRGidentityreset()
-        Call openConn()
-        Dim objReader = New IO.StreamReader(".\IDBRGidentityreset.sql")
-        Cmd.CommandType = CommandType.Text
-        Cmd.CommandText = objReader.ReadToEnd
-        Try
-            Cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Debug.WriteLine("reset id barang failed!!")
-            Return Status.FiledToResetUid
-        End Try
-        Call closeConn()
-        Debug.WriteLine("reset id barang success!!")
-        Return Status.Success
     End Function
 
     Public Function get_total_stock()
