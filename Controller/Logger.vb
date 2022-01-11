@@ -11,12 +11,7 @@ Public Class Logger
                               FROM tbl_log
                               WHERE mengedit = '" & btn.text.ToLower & "'", conn)
         Dim amount_checker = New SqlCommand("SELECT COUNT(*) id_log FROM tbl_log", conn)
-        openConn()
-        Dim num = amount_checker.ExecuteScalar()
-        closeConn()
-        If num < 1 Then
-            Return Status.DataError
-        End If
+
 
         Using adapter = New SqlDataAdapter(Cmd)
             Using ds = New DataSet

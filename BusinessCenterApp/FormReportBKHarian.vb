@@ -21,8 +21,8 @@ Public Class FormReportBKHarian
             Dim laporan As New ReportLaporanBKHarian
             crypt = laporan
             With crconnectioninfo
-                .ServerName = "ZAPC\SQLEXPRESS"
-                .DatabaseName = "db_apk"
+                .ServerName = config()(0)
+                .DatabaseName = config()(1)
                 .IntegratedSecurity = "true"
             End With
             crtables = crypt.Database.Tables
