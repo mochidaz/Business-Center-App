@@ -28,11 +28,11 @@ CREATE TABLE [dbo].[tbl_barang] (
 
 CREATE TABLE [dbo].[tbl_barang_keluar] (
     [no_nota_keluar] VARCHAR (50) NOT NULL,
-    [id_barang]      INT          NOT NULL,
+    [id_barang]      INT          ,
     [jumlah]         INT          NOT NULL,
     [subtotal]       INT          NOT NULL,
     [tanggal]        DATE         NOT NULL,
-    [uid]            INT          NOT NULL,
+    [uid]            INT          ,
     [keuntungan]     INT          NOT NULL,
     [kerugian]       INT          NOT NULL,
     [jam]            TIME (0)     NOT NULL,
