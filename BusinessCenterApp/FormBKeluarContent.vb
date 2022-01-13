@@ -85,4 +85,7 @@ Public Class FormBKeluarContent
         DataGridView1.ClearSelection()
     End Sub
 
+    Private Sub btn_cetak_nota_Click(sender As Object, e As EventArgs) Handles btn_cetak_nota.Click
+        FormCetakNota.ShowDialog()
+    End Sub
 End Class

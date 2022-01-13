@@ -22,16 +22,15 @@ Partial Class FormBKeluarContent
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormBKeluarContent))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BTN_TambahBarang = New Guna.UI2.WinForms.Guna2Button()
         Me.BTN_EditBarang = New Guna.UI2.WinForms.Guna2Button()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TB_Search = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BTN_Refreshtbl = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.btn_cetak_nota = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -60,7 +59,7 @@ Partial Class FormBKeluarContent
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.RowTemplate.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(948, 529)
+        Me.DataGridView1.Size = New System.Drawing.Size(948, 486)
         Me.DataGridView1.TabIndex = 11
         '
         'Label1
@@ -163,11 +162,33 @@ Partial Class FormBKeluarContent
         Me.BTN_Refreshtbl.Size = New System.Drawing.Size(32, 32)
         Me.BTN_Refreshtbl.TabIndex = 0
         '
+        'btn_cetak_nota
+        '
+        Me.btn_cetak_nota.BorderRadius = 5
+        Me.btn_cetak_nota.CheckedState.Parent = Me.btn_cetak_nota
+        Me.btn_cetak_nota.CustomImages.Parent = Me.btn_cetak_nota
+        Me.btn_cetak_nota.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_cetak_nota.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_cetak_nota.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_cetak_nota.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_cetak_nota.DisabledState.Parent = Me.btn_cetak_nota
+        Me.btn_cetak_nota.FillColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btn_cetak_nota.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_cetak_nota.ForeColor = System.Drawing.Color.White
+        Me.btn_cetak_nota.HoverState.Parent = Me.btn_cetak_nota
+        Me.btn_cetak_nota.Location = New System.Drawing.Point(463, 629)
+        Me.btn_cetak_nota.Name = "btn_cetak_nota"
+        Me.btn_cetak_nota.ShadowDecoration.Parent = Me.btn_cetak_nota
+        Me.btn_cetak_nota.Size = New System.Drawing.Size(106, 35)
+        Me.btn_cetak_nota.TabIndex = 13
+        Me.btn_cetak_nota.Text = "Cetak Nota"
+        '
         'FormBKeluarContent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1030, 680)
+        Me.Controls.Add(Me.btn_cetak_nota)
         Me.Controls.Add(Me.BTN_Refreshtbl)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label1)
@@ -191,7 +212,7 @@ Partial Class FormBKeluarContent
     Friend WithEvents Label1 As Label
     Friend WithEvents BTN_TambahBarang As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BTN_EditBarang As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Timer1 As Timer
     Friend WithEvents TB_Search As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BTN_Refreshtbl As Guna.UI2.WinForms.Guna2ImageButton
+    Friend WithEvents btn_cetak_nota As Guna.UI2.WinForms.Guna2Button
 End Class

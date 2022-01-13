@@ -116,6 +116,18 @@
     <Compile Include="BusinessCenterApp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReportNota.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportNota.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormCetakNota.Designer.vb">
+      <DependentUpon>FormCetakNota.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCetakNota.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormLog.Designer.vb">
       <DependentUpon>FormLog.vb</DependentUpon>
     </Compile>
@@ -243,6 +255,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ReportNota.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportNota.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCetakNota.resx">
+      <DependentUpon>FormCetakNota.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLog.resx">
       <DependentUpon>FormLog.vb</DependentUpon>
     </EmbeddedResource>
